@@ -1,2 +1,2 @@
-# CookieClicker
-A Django-based web game for BDD WEB UMONS course
+# Family Business
+A Django-based web wallet planifier for BDD WEB UMONS course
