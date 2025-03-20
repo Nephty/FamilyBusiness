@@ -1,0 +1,163 @@
+{% extends "master.html" %}
+
+{% block head %}
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Style personnalisé pour les erreurs */
+        .field-error {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            background-color: #feecf0;
+            color: #cc0f35;
+            font-size: 0.9rem;
+            border-left: 4px solid #f14668;
+        }
+    </style>
+    {% load static %}
+{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">Inscription</h1>
+
+        {% if form.non_field_errors %}
+            <div class="notification is-danger">
+                <button class="delete"></button>
+                <ul>
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form method="post" class="box">
+            {% csrf_token %}
+
+            <div class="field">
+                <label class="label">{{ form.first_name.label }}</label>
+                <div class="control {% if form.first_name.errors %}has-icons-right{% endif %}">
+                    {{ form.first_name }}
+                    {% if form.first_name.errors %}
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                    {% endif %}
+                </div>
+                {% if form.first_name.errors %}
+                    <div class="field-error">
+                        {% for error in form.first_name.errors %}
+                            {{ error }}{% if not forloop.last %}<br>{% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="field">
+                <label class="label">{{ form.last_name.label }}</label>
+                <div class="control {% if form.last_name.errors %}has-icons-right{% endif %}">
+                    {{ form.last_name }}
+                    {% if form.last_name.errors %}
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                    {% endif %}
+                </div>
+                {% if form.last_name.errors %}
+                    <div class="field-error">
+                        {% for error in form.last_name.errors %}
+                            {{ error }}{% if not forloop.last %}<br>{% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="field">
+                <label class="label">{{ form.email.label }}</label>
+                <div class="control {% if form.email.errors %}has-icons-right{% endif %}">
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                    {% endif %}
+                </div>
+                {% if form.email.errors %}
+                    <div class="field-error">
+                        {% for error in form.email.errors %}
+                            {{ error }}{% if not forloop.last %}<br>{% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="field">
+                <label class="label">{{ form.password1.label }}</label>
+                <div class="control {% if form.password1.errors %}has-icons-right{% endif %}">
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                    {% endif %}
+                </div>
+                {% if form.password1.errors %}
+                    <div class="field-error">
+                        {% for error in form.password1.errors %}
+                            {{ error }}{% if not forloop.last %}<br>{% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="field">
+                <label class="label">{{ form.password2.label }}</label>
+                <div class="control {% if form.password2.errors %}has-icons-right{% endif %}">
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                    {% endif %}
+                </div>
+                {% if form.password2.errors %}
+                    <div class="field-error">
+                        {% for error in form.password2.errors %}
+                            {{ error }}{% if not forloop.last %}<br>{% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-success">S'inscrire</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Script inchangé
+    document.addEventListener('DOMContentLoaded', function () {
+        // Pour fermer les notifications
+        document.querySelectorAll('.notification .delete').forEach(button => {
+            button.addEventListener('click', () => {
+                button.parentNode.remove();
+            });
+        });
+    });
+</script>
+{% endblock %}
