@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     {% load static %}
+    {% load i18n %}
     <meta charset="utf-8"/>
     <title>Family Business</title>
     <link rel="icon" href="{% static 'logo/business.png' %}">
@@ -82,7 +83,7 @@
         {% if request.path != '/' %}
         <div class="navbar-item">
             <a href="javascript:history.back()" class="has-text-black">
-                <i class="mdi mdi-chevron-left"></i> <strong>Retour</strong>
+                <i class="mdi mdi-chevron-left"></i> <strong>{% trans "Back" %}</strong>
             </a>
         </div>
         {% endif %}
@@ -99,11 +100,46 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 {% if user.is_authenticated %}
+                    <form action="{% url 'set_language' %}" method="post" class="navbar-item p-0 m-0">
+                        {% csrf_token %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if LANGUAGE_CODE == 'fr' %}
+                            <input type="hidden" name="language" value="en">
+                            <input type="hidden" name="next" value="/en{{ request.path }}">
+                            <button type="submit" class="button is-white" title="Switch to English">
+                                <span class="icon is-small">🇬🇧</span>
+                            </button>
+                        {% else %}
+                            <input type="hidden" name="language" value="fr">
+                            <input type="hidden" name="next" value="/fr{{ request.path }}">
+                            <button type="submit" class="button is-white" title="Passer en français">
+                                <span class="icon is-small">🇫🇷</span>
+                            </button>
+                        {% endif %}
+                    </form>
+
                 <span class="has-text-black"><strong>{{ user.get_full_name }}</strong></span>
-                <a href="{% url 'logout' %}?next={{ request.path }}" class="button ml-2">Se déconnecter</a>
+                <a href="{% url 'logout' %}?next={{ request.path }}" class="button ml-2">{% trans "Logout" %}</a>
                 {% else %}
-                <a href="{% url 'register' %}?next={{ request.path }}" class="button is-info">Créer un compte</a>
-                <a href="{% url 'login' %}?next={{ request.path }}" class="button ml-2">Se connecter</a>
+                    <form action="{% url 'set_language' %}" method="post" class="navbar-item p-0 m-0">
+                        {% csrf_token %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if LANGUAGE_CODE == 'fr' %}
+                            <input type="hidden" name="language" value="en">
+                            <input type="hidden" name="next" value="/en/{{ request.path|cut:'/'|cut:LANGUAGE_CODE }}">
+                            <button type="submit" class="button is-white" title="Switch to English">
+                                <span class="icon is-small">🇬🇧</span>
+                            </button>
+                        {% else %}
+                            <input type="hidden" name="language" value="fr">
+                            <input type="hidden" name="next" value="/fr/{{ request.path|cut:'/'|cut:LANGUAGE_CODE }}">
+                            <button type="submit" class="button is-white" title="Passer en français">
+                                <span class="icon is-small">🇫🇷</span>
+                            </button>
+                        {% endif %}
+                    </form>
+                <a href="{% url 'register' %}?next={{ request.path }}" class="button is-info">{% trans "Create account" %}</a>
+                <a href="{% url 'login' %}?next={{ request.path }}" class="button ml-2">{% trans "Login" %}</a>
                 {% endif %}
             </div>
         </div>
@@ -135,7 +171,7 @@
     <div class="content">
         <div class="columns">
             <div class="column has-text-centered">
-                <a style="color: inherit" id="secret-button">Version actuelle : 1.1.0</a>
+                <a style="color: inherit" id="secret-button">{% trans "Actual version" %} : 1.1.0</a>
             </div>
         </div>
     </div>
