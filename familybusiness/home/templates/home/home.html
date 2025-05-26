@@ -28,7 +28,7 @@
             </div>
 
             <!-- Affiché uniquement si admin -->
-            {% if user.is_authenticated and user.role == "admin" %}
+            {% if user.is_authenticated and user.is_staff %}
             <div class="column is-4">
                 <div class="box has-text-centered">
                     <span class="icon is-large has-text-link">
@@ -36,7 +36,7 @@
                     </span>
                     <h2 class="title is-5 mt-2">Administration</h2>
                     <p>Gérez les utilisateurs, portefeuilles et paramètres du système.</p>
-                    <a href="#" class="button is-link mt-3">
+                    <a href="{% url 'adminpanel:admin_panel' %}" class="button is-link mt-3">
                         <i class="mdi mdi-arrow-right-bold mr-1"></i> Accéder
                     </a>
                 </div>
