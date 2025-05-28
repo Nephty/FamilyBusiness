@@ -1026,7 +1026,8 @@ msgid "enter_your_objective_in_euros"
 msgstr "Entrez votre objectif en €"
 
 msgid "define_amount_you_wish_to_reach"
-msgstr "Définissez un montant que vous souhaitez atteindre avec ce portefeuille"
+msgstr ""
+"Définissez un montant que vous souhaitez atteindre avec ce portefeuille"
 
 msgid "progress_preview"
 msgstr "Aperçu de la progression"
@@ -1149,7 +1150,8 @@ msgid "no_expenses_recorded"
 msgstr "Aucune dépense enregistrée"
 
 msgid "add_expense_transactions_to_see_category_breakdown"
-msgstr "Ajoutez des transactions de dépenses pour voir la répartition par catégorie."
+msgstr ""
+"Ajoutez des transactions de dépenses pour voir la répartition par catégorie."
 
 msgid "see_all"
 msgstr "Voir tout"
@@ -1164,7 +1166,8 @@ msgid "no_transaction_recorded"
 msgstr "Aucune transaction enregistrée"
 
 msgid "start_by_adding_first_transaction_to_track_finances"
-msgstr "Commencez par ajouter votre première transaction pour suivre vos finances."
+msgstr ""
+"Commencez par ajouter votre première transaction pour suivre vos finances."
 
 msgid "save"
 msgstr "Enregistrer"
@@ -1185,7 +1188,8 @@ msgid "delete_wallet_question"
 msgstr "Supprimer le portefeuille"
 
 msgid "all_wallet_data_will_be_lost"
-msgstr "Toutes les données associées à ce portefeuille seront définitivement perdues."
+msgstr ""
+"Toutes les données associées à ce portefeuille seront définitivement perdues."
 
 msgid "wallet_information"
 msgstr "Informations du portefeuille"
