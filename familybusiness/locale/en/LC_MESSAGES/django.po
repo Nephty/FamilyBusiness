@@ -8,31 +8,1302 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-22 08:44+0200\n"
+"POT-Creation-Date: 2025-05-28 08:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: templates/master.html:86
+
+# Existing translations
+msgid "first_name"
+msgstr "First Name"
+
+msgid "last_name"
+msgstr "Last Name"
+
+msgid "email"
+msgstr "Email"
+
+msgid "password"
+msgstr "Password"
+
+msgid "confirm_password"
+msgstr "Confirm Password"
+
+msgid "passwords_do_not_match"
+msgstr "Passwords do not match"
+
+msgid "invalid_credentials"
+msgstr "Invalid credentials"
+
+msgid "account_is_disabled"
+msgstr "Account is disabled"
+
+msgid "new_password"
+msgstr "New Password"
+
+msgid "minimum_8_characters"
+msgstr "Minimum 8 characters"
+
+msgid "retype_password"
+msgstr "Retype Password"
+
+msgid "email_is_required"
+msgstr "Email is required"
+
+msgid "role"
+msgstr "Role"
+
+msgid "is_active"
+msgstr "Is Active"
+
+msgid "is_staff"
+msgstr "Is Staff"
+
+msgid "groups"
+msgstr "Groups"
+
+msgid "user_permissions"
+msgstr "User Permissions"
+
+msgid "account"
+msgstr "Account"
+
+msgid "accounts"
+msgstr "Accounts"
+
+msgid "user"
+msgstr "User"
+
+msgid "token"
+msgstr "Token"
+
+msgid "created_at"
+msgstr "Created At"
+
+msgid "password_reset_token"
+msgstr "Password Reset Token"
+
+msgid "password_reset_tokens"
+msgstr "Password Reset Tokens"
+
+msgid "login"
+msgstr "Login"
+
+msgid "login_to_access_account"
+msgstr "Login to access your account"
+
+msgid "sign_in"
+msgstr "Sign In"
+
+msgid "forgot_password"
+msgstr "Forgot Password"
+
+msgid "no_account_yet"
+msgstr "No account yet?"
+
+msgid "create_account"
+msgstr "Create Account"
+
+msgid "create_account_to_manage_finances"
+msgstr "Create an account to manage your finances"
+
+msgid "minimum_8_characters_recommended"
+msgstr "Minimum 8 characters recommended"
+
+msgid "create_my_account"
+msgstr "Create My Account"
+
+msgid "already_have_account"
+msgstr "Already have an account?"
+
+msgid "reset_password"
+msgstr "Reset Password"
+
+msgid "enter_email_for_reset_link"
+msgstr "Enter your email to receive a reset link"
+
+msgid "email_address"
+msgstr "Email Address"
+
+msgid "email_placeholder"
+msgstr "your.email@example.com"
+
+msgid "send_reset_link"
+msgstr "Send Reset Link"
+
+msgid "back_to_login"
+msgstr "Back to Login"
+
+msgid "set_new_password"
+msgstr "Set New Password"
+
+msgid "choose_strong_password_to_secure_account"
+msgstr "Choose a strong password to secure your account"
+
+msgid "update_password"
+msgstr "Update Password"
+
+msgid "reset_link_generated"
+msgstr "Reset Link Generated"
+
+msgid "reset_link_created"
+msgstr "Reset link created"
+
+msgid "use_secure_link_to_set_new_password"
+msgstr "Use this secure link to set your new password"
+
+msgid "warning"
+msgstr "Warning"
+
+msgid "link_expires_in_15_minutes"
+msgstr "This link expires in 15 minutes"
+
+msgid "expiration"
+msgstr "Expiration"
+
+msgid "reset_link"
+msgstr "Reset Link"
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "copy_link_and_paste_in_browser"
+msgstr "Copy this link and paste it in your browser"
+
+msgid "access_form_directly"
+msgstr "Access form directly"
+
+msgid "time_remaining"
+msgstr "Time Remaining"
+
+msgid "generate_new_link"
+msgstr "Generate New Link"
+
+msgid "copied"
+msgstr "Copied"
+
+msgid "link_copied_to_clipboard"
+msgstr "Link copied to clipboard"
+
+msgid "copy_error_manual"
+msgstr "Copy error, please do it manually"
+
+msgid "link_expired_generate_new"
+msgstr "Link expired, generate a new one"
+
+msgid "reset_link_generated_success_15_minutes"
+msgstr "Reset link generated successfully, valid for 15 minutes"
+
+msgid "new_account_created_for"
+msgstr "New account created for"
+
+msgid "login_for"
+msgstr "Login for"
+
+msgid "logout_for"
+msgstr "Logout for"
+
+msgid "no_account_with_this_email"
+msgstr "No account with this email"
+
+msgid "token_expired"
+msgstr "Token expired"
+
+msgid "password_reset_successfully"
+msgstr "Password reset successfully"
+
+msgid "admin_rights"
+msgstr "Admin Rights"
+
+msgid "active_account"
+msgstr "Active Account"
+
+msgid "email_example"
+msgstr "user@example.com"
+
+msgid "email_already_used"
+msgstr "Email already used"
+
+msgid "event_type_login"
+msgstr "Login"
+
+msgid "event_type_logout"
+msgstr "Logout"
+
+msgid "event_type_wallet_create"
+msgstr "Wallet Creation"
+
+msgid "event_type_wallet_delete"
+msgstr "Wallet Deletion"
+
+msgid "event_type_wallet_update"
+msgstr "Wallet Update"
+
+msgid "event_type_transaction_create"
+msgstr "Transaction Creation"
+
+msgid "event_type_transaction_delete"
+msgstr "Transaction Deletion"
+
+msgid "event_type_transaction_update"
+msgstr "Transaction Update"
+
+msgid "event_type_transaction_export"
+msgstr "Transaction Export"
+
+msgid "event_type_objective_update"
+msgstr "Objective Update"
+
+msgid "event_type_user_register"
+msgstr "User Registration"
+
+msgid "event_type_password_change"
+msgstr "Password Change"
+
+msgid "event_type_error"
+msgstr "Error"
+
+msgid "event_type_admin_action"
+msgstr "Admin Action"
+
+msgid "event_type_other"
+msgstr "Other"
+
+msgid "date"
+msgstr "Date"
+
+msgid "content"
+msgstr "Content"
+
+msgid "type"
+msgstr "Type"
+
+msgid "user_name_snapshot"
+msgstr "User Name Snapshot"
+
+msgid "event"
+msgstr "Event"
+
+msgid "events"
+msgstr "Events"
+
+msgid "deleted_user"
+msgstr "Deleted User"
+
+msgid "admin_panel"
+msgstr "Admin Panel"
+
+msgid "application_management_and_supervision"
+msgstr "Application Management and Supervision"
+
+msgid "administrator"
+msgstr "Administrator"
+
+msgid "history"
+msgstr "History"
+
+msgid "view_logs_and_action_history"
+msgstr "View logs and action history"
+
+msgid "user_management"
+msgstr "User Management"
+
+msgid "manage_accounts_and_permissions"
+msgstr "Manage accounts and permissions"
+
+msgid "wallet_management"
+msgstr "Wallet Management"
+
+msgid "supervise_existing_wallets"
+msgstr "Supervise existing wallets"
+
+msgid "category_management"
+msgstr "Category Management"
+
+msgid "create_and_modify_categories"
+msgstr "Create and modify categories"
+
+msgid "transaction_category_administration"
+msgstr "Transaction Category Administration"
+
+msgid "create_category"
+msgstr "Create Category"
+
+msgid "back_to_panel"
+msgstr "Back to Panel"
+
+msgid "total_categories"
+msgstr "Total Categories"
+
+msgid "categories_used"
+msgstr "Categories Used"
+
+msgid "categories_unused"
+msgstr "Categories Unused"
+
+msgid "filters_and_search"
+msgstr "Filters and Search"
+
+msgid "reset"
+msgstr "Reset"
+
+msgid "search"
+msgstr "Search"
+
+msgid "category_name_placeholder"
+msgstr "Category name..."
+
+msgid "usage_status"
+msgstr "Usage Status"
+
+msgid "all_categories"
+msgstr "All Categories"
+
+msgid "used_only"
+msgstr "Used Only"
+
+msgid "unused_only"
+msgstr "Unused Only"
+
+msgid "filter"
+msgstr "Filter"
+
+msgid "active_filters"
+msgstr "Active Filters"
+
+msgid "used"
+msgstr "Used"
+
+msgid "unused"
+msgstr "Unused"
+
+msgid "result"
+msgstr "Result"
+
+msgid "categories"
+msgstr "Categories"
+
+msgid "page"
+msgstr "Page"
+
+msgid "of"
+msgstr "of"
+
+msgid "category"
+msgstr "Category"
+
+msgid "usage"
+msgstr "Usage"
+
+msgid "wallets"
+msgstr "Wallets"
+
+msgid "last_usage"
+msgstr "Last Usage"
+
+msgid "recent_transactions"
+msgstr "Recent Transactions"
+
+msgid "actions"
+msgstr "Actions"
+
+msgid "transaction"
+msgstr "Transaction"
+
+msgid "wallet"
+msgstr "Wallet"
+
+msgid "ago"
+msgstr "ago"
+
+msgid "never_used"
+msgstr "Never Used"
+
+msgid "none"
+msgstr "None"
+
+msgid "edit"
+msgstr "Edit"
+
+msgid "no_categories_found"
+msgstr "No categories found"
+
+msgid "try_modifying_filters"
+msgstr "Try modifying filters"
+
+msgid "start_by_creating_first_category"
+msgstr "Start by creating your first category"
+
+msgid "previous"
+msgstr "Previous"
+
+msgid "next"
+msgstr "Next"
+
+msgid "add_new_transaction_category"
+msgstr "Add New Transaction Category"
+
+msgid "new_category"
+msgstr "New Category"
+
+msgid "create_category_button"
+msgstr "Create Category"
+
+msgid "create_user"
+msgstr "Create User"
+
+msgid "add_new_user_account"
+msgstr "Add New User Account"
+
+msgid "new_user_account"
+msgstr "New User Account"
+
+msgid "cancel"
+msgstr "Cancel"
+
+msgid "create_user_button"
+msgstr "Create User"
+
+msgid "delete_category"
+msgstr "Delete Category"
+
+msgid "deletion_confirmation"
+msgstr "Deletion Confirmation"
+
+msgid "category_unused"
+msgstr "Category Unused"
+
+msgid "delete_category_warning"
+msgstr "Delete Category Warning"
+
+msgid "deleted_plural"
+msgstr "deleted"
+
+msgid "financial_history_affected"
+msgstr "Financial history affected"
+
+msgid "action_irreversible"
+msgstr "This action is irreversible"
+
+msgid "good_news"
+msgstr "Good News"
+
+msgid "category_not_used_in_transactions"
+msgstr "Category not used in transactions"
+
+msgid "safe_to_delete"
+msgstr "Safe to delete"
+
+msgid "delete_category_button"
+msgstr "Delete Category"
+
+msgid "recent_transactions_using_category"
+msgstr "Recent transactions using this category"
+
+msgid "delete_user"
+msgstr "Delete User"
+
+msgid "admin"
+msgstr "Admin"
+
+msgid "active"
+msgstr "Active"
+
+msgid "inactive"
+msgstr "Inactive"
+
+msgid "registered_on"
+msgstr "Registered On"
+
+msgid "last_login"
+msgstr "Last Login"
+
+msgid "deletion_impact"
+msgstr "Deletion Impact"
+
+msgid "associated_plural"
+msgstr "associated"
+
+msgid "recorded_plural"
+msgstr "recorded"
+
+msgid "user_shares_wallets_with_others"
+msgstr "User shares wallets with others"
+
+msgid "affected_wallets"
+msgstr "Affected Wallets"
+
+msgid "shared_wallets"
+msgstr "Shared Wallets"
+
+msgid "shared_wallets_not_deleted_explanation"
+msgstr "Shared wallets will not be deleted"
+
+msgid "transactions_remain_in_history"
+msgstr "Transactions remain in history"
+
+msgid "shares_will_be_revoked"
+msgstr "Shares will be revoked"
+
+msgid "user_permanently_deleted"
+msgstr "User permanently deleted"
+
+msgid "security_measures"
+msgstr "Security Measures"
+
+msgid "permanent_irreversible_deletion"
+msgstr "Permanent irreversible deletion"
+
+msgid "all_active_sessions_revoked"
+msgstr "All active sessions revoked"
+
+msgid "email_can_be_reused"
+msgstr "Email can be reused"
+
+msgid "event_logged_in_history"
+msgstr "Event logged in history"
+
+msgid "delete_permanently"
+msgstr "Delete Permanently"
+
+msgid "delete_wallet"
+msgstr "Delete Wallet"
+
+msgid "owner"
+msgstr "Owner"
+
+msgid "balance"
+msgstr "Balance"
+
+msgid "objective"
+msgstr "Objective"
+
+msgid "shared"
+msgstr "Shared"
+
+msgid "affected_users"
+msgstr "Affected Users"
+
+msgid "following_users_will_lose_access"
+msgstr "Following users will lose access"
+
+msgid "permanent_deletion"
+msgstr "Permanent deletion"
+
+msgid "transactions_permanently_lost"
+msgstr "Transactions permanently lost"
+
+msgid "history_not_recoverable"
+msgstr "History not recoverable"
+
+msgid "access_revoked"
+msgstr "Access revoked"
+
+msgid "event_recorded"
+msgstr "Event recorded"
+
+msgid "edit_category"
+msgstr "Edit Category"
+
+msgid "back_to_list"
+msgstr "Back to List"
+
+msgid "edit_information"
+msgstr "Edit Information"
+
+msgid "changes_preview"
+msgstr "Changes Preview"
+
+msgid "current_name"
+msgstr "Current Name"
+
+msgid "new_name"
+msgstr "New Name"
+
+msgid "save_changes"
+msgstr "Save Changes"
+
+msgid "no_changes"
+msgstr "No Changes"
+
+msgid "edit_user"
+msgstr "Edit User"
+
+msgid "current_information"
+msgstr "Current Information"
+
+msgid "never_logged_in"
+msgstr "Never logged in"
+
+msgid "additional_actions"
+msgstr "Additional Actions"
+
+msgid "event_history"
+msgstr "Event History"
+
+msgid "complete_system_activity_tracking"
+msgstr "Complete system activity tracking"
+
+msgid "search_placeholder_history"
+msgstr "Search in history..."
+
+msgid "event_type"
+msgstr "Event Type"
+
+msgid "all_types"
+msgstr "All Types"
+
+msgid "all_users"
+msgstr "All Users"
+
+msgid "start_date"
+msgstr "Start Date"
+
+msgid "date_format_placeholder"
+msgstr "DD/MM/YYYY"
+
+msgid "end_date"
+msgstr "End Date"
+
+msgid "days"
+msgstr "days"
+
+msgid "no_events_found"
+msgstr "No events found"
+
+msgid "end_date_must_be_after_start_date"
+msgstr "End date must be after start date"
+
+msgid "user_account_administration"
+msgstr "User Account Administration"
+
+msgid "total_users"
+msgstr "Total Users"
+
+msgid "active_users"
+msgstr "Active Users"
+
+msgid "administrators"
+msgstr "Administrators"
+
+msgid "search_placeholder_users"
+msgstr "Search users..."
+
+msgid "all_roles"
+msgstr "All Roles"
+
+msgid "status"
+msgstr "Status"
+
+msgid "all_statuses"
+msgstr "All Statuses"
+
+msgid "users"
+msgstr "Users"
+
+msgid "last_activity"
+msgstr "Last Activity"
+
+msgid "delete"
+msgstr "Delete"
+
+msgid "no_users_found"
+msgstr "No users found"
+
+msgid "try_modifying_filters_or"
+msgstr "Try modifying filters or"
+
+msgid "reset_search"
+msgstr "reset search"
+
+msgid "start_by_creating_first_user"
+msgstr "Start by creating your first user"
+
+msgid "wallet_and_transaction_administration"
+msgstr "Wallet and Transaction Administration"
+
+msgid "search_placeholder_wallets"
+msgstr "Search wallets..."
+
+msgid "all_owners"
+msgstr "All Owners"
+
+msgid "owner_filtered"
+msgstr "Owner filtered"
+
+msgid "progress"
+msgstr "Progress"
+
+msgid "statistics"
+msgstr "Statistics"
+
+msgid "no_objective"
+msgstr "No Objective"
+
+msgid "export_transactions_csv"
+msgstr "Export Transactions CSV"
+
+msgid "no_wallets_found"
+msgstr "No wallets found"
+
+msgid "user_created_successfully"
+msgstr "User created successfully"
+
+msgid "new_user_created"
+msgstr "New user created"
+
+msgid "cannot_edit_own_admin_account"
+msgstr "Cannot edit own admin account"
+
+msgid "user_modified_successfully"
+msgstr "User modified successfully"
+
+msgid "user_modified"
+msgstr "User modified"
+
+msgid "cannot_delete_own_account"
+msgstr "Cannot delete own account"
+
+msgid "cannot_delete_last_admin"
+msgstr "Cannot delete last admin"
+
+msgid "user_deleted_successfully"
+msgstr "User deleted successfully"
+
+msgid "user_deleted"
+msgstr "User deleted"
+
+msgid "error_during_deletion"
+msgstr "Error during deletion"
+
+msgid "wallet_and_transactions_deleted_successfully"
+msgstr "Wallet and transactions deleted successfully"
+
+msgid "wallet_deleted"
+msgstr "Wallet deleted"
+
+msgid "error_deleting_wallet"
+msgstr "Error deleting wallet"
+
+msgid "no_permission_export_transactions"
+msgstr "No permission to export transactions"
+
+msgid "unauthorized_export_attempt"
+msgstr "Unauthorized export attempt"
+
+msgid "title"
+msgstr "Title"
+
+msgid "amount_euro"
+msgstr "Amount (€)"
+
+msgid "author"
+msgstr "Author"
+
+msgid "no_category"
+msgstr "No Category"
+
+msgid "income"
+msgstr "Income"
+
+msgid "expense"
+msgstr "Expense"
+
+msgid "unknown"
+msgstr "Unknown"
+
+msgid "transactions_exported"
+msgstr "Transactions exported"
+
+msgid "category_already_exists"
+msgstr "Category already exists"
+
+msgid "category_created_successfully"
+msgstr "Category created successfully"
+
+msgid "new_category_created"
+msgstr "New category created"
+
+msgid "please_correct_form_errors"
+msgstr "Please correct form errors"
+
+msgid "category_renamed_successfully"
+msgstr "Category renamed successfully"
+
+msgid "category_modified"
+msgstr "Category modified"
+
+msgid "category_and_transactions_deleted_successfully"
+msgstr "Category and transactions deleted successfully"
+
+msgid "category_deleted"
+msgstr "Category deleted"
+
+# New translations from home template
+msgid "welcome_to"
+msgstr "Welcome to"
+
+msgid "manage_family_budgets_with_simplicity"
+msgstr "Manage your family budgets with simplicity, security and style."
+
+msgid "your_wallets"
+msgstr "Your Wallets"
+
+msgid "create_share_track_family_finances"
+msgstr "Create, share and track your family finances in real time."
+
+msgid "access"
+msgstr "Access"
+
+msgid "administration"
+msgstr "Administration"
+
+msgid "manage_users_wallets_system_settings"
+msgstr "Manage users, wallets and system settings."
+
+# New translations from master template
 msgid "Back"
 msgstr "Back"
 
-#: templates/master.html:124
+msgid "switch_to_english"
+msgstr "Switch to English"
+
+msgid "switch_to_french"
+msgstr "Switch to French"
+
 msgid "Logout"
 msgstr "Logout"
 
-#: templates/master.html:145
-msgid "Create account"
-msgstr "Create account"
-
-#: templates/master.html:146
 msgid "Login"
 msgstr "Login"
 
-#: templates/master.html:178
+msgid "developed_by"
+msgstr "Developed by"
+
+msgid "and"
+msgstr "and"
+
 msgid "Actual version"
-msgstr "Actual version"
+msgstr "Current version"
+
+# Wallet form translations
+msgid "wallet_name_placeholder"
+msgstr "Wallet name..."
+
+msgid "wallet_name"
+msgstr "Wallet Name"
+
+msgid "authorized_users"
+msgstr "Authorized Users"
+
+msgid "initial_balance"
+msgstr "Initial Balance"
+
+msgid "category_name"
+msgstr "Category Name"
+
+msgid "transaction_title_placeholder"
+msgstr "Transaction title..."
+
+msgid "description_optional_placeholder"
+msgstr "Description (optional)..."
+
+msgid "transaction_title"
+msgstr "Transaction Title"
+
+msgid "amount"
+msgstr "Amount"
+
+msgid "description"
+msgstr "Description"
+
+msgid "is_income_question"
+msgstr "Is this income?"
+
+msgid "name"
+msgstr "Name"
+
+msgid "is_income"
+msgstr "Is Income"
+
+msgid "transactions"
+msgstr "Transactions"
+
+# New transaction template translations
+msgid "new_transaction"
+msgstr "New Transaction"
+
+msgid "activate_for_income"
+msgstr "Activate for income"
+
+msgid "summary"
+msgstr "Summary"
+
+msgid "save_transaction"
+msgstr "Save Transaction"
+
+msgid "add_this_income"
+msgstr "Add This Income"
+
+msgid "transaction_summary_template"
+msgstr "Transaction Summary Template"
+
+msgid "you_will_add_a"
+msgstr "You will add a"
+
+msgid "titled"
+msgstr "titled"
+
+msgid "in_category"
+msgstr "in category"
+
+# Delete transaction template translations
+msgid "warning_attention"
+msgstr "Warning"
+
+msgid "about_to_delete_transaction_permanently"
+msgstr "You are about to permanently delete this transaction."
+
+msgid "wallet_balance_will_be_adjusted"
+msgstr "The wallet balance will be adjusted automatically"
+
+msgid "balance_will_be_decreased_by"
+msgstr "The balance will be decreased by"
+
+msgid "balance_will_be_increased_by"
+msgstr "The balance will be increased by"
+
+msgid "current_balance"
+msgstr "Current Balance"
+
+msgid "new_balance"
+msgstr "New Balance"
+
+msgid "are_you_sure_click_again"
+msgstr "Are you sure? Click again"
+
+# Edit objective template translations
+msgid "current_situation"
+msgstr "Current Situation"
+
+msgid "current_objective"
+msgstr "Current Objective"
+
+msgid "current_progress"
+msgstr "Current Progress"
+
+msgid "of_your_objective_reached"
+msgstr "of your objective reached"
+
+msgid "objective_reached"
+msgstr "Objective reached"
+
+msgid "remaining"
+msgstr "remaining"
+
+msgid "objective_suggestions"
+msgstr "Objective Suggestions"
+
+msgid "based_on_your_current_balance"
+msgstr "Based on your current balance"
+
+msgid "click_suggestion_to_use_as_objective"
+msgstr "Click on a suggestion to use it as objective"
+
+msgid "new_objective"
+msgstr "New Objective"
+
+msgid "objective_amount"
+msgstr "Objective Amount"
+
+msgid "enter_your_objective_in_euros"
+msgstr "Enter your objective in €"
+
+msgid "define_amount_you_wish_to_reach"
+msgstr "Define an amount you wish to reach with this wallet"
+
+msgid "progress_preview"
+msgstr "Progress Preview"
+
+msgid "save_objective"
+msgstr "Save Objective"
+
+msgid "progress_with_new_objective"
+msgstr "progress with this new objective"
+
+msgid "remaining_to_save"
+msgstr "You have"
+
+msgid "objective_already_reached"
+msgstr "Objective already reached!"
+
+msgid "no_change"
+msgstr "No change"
+
+msgid "objective_achievable"
+msgstr "Objective achievable!"
+
+# Transaction list template translations
+msgid "add_transaction"
+msgstr "Add Transaction"
+
+msgid "dashboard"
+msgstr "Dashboard"
+
+msgid "monthly_income"
+msgstr "Monthly Income"
+
+msgid "monthly_expenses"
+msgstr "Monthly Expenses"
+
+msgid "title_or_description_placeholder"
+msgstr "Title or description..."
+
+msgid "income_only"
+msgstr "Income only"
+
+msgid "expenses_only"
+msgstr "Expenses only"
+
+msgid "search_label"
+msgstr "Search"
+
+msgid "expenses"
+msgstr "Expenses"
+
+msgid "most_recent"
+msgstr "Most recent"
+
+msgid "oldest"
+msgstr "Oldest"
+
+msgid "amount_descending"
+msgstr "Amount descending"
+
+msgid "amount_ascending"
+msgstr "Amount ascending"
+
+msgid "title_a_z"
+msgstr "Title A-Z"
+
+msgid "no_transaction_found"
+msgstr "No transaction found"
+
+msgid "start_by_adding_first_transaction"
+msgstr "Start by adding your first transaction"
+
+# Wallet detail template translations
+msgid "members"
+msgstr "Members"
+
+msgid "remove"
+msgstr "Remove"
+
+msgid "do_you_really_want_to_remove"
+msgstr "Do you really want to remove"
+
+msgid "from_this_wallet"
+msgstr "from this wallet"
+
+msgid "no_members"
+msgstr "No members"
+
+msgid "add_user"
+msgstr "Add user"
+
+msgid "add"
+msgstr "Add"
+
+msgid "export_csv"
+msgstr "Export CSV"
+
+msgid "edit_objective"
+msgstr "Edit Objective"
+
+msgid "progress_toward_objective"
+msgstr "Progress toward objective"
+
+msgid "financial_evolution_current_month"
+msgstr "Financial Evolution (current month)"
+
+msgid "no_data_available"
+msgstr "No data available"
+
+msgid "add_transactions_to_see_financial_evolution"
+msgstr "Add transactions to see the evolution of your finances."
+
+msgid "expenses_by_category"
+msgstr "Expenses by Category"
+
+msgid "no_expenses_recorded"
+msgstr "No expenses recorded"
+
+msgid "add_expense_transactions_to_see_category_breakdown"
+msgstr "Add expense transactions to see category breakdown."
+
+msgid "see_all"
+msgstr "See All"
+
+msgid "no_description"
+msgstr "No description"
+
+msgid "by"
+msgstr "by"
+
+msgid "no_transaction_recorded"
+msgstr "No transaction recorded"
+
+msgid "start_by_adding_first_transaction_to_track_finances"
+msgstr "Start by adding your first transaction to track your finances."
+
+# Wallet form template translations
+msgid "save"
+msgstr "Save"
+
+# Wallet list template translations
+msgid "my_wallets"
+msgstr "My Wallets"
+
+msgid "new_wallet"
+msgstr "New Wallet"
+
+msgid "of_objective_reached"
+msgstr "of objective reached"
+
+msgid "confirm_deletion"
+msgstr "Confirm Deletion"
+
+msgid "delete_wallet_question"
+msgstr "Delete wallet"
+
+msgid "all_wallet_data_will_be_lost"
+msgstr "All data associated with this wallet will be permanently lost."
+
+msgid "wallet_information"
+msgstr "Wallet Information"
+
+msgid "no_wallet_yet"
+msgstr "No wallet yet"
+
+msgid "create_first_wallet_to_manage_finances"
+msgstr "Create your first wallet to start managing your finances"
+
+# Views messages
+msgid "new_wallet_created"
+msgstr "New wallet created"
+
+msgid "create_wallet"
+msgstr "Create Wallet"
+
+msgid "no_access_to_wallet"
+msgstr "No access to wallet"
+
+msgid "unauthorized_wallet_modification_attempt"
+msgstr "Unauthorized wallet modification attempt"
+
+msgid "wallet_modified_successfully"
+msgstr "Wallet modified successfully"
+
+msgid "wallet_modified"
+msgstr "Wallet modified"
+
+msgid "edit_wallet"
+msgstr "Edit Wallet"
+
+msgid "not_authorized_to_delete_wallet"
+msgstr "Not authorized to delete wallet"
+
+msgid "unauthorized_wallet_deletion_attempt"
+msgstr "Unauthorized wallet deletion attempt"
+
+msgid "wallet_deleted_successfully"
+msgstr "Wallet deleted successfully"
+
+msgid "unauthorized_wallet_access_attempt"
+msgstr "Unauthorized wallet access attempt"
+
+msgid "unauthorized_transaction_addition_attempt"
+msgstr "Unauthorized transaction addition attempt"
+
+msgid "income_added_successfully"
+msgstr "Income added successfully"
+
+msgid "expense_recorded_successfully"
+msgstr "Expense recorded successfully"
+
+msgid "transaction_added"
+msgstr "Transaction added"
+
+msgid "unauthorized_transaction_modification_attempt"
+msgstr "Unauthorized transaction modification attempt"
+
+msgid "income_modified_successfully"
+msgstr "Income modified successfully"
+
+msgid "expense_modified_successfully"
+msgstr "Expense modified successfully"
+
+msgid "transaction_modified"
+msgstr "Transaction modified"
+
+msgid "unauthorized_transaction_deletion_attempt"
+msgstr "Unauthorized transaction deletion attempt"
+
+msgid "income_deleted"
+msgstr "Income deleted"
+
+msgid "expense_deleted"
+msgstr "Expense deleted"
+
+msgid "transaction_deleted"
+msgstr "Transaction deleted"
+
+msgid "unauthorized_transaction_list_access_attempt"
+msgstr "Unauthorized transaction list access attempt"
+
+msgid "unauthorized_objective_modification_attempt"
+msgstr "Unauthorized objective modification attempt"
+
+msgid "objective_cannot_be_negative"
+msgstr "Objective cannot be negative"
+
+msgid "objective_updated_successfully"
+msgstr "Objective updated successfully"
+
+msgid "objective_unchanged"
+msgstr "Objective unchanged"
+
+msgid "objective_modified"
+msgstr "Objective modified"
+
+msgid "please_enter_valid_amount"
+msgstr "Please enter a valid amount"
+
+msgid "please_enter_objective"
+msgstr "Please enter an objective"
+
+msgid "unauthorized_member_addition_attempt"
+msgstr "Unauthorized member addition attempt"
+
+msgid "member_added_to_wallet"
+msgstr "Member added to wallet"
+
+msgid "member_added_to_wallet_log"
+msgstr "Member added to wallet log"
+
+msgid "unauthorized_member_removal_attempt"
+msgstr "Unauthorized member removal attempt"
+
+msgid "member_removed_from_wallet"
+msgstr "Member removed from wallet"
+
+msgid "member_removed_from_wallet_log"
+msgstr "Member removed from wallet log"
+
+msgid "cannot_remove_yourself_from_wallet"
+msgstr "Cannot remove yourself from wallet"

@@ -8,31 +8,1302 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-22 08:44+0200\n"
+"POT-Creation-Date: 2025-05-28 08:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: templates/master.html:86
+
+# Traductions existantes
+msgid "first_name"
+msgstr "Prénom"
+
+msgid "last_name"
+msgstr "Nom"
+
+msgid "email"
+msgstr "Email"
+
+msgid "password"
+msgstr "Mot de passe"
+
+msgid "confirm_password"
+msgstr "Confirmer le mot de passe"
+
+msgid "passwords_do_not_match"
+msgstr "Les mots de passe ne correspondent pas"
+
+msgid "invalid_credentials"
+msgstr "Identifiants invalides"
+
+msgid "account_is_disabled"
+msgstr "Le compte est désactivé"
+
+msgid "new_password"
+msgstr "Nouveau mot de passe"
+
+msgid "minimum_8_characters"
+msgstr "Minimum 8 caractères"
+
+msgid "retype_password"
+msgstr "Retaper le mot de passe"
+
+msgid "email_is_required"
+msgstr "L'email est requis"
+
+msgid "role"
+msgstr "Rôle"
+
+msgid "is_active"
+msgstr "Est actif"
+
+msgid "is_staff"
+msgstr "Est staff"
+
+msgid "groups"
+msgstr "Groupes"
+
+msgid "user_permissions"
+msgstr "Permissions utilisateur"
+
+msgid "account"
+msgstr "Compte"
+
+msgid "accounts"
+msgstr "Comptes"
+
+msgid "user"
+msgstr "Utilisateur"
+
+msgid "token"
+msgstr "Jeton"
+
+msgid "created_at"
+msgstr "Créé le"
+
+msgid "password_reset_token"
+msgstr "Jeton de réinitialisation"
+
+msgid "password_reset_tokens"
+msgstr "Jetons de réinitialisation"
+
+msgid "login"
+msgstr "Connexion"
+
+msgid "login_to_access_account"
+msgstr "Connectez-vous pour accéder à votre compte"
+
+msgid "sign_in"
+msgstr "Se connecter"
+
+msgid "forgot_password"
+msgstr "Mot de passe oublié"
+
+msgid "no_account_yet"
+msgstr "Pas encore de compte ?"
+
+msgid "create_account"
+msgstr "Créer un compte"
+
+msgid "create_account_to_manage_finances"
+msgstr "Créez un compte pour gérer vos finances"
+
+msgid "minimum_8_characters_recommended"
+msgstr "Minimum 8 caractères recommandés"
+
+msgid "create_my_account"
+msgstr "Créer mon compte"
+
+msgid "already_have_account"
+msgstr "Vous avez déjà un compte ?"
+
+msgid "reset_password"
+msgstr "Réinitialiser le mot de passe"
+
+msgid "enter_email_for_reset_link"
+msgstr "Entrez votre email pour recevoir un lien de réinitialisation"
+
+msgid "email_address"
+msgstr "Adresse email"
+
+msgid "email_placeholder"
+msgstr "votre.email@exemple.com"
+
+msgid "send_reset_link"
+msgstr "Envoyer le lien de réinitialisation"
+
+msgid "back_to_login"
+msgstr "Retour à la connexion"
+
+msgid "set_new_password"
+msgstr "Définir un nouveau mot de passe"
+
+msgid "choose_strong_password_to_secure_account"
+msgstr "Choisissez un mot de passe fort pour sécuriser votre compte"
+
+msgid "update_password"
+msgstr "Mettre à jour le mot de passe"
+
+msgid "reset_link_generated"
+msgstr "Lien de réinitialisation généré"
+
+msgid "reset_link_created"
+msgstr "Lien de réinitialisation créé"
+
+msgid "use_secure_link_to_set_new_password"
+msgstr "Utilisez ce lien sécurisé pour définir votre nouveau mot de passe"
+
+msgid "warning"
+msgstr "Attention"
+
+msgid "link_expires_in_15_minutes"
+msgstr "Ce lien expire dans 15 minutes"
+
+msgid "expiration"
+msgstr "Expiration"
+
+msgid "reset_link"
+msgstr "Lien de réinitialisation"
+
+msgid "copy"
+msgstr "Copier"
+
+msgid "copy_link_and_paste_in_browser"
+msgstr "Copiez ce lien et collez-le dans votre navigateur"
+
+msgid "access_form_directly"
+msgstr "Accéder directement au formulaire"
+
+msgid "time_remaining"
+msgstr "Temps restant"
+
+msgid "generate_new_link"
+msgstr "Générer un nouveau lien"
+
+msgid "copied"
+msgstr "Copié"
+
+msgid "link_copied_to_clipboard"
+msgstr "Lien copié dans le presse-papiers"
+
+msgid "copy_error_manual"
+msgstr "Erreur de copie, veuillez le faire manuellement"
+
+msgid "link_expired_generate_new"
+msgstr "Lien expiré, générez-en un nouveau"
+
+msgid "reset_link_generated_success_15_minutes"
+msgstr "Lien de réinitialisation généré avec succès, valide 15 minutes"
+
+msgid "new_account_created_for"
+msgstr "Nouveau compte créé pour"
+
+msgid "login_for"
+msgstr "Connexion pour"
+
+msgid "logout_for"
+msgstr "Déconnexion pour"
+
+msgid "no_account_with_this_email"
+msgstr "Aucun compte avec cet email"
+
+msgid "token_expired"
+msgstr "Jeton expiré"
+
+msgid "password_reset_successfully"
+msgstr "Mot de passe réinitialisé avec succès"
+
+msgid "admin_rights"
+msgstr "Droits administrateur"
+
+msgid "active_account"
+msgstr "Compte actif"
+
+msgid "email_example"
+msgstr "utilisateur@exemple.com"
+
+msgid "email_already_used"
+msgstr "Email déjà utilisé"
+
+msgid "event_type_login"
+msgstr "Connexion"
+
+msgid "event_type_logout"
+msgstr "Déconnexion"
+
+msgid "event_type_wallet_create"
+msgstr "Création de portefeuille"
+
+msgid "event_type_wallet_delete"
+msgstr "Suppression de portefeuille"
+
+msgid "event_type_wallet_update"
+msgstr "Mise à jour de portefeuille"
+
+msgid "event_type_transaction_create"
+msgstr "Création de transaction"
+
+msgid "event_type_transaction_delete"
+msgstr "Suppression de transaction"
+
+msgid "event_type_transaction_update"
+msgstr "Mise à jour de transaction"
+
+msgid "event_type_transaction_export"
+msgstr "Export de transaction"
+
+msgid "event_type_objective_update"
+msgstr "Mise à jour d'objectif"
+
+msgid "event_type_user_register"
+msgstr "Inscription utilisateur"
+
+msgid "event_type_password_change"
+msgstr "Changement de mot de passe"
+
+msgid "event_type_error"
+msgstr "Erreur"
+
+msgid "event_type_admin_action"
+msgstr "Action administrateur"
+
+msgid "event_type_other"
+msgstr "Autre"
+
+msgid "date"
+msgstr "Date"
+
+msgid "content"
+msgstr "Contenu"
+
+msgid "type"
+msgstr "Type"
+
+msgid "user_name_snapshot"
+msgstr "Instantané du nom d'utilisateur"
+
+msgid "event"
+msgstr "Événement"
+
+msgid "events"
+msgstr "Événements"
+
+msgid "deleted_user"
+msgstr "Utilisateur supprimé"
+
+msgid "admin_panel"
+msgstr "Panneau d'administration"
+
+msgid "application_management_and_supervision"
+msgstr "Gestion et supervision de l'application"
+
+msgid "administrator"
+msgstr "Administrateur"
+
+msgid "history"
+msgstr "Historique"
+
+msgid "view_logs_and_action_history"
+msgstr "Voir les journaux et l'historique des actions"
+
+msgid "user_management"
+msgstr "Gestion des utilisateurs"
+
+msgid "manage_accounts_and_permissions"
+msgstr "Gérer les comptes et les permissions"
+
+msgid "wallet_management"
+msgstr "Gestion des portefeuilles"
+
+msgid "supervise_existing_wallets"
+msgstr "Superviser les portefeuilles existants"
+
+msgid "category_management"
+msgstr "Gestion des catégories"
+
+msgid "create_and_modify_categories"
+msgstr "Créer et modifier les catégories"
+
+msgid "transaction_category_administration"
+msgstr "Administration des catégories de transaction"
+
+msgid "create_category"
+msgstr "Créer une catégorie"
+
+msgid "back_to_panel"
+msgstr "Retour au panneau"
+
+msgid "total_categories"
+msgstr "Total des catégories"
+
+msgid "categories_used"
+msgstr "Catégories utilisées"
+
+msgid "categories_unused"
+msgstr "Catégories non utilisées"
+
+msgid "filters_and_search"
+msgstr "Filtres et recherche"
+
+msgid "reset"
+msgstr "Réinitialiser"
+
+msgid "search"
+msgstr "Rechercher"
+
+msgid "category_name_placeholder"
+msgstr "Nom de la catégorie..."
+
+msgid "usage_status"
+msgstr "Statut d'utilisation"
+
+msgid "all_categories"
+msgstr "Toutes les catégories"
+
+msgid "used_only"
+msgstr "Utilisées uniquement"
+
+msgid "unused_only"
+msgstr "Non utilisées uniquement"
+
+msgid "filter"
+msgstr "Filtrer"
+
+msgid "active_filters"
+msgstr "Filtres actifs"
+
+msgid "used"
+msgstr "Utilisé"
+
+msgid "unused"
+msgstr "Non utilisé"
+
+msgid "result"
+msgstr "Résultat"
+
+msgid "categories"
+msgstr "Catégories"
+
+msgid "page"
+msgstr "Page"
+
+msgid "of"
+msgstr "de"
+
+msgid "category"
+msgstr "Catégorie"
+
+msgid "usage"
+msgstr "Utilisation"
+
+msgid "wallets"
+msgstr "Portefeuilles"
+
+msgid "last_usage"
+msgstr "Dernière utilisation"
+
+msgid "recent_transactions"
+msgstr "Transactions récentes"
+
+msgid "actions"
+msgstr "Actions"
+
+msgid "transaction"
+msgstr "Transaction"
+
+msgid "wallet"
+msgstr "Portefeuille"
+
+msgid "ago"
+msgstr "il y a"
+
+msgid "never_used"
+msgstr "Jamais utilisé"
+
+msgid "none"
+msgstr "Aucun"
+
+msgid "edit"
+msgstr "Modifier"
+
+msgid "no_categories_found"
+msgstr "Aucune catégorie trouvée"
+
+msgid "try_modifying_filters"
+msgstr "Essayez de modifier les filtres"
+
+msgid "start_by_creating_first_category"
+msgstr "Commencez par créer votre première catégorie"
+
+msgid "previous"
+msgstr "Précédent"
+
+msgid "next"
+msgstr "Suivant"
+
+msgid "add_new_transaction_category"
+msgstr "Ajouter une nouvelle catégorie de transaction"
+
+msgid "new_category"
+msgstr "Nouvelle catégorie"
+
+msgid "create_category_button"
+msgstr "Créer la catégorie"
+
+msgid "create_user"
+msgstr "Créer un utilisateur"
+
+msgid "add_new_user_account"
+msgstr "Ajouter un nouveau compte utilisateur"
+
+msgid "new_user_account"
+msgstr "Nouveau compte utilisateur"
+
+msgid "cancel"
+msgstr "Annuler"
+
+msgid "create_user_button"
+msgstr "Créer l'utilisateur"
+
+msgid "delete_category"
+msgstr "Supprimer la catégorie"
+
+msgid "deletion_confirmation"
+msgstr "Confirmation de suppression"
+
+msgid "category_unused"
+msgstr "Catégorie non utilisée"
+
+msgid "delete_category_warning"
+msgstr "Attention suppression de catégorie"
+
+msgid "deleted_plural"
+msgstr "supprimés"
+
+msgid "financial_history_affected"
+msgstr "Historique financier affecté"
+
+msgid "action_irreversible"
+msgstr "Cette action est irréversible"
+
+msgid "good_news"
+msgstr "Bonne nouvelle"
+
+msgid "category_not_used_in_transactions"
+msgstr "Catégorie non utilisée dans les transactions"
+
+msgid "safe_to_delete"
+msgstr "Sûr à supprimer"
+
+msgid "delete_category_button"
+msgstr "Supprimer la catégorie"
+
+msgid "recent_transactions_using_category"
+msgstr "Transactions récentes utilisant cette catégorie"
+
+msgid "delete_user"
+msgstr "Supprimer l'utilisateur"
+
+msgid "admin"
+msgstr "Admin"
+
+msgid "active"
+msgstr "Actif"
+
+msgid "inactive"
+msgstr "Inactif"
+
+msgid "registered_on"
+msgstr "Inscrit le"
+
+msgid "last_login"
+msgstr "Dernière connexion"
+
+msgid "deletion_impact"
+msgstr "Impact de la suppression"
+
+msgid "associated_plural"
+msgstr "associés"
+
+msgid "recorded_plural"
+msgstr "enregistrés"
+
+msgid "user_shares_wallets_with_others"
+msgstr "L'utilisateur partage des portefeuilles avec d'autres"
+
+msgid "affected_wallets"
+msgstr "Portefeuilles affectés"
+
+msgid "shared_wallets"
+msgstr "Portefeuilles partagés"
+
+msgid "shared_wallets_not_deleted_explanation"
+msgstr "Les portefeuilles partagés ne seront pas supprimés"
+
+msgid "transactions_remain_in_history"
+msgstr "Les transactions restent dans l'historique"
+
+msgid "shares_will_be_revoked"
+msgstr "Les partages seront révoqués"
+
+msgid "user_permanently_deleted"
+msgstr "Utilisateur supprimé définitivement"
+
+msgid "security_measures"
+msgstr "Mesures de sécurité"
+
+msgid "permanent_irreversible_deletion"
+msgstr "Suppression permanente irréversible"
+
+msgid "all_active_sessions_revoked"
+msgstr "Toutes les sessions actives révoquées"
+
+msgid "email_can_be_reused"
+msgstr "L'email peut être réutilisé"
+
+msgid "event_logged_in_history"
+msgstr "Événement enregistré dans l'historique"
+
+msgid "delete_permanently"
+msgstr "Supprimer définitivement"
+
+msgid "delete_wallet"
+msgstr "Supprimer le portefeuille"
+
+msgid "owner"
+msgstr "Propriétaire"
+
+msgid "balance"
+msgstr "Solde"
+
+msgid "objective"
+msgstr "Objectif"
+
+msgid "shared"
+msgstr "Partagé"
+
+msgid "affected_users"
+msgstr "Utilisateurs affectés"
+
+msgid "following_users_will_lose_access"
+msgstr "Les utilisateurs suivants perdront l'accès"
+
+msgid "permanent_deletion"
+msgstr "Suppression permanente"
+
+msgid "transactions_permanently_lost"
+msgstr "Transactions perdues définitivement"
+
+msgid "history_not_recoverable"
+msgstr "Historique non récupérable"
+
+msgid "access_revoked"
+msgstr "Accès révoqué"
+
+msgid "event_recorded"
+msgstr "Événement enregistré"
+
+msgid "edit_category"
+msgstr "Modifier la catégorie"
+
+msgid "back_to_list"
+msgstr "Retour à la liste"
+
+msgid "edit_information"
+msgstr "Modifier les informations"
+
+msgid "changes_preview"
+msgstr "Aperçu des modifications"
+
+msgid "current_name"
+msgstr "Nom actuel"
+
+msgid "new_name"
+msgstr "Nouveau nom"
+
+msgid "save_changes"
+msgstr "Enregistrer les modifications"
+
+msgid "no_changes"
+msgstr "Aucune modification"
+
+msgid "edit_user"
+msgstr "Modifier l'utilisateur"
+
+msgid "current_information"
+msgstr "Informations actuelles"
+
+msgid "never_logged_in"
+msgstr "Jamais connecté"
+
+msgid "additional_actions"
+msgstr "Actions supplémentaires"
+
+msgid "event_history"
+msgstr "Historique des événements"
+
+msgid "complete_system_activity_tracking"
+msgstr "Suivi complet de l'activité du système"
+
+msgid "search_placeholder_history"
+msgstr "Rechercher dans l'historique..."
+
+msgid "event_type"
+msgstr "Type d'événement"
+
+msgid "all_types"
+msgstr "Tous les types"
+
+msgid "all_users"
+msgstr "Tous les utilisateurs"
+
+msgid "start_date"
+msgstr "Date de début"
+
+msgid "date_format_placeholder"
+msgstr "JJ/MM/AAAA"
+
+msgid "end_date"
+msgstr "Date de fin"
+
+msgid "days"
+msgstr "jours"
+
+msgid "no_events_found"
+msgstr "Aucun événement trouvé"
+
+msgid "end_date_must_be_after_start_date"
+msgstr "La date de fin doit être après la date de début"
+
+msgid "user_account_administration"
+msgstr "Administration des comptes utilisateur"
+
+msgid "total_users"
+msgstr "Total des utilisateurs"
+
+msgid "active_users"
+msgstr "Utilisateurs actifs"
+
+msgid "administrators"
+msgstr "Administrateurs"
+
+msgid "search_placeholder_users"
+msgstr "Rechercher des utilisateurs..."
+
+msgid "all_roles"
+msgstr "Tous les rôles"
+
+msgid "status"
+msgstr "Statut"
+
+msgid "all_statuses"
+msgstr "Tous les statuts"
+
+msgid "users"
+msgstr "Utilisateurs"
+
+msgid "last_activity"
+msgstr "Dernière activité"
+
+msgid "delete"
+msgstr "Supprimer"
+
+msgid "no_users_found"
+msgstr "Aucun utilisateur trouvé"
+
+msgid "try_modifying_filters_or"
+msgstr "Essayez de modifier vos filtres ou"
+
+msgid "reset_search"
+msgstr "réinitialisez la recherche"
+
+msgid "start_by_creating_first_user"
+msgstr "Commencez par créer votre premier utilisateur"
+
+msgid "wallet_and_transaction_administration"
+msgstr "Administration des portefeuilles et transactions"
+
+msgid "search_placeholder_wallets"
+msgstr "Rechercher des portefeuilles..."
+
+msgid "all_owners"
+msgstr "Tous les propriétaires"
+
+msgid "owner_filtered"
+msgstr "Propriétaire filtré"
+
+msgid "progress"
+msgstr "Progression"
+
+msgid "statistics"
+msgstr "Statistiques"
+
+msgid "no_objective"
+msgstr "Aucun objectif"
+
+msgid "export_transactions_csv"
+msgstr "Exporter les transactions CSV"
+
+msgid "no_wallets_found"
+msgstr "Aucun portefeuille trouvé"
+
+msgid "user_created_successfully"
+msgstr "Utilisateur créé avec succès"
+
+msgid "new_user_created"
+msgstr "Nouvel utilisateur créé"
+
+msgid "cannot_edit_own_admin_account"
+msgstr "Impossible de modifier son propre compte admin"
+
+msgid "user_modified_successfully"
+msgstr "Utilisateur modifié avec succès"
+
+msgid "user_modified"
+msgstr "Utilisateur modifié"
+
+msgid "cannot_delete_own_account"
+msgstr "Impossible de supprimer son propre compte"
+
+msgid "cannot_delete_last_admin"
+msgstr "Impossible de supprimer le dernier admin"
+
+msgid "user_deleted_successfully"
+msgstr "Utilisateur supprimé avec succès"
+
+msgid "user_deleted"
+msgstr "Utilisateur supprimé"
+
+msgid "error_during_deletion"
+msgstr "Erreur lors de la suppression"
+
+msgid "wallet_and_transactions_deleted_successfully"
+msgstr "Portefeuille et transactions supprimés avec succès"
+
+msgid "wallet_deleted"
+msgstr "Portefeuille supprimé"
+
+msgid "error_deleting_wallet"
+msgstr "Erreur lors de la suppression du portefeuille"
+
+msgid "no_permission_export_transactions"
+msgstr "Pas de permission pour exporter les transactions"
+
+msgid "unauthorized_export_attempt"
+msgstr "Tentative d'export non autorisée"
+
+msgid "title"
+msgstr "Titre"
+
+msgid "amount_euro"
+msgstr "Montant (€)"
+
+msgid "author"
+msgstr "Auteur"
+
+msgid "no_category"
+msgstr "Aucune catégorie"
+
+msgid "income"
+msgstr "Revenu"
+
+msgid "expense"
+msgstr "Dépense"
+
+msgid "unknown"
+msgstr "Inconnu"
+
+msgid "transactions_exported"
+msgstr "Transactions exportées"
+
+msgid "category_already_exists"
+msgstr "La catégorie existe déjà"
+
+msgid "category_created_successfully"
+msgstr "Catégorie créée avec succès"
+
+msgid "new_category_created"
+msgstr "Nouvelle catégorie créée"
+
+msgid "please_correct_form_errors"
+msgstr "Veuillez corriger les erreurs du formulaire"
+
+msgid "category_renamed_successfully"
+msgstr "Catégorie renommée avec succès"
+
+msgid "category_modified"
+msgstr "Catégorie modifiée"
+
+msgid "category_and_transactions_deleted_successfully"
+msgstr "Catégorie et transactions supprimées avec succès"
+
+msgid "category_deleted"
+msgstr "Catégorie supprimée"
+
+# Nouvelles traductions des templates home
+msgid "welcome_to"
+msgstr "Bienvenue sur"
+
+msgid "manage_family_budgets_with_simplicity"
+msgstr "Gérez vos budgets familiaux avec simplicité, sécurité et style."
+
+msgid "your_wallets"
+msgstr "Vos portefeuilles"
+
+msgid "create_share_track_family_finances"
+msgstr "Créez, partagez et suivez les finances de votre famille en temps réel."
+
+msgid "access"
+msgstr "Accéder"
+
+msgid "administration"
+msgstr "Administration"
+
+msgid "manage_users_wallets_system_settings"
+msgstr "Gérez les utilisateurs, portefeuilles et paramètres du système."
+
+# Nouvelles traductions du template master
 msgid "Back"
 msgstr "Retour"
 
-#: templates/master.html:124
+msgid "switch_to_english"
+msgstr "Switch to English"
+
+msgid "switch_to_french"
+msgstr "Passer en français"
+
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: templates/master.html:145
-msgid "Create account"
-msgstr "Créer un compte"
-
-#: templates/master.html:146
 msgid "Login"
 msgstr "Connexion"
 
-#: templates/master.html:178
+msgid "developed_by"
+msgstr "Développé par"
+
+msgid "and"
+msgstr "et"
+
 msgid "Actual version"
 msgstr "Version actuelle"
+
+# Traductions des formulaires wallet
+msgid "wallet_name_placeholder"
+msgstr "Nom du portefeuille..."
+
+msgid "wallet_name"
+msgstr "Nom du portefeuille"
+
+msgid "authorized_users"
+msgstr "Utilisateurs autorisés"
+
+msgid "initial_balance"
+msgstr "Solde initial"
+
+msgid "category_name"
+msgstr "Nom de la catégorie"
+
+msgid "transaction_title_placeholder"
+msgstr "Titre de la transaction..."
+
+msgid "description_optional_placeholder"
+msgstr "Description (optionnelle)..."
+
+msgid "transaction_title"
+msgstr "Titre de la transaction"
+
+msgid "amount"
+msgstr "Montant"
+
+msgid "description"
+msgstr "Description"
+
+msgid "is_income_question"
+msgstr "Est-ce un revenu ?"
+
+msgid "name"
+msgstr "Nom"
+
+msgid "is_income"
+msgstr "Est un revenu"
+
+msgid "transactions"
+msgstr "Transactions"
+
+# Traductions du template nouvelle transaction
+msgid "new_transaction"
+msgstr "Nouvelle transaction"
+
+msgid "activate_for_income"
+msgstr "Activez pour un revenu"
+
+msgid "summary"
+msgstr "Résumé"
+
+msgid "save_transaction"
+msgstr "Enregistrer la transaction"
+
+msgid "add_this_income"
+msgstr "Ajouter ce revenu"
+
+msgid "transaction_summary_template"
+msgstr "Modèle de résumé de transaction"
+
+msgid "you_will_add_a"
+msgstr "Vous allez ajouter un"
+
+msgid "titled"
+msgstr "intitulé"
+
+msgid "in_category"
+msgstr "dans la catégorie"
+
+# Traductions du template suppression transaction
+msgid "warning_attention"
+msgstr "Attention"
+
+msgid "about_to_delete_transaction_permanently"
+msgstr "Vous êtes sur le point de supprimer définitivement cette transaction."
+
+msgid "wallet_balance_will_be_adjusted"
+msgstr "Le solde du portefeuille sera ajusté automatiquement"
+
+msgid "balance_will_be_decreased_by"
+msgstr "Le solde sera diminué de"
+
+msgid "balance_will_be_increased_by"
+msgstr "Le solde sera augmenté de"
+
+msgid "current_balance"
+msgstr "Solde actuel"
+
+msgid "new_balance"
+msgstr "Nouveau solde"
+
+msgid "are_you_sure_click_again"
+msgstr "Êtes-vous sûr ? Cliquez encore"
+
+# Traductions du template édition objectif
+msgid "current_situation"
+msgstr "Situation actuelle"
+
+msgid "current_objective"
+msgstr "Objectif actuel"
+
+msgid "current_progress"
+msgstr "Progression actuelle"
+
+msgid "of_your_objective_reached"
+msgstr "de votre objectif atteint"
+
+msgid "objective_reached"
+msgstr "Objectif atteint"
+
+msgid "remaining"
+msgstr "restants"
+
+msgid "objective_suggestions"
+msgstr "Suggestions d'objectifs"
+
+msgid "based_on_your_current_balance"
+msgstr "Basées sur votre solde actuel"
+
+msgid "click_suggestion_to_use_as_objective"
+msgstr "Cliquez sur une suggestion pour l'utiliser comme objectif"
+
+msgid "new_objective"
+msgstr "Nouvel objectif"
+
+msgid "objective_amount"
+msgstr "Montant de l'objectif"
+
+msgid "enter_your_objective_in_euros"
+msgstr "Entrez votre objectif en €"
+
+msgid "define_amount_you_wish_to_reach"
+msgstr "Définissez un montant que vous souhaitez atteindre avec ce portefeuille"
+
+msgid "progress_preview"
+msgstr "Aperçu de la progression"
+
+msgid "save_objective"
+msgstr "Enregistrer l'objectif"
+
+msgid "progress_with_new_objective"
+msgstr "de progression avec ce nouvel objectif"
+
+msgid "remaining_to_save"
+msgstr "Il vous reste"
+
+msgid "objective_already_reached"
+msgstr "Objectif déjà atteint !"
+
+msgid "no_change"
+msgstr "Aucun changement"
+
+msgid "objective_achievable"
+msgstr "Objectif atteignable !"
+
+# Traductions du template liste des transactions
+msgid "add_transaction"
+msgstr "Ajouter transaction"
+
+msgid "dashboard"
+msgstr "Tableau de bord"
+
+msgid "monthly_income"
+msgstr "Revenus du mois"
+
+msgid "monthly_expenses"
+msgstr "Dépenses du mois"
+
+msgid "title_or_description_placeholder"
+msgstr "Titre ou description..."
+
+msgid "income_only"
+msgstr "Revenus uniquement"
+
+msgid "expenses_only"
+msgstr "Dépenses uniquement"
+
+msgid "search_label"
+msgstr "Recherche"
+
+msgid "expenses"
+msgstr "Dépenses"
+
+msgid "most_recent"
+msgstr "Plus récent"
+
+msgid "oldest"
+msgstr "Plus ancien"
+
+msgid "amount_descending"
+msgstr "Montant décroissant"
+
+msgid "amount_ascending"
+msgstr "Montant croissant"
+
+msgid "title_a_z"
+msgstr "Titre A-Z"
+
+msgid "no_transaction_found"
+msgstr "Aucune transaction trouvée"
+
+msgid "start_by_adding_first_transaction"
+msgstr "Commencez par ajouter votre première transaction"
+
+# Traductions du template détail portefeuille
+msgid "members"
+msgstr "Membres"
+
+msgid "remove"
+msgstr "Retirer"
+
+msgid "do_you_really_want_to_remove"
+msgstr "Voulez-vous vraiment retirer"
+
+msgid "from_this_wallet"
+msgstr "de ce portefeuille"
+
+msgid "no_members"
+msgstr "Aucun membre"
+
+msgid "add_user"
+msgstr "Ajouter un utilisateur"
+
+msgid "add"
+msgstr "Ajouter"
+
+msgid "export_csv"
+msgstr "Exporter CSV"
+
+msgid "edit_objective"
+msgstr "Modifier l'objectif"
+
+msgid "progress_toward_objective"
+msgstr "Progression vers l'objectif"
+
+msgid "financial_evolution_current_month"
+msgstr "Évolution des finances (mois en cours)"
+
+msgid "no_data_available"
+msgstr "Aucune donnée disponible"
+
+msgid "add_transactions_to_see_financial_evolution"
+msgstr "Ajoutez des transactions pour voir l'évolution de vos finances."
+
+msgid "expenses_by_category"
+msgstr "Dépenses par catégorie"
+
+msgid "no_expenses_recorded"
+msgstr "Aucune dépense enregistrée"
+
+msgid "add_expense_transactions_to_see_category_breakdown"
+msgstr "Ajoutez des transactions de dépenses pour voir la répartition par catégorie."
+
+msgid "see_all"
+msgstr "Voir tout"
+
+msgid "no_description"
+msgstr "Sans description"
+
+msgid "by"
+msgstr "par"
+
+msgid "no_transaction_recorded"
+msgstr "Aucune transaction enregistrée"
+
+msgid "start_by_adding_first_transaction_to_track_finances"
+msgstr "Commencez par ajouter votre première transaction pour suivre vos finances."
+
+# Traductions du template formulaire portefeuille
+msgid "save"
+msgstr "Enregistrer"
+
+# Traductions du template liste des portefeuilles
+msgid "my_wallets"
+msgstr "Mes Wallets"
+
+msgid "new_wallet"
+msgstr "Nouveau Wallet"
+
+msgid "of_objective_reached"
+msgstr "de l'objectif atteint"
+
+msgid "confirm_deletion"
+msgstr "Confirmer la suppression"
+
+msgid "delete_wallet_question"
+msgstr "Supprimer le wallet"
+
+msgid "all_wallet_data_will_be_lost"
+msgstr "Toutes les données associées à ce wallet seront définitivement perdues."
+
+msgid "wallet_information"
+msgstr "Informations du wallet"
+
+msgid "no_wallet_yet"
+msgstr "Aucun wallet pour le moment"
+
+msgid "create_first_wallet_to_manage_finances"
+msgstr "Créez votre premier wallet pour commencer à gérer vos finances"
+
+# Messages des vues
+msgid "new_wallet_created"
+msgstr "Nouveau portefeuille créé"
+
+msgid "create_wallet"
+msgstr "Créer un portefeuille"
+
+msgid "no_access_to_wallet"
+msgstr "Pas d'accès au portefeuille"
+
+msgid "unauthorized_wallet_modification_attempt"
+msgstr "Tentative de modification non autorisée du portefeuille"
+
+msgid "wallet_modified_successfully"
+msgstr "Portefeuille modifié avec succès"
+
+msgid "wallet_modified"
+msgstr "Portefeuille modifié"
+
+msgid "edit_wallet"
+msgstr "Modifier le portefeuille"
+
+msgid "not_authorized_to_delete_wallet"
+msgstr "Non autorisé à supprimer le portefeuille"
+
+msgid "unauthorized_wallet_deletion_attempt"
+msgstr "Tentative de suppression non autorisée du portefeuille"
+
+msgid "wallet_deleted_successfully"
+msgstr "Portefeuille supprimé avec succès"
+
+msgid "unauthorized_wallet_access_attempt"
+msgstr "Tentative d'accès non autorisée au portefeuille"
+
+msgid "unauthorized_transaction_addition_attempt"
+msgstr "Tentative d'ajout de transaction non autorisée"
+
+msgid "income_added_successfully"
+msgstr "Revenu ajouté avec succès"
+
+msgid "expense_recorded_successfully"
+msgstr "Dépense enregistrée avec succès"
+
+msgid "transaction_added"
+msgstr "Transaction ajoutée"
+
+msgid "unauthorized_transaction_modification_attempt"
+msgstr "Tentative de modification de transaction non autorisée"
+
+msgid "income_modified_successfully"
+msgstr "Revenu modifié avec succès"
+
+msgid "expense_modified_successfully"
+msgstr "Dépense modifiée avec succès"
+
+msgid "transaction_modified"
+msgstr "Transaction modifiée"
+
+msgid "unauthorized_transaction_deletion_attempt"
+msgstr "Tentative de suppression de transaction non autorisée"
+
+msgid "income_deleted"
+msgstr "Revenu supprimé"
+
+msgid "expense_deleted"
+msgstr "Dépense supprimée"
+
+msgid "transaction_deleted"
+msgstr "Transaction supprimée"
+
+msgid "unauthorized_transaction_list_access_attempt"
+msgstr "Tentative d'accès non autorisée à la liste des transactions"
+
+msgid "unauthorized_objective_modification_attempt"
+msgstr "Tentative de modification d'objectif non autorisée"
+
+msgid "objective_cannot_be_negative"
+msgstr "L'objectif ne peut pas être négatif"
+
+msgid "objective_updated_successfully"
+msgstr "Objectif mis à jour avec succès"
+
+msgid "objective_unchanged"
+msgstr "Objectif inchangé"
+
+msgid "objective_modified"
+msgstr "Objectif modifié"
+
+msgid "please_enter_valid_amount"
+msgstr "Veuillez entrer un montant valide"
+
+msgid "please_enter_objective"
+msgstr "Veuillez entrer un objectif"
+
+msgid "unauthorized_member_addition_attempt"
+msgstr "Tentative d'ajout de membre non autorisée"
+
+msgid "member_added_to_wallet"
+msgstr "Membre ajouté au portefeuille"
+
+msgid "member_added_to_wallet_log"
+msgstr "Membre ajouté au journal du portefeuille"
+
+msgid "unauthorized_member_removal_attempt"
+msgstr "Tentative de suppression de membre non autorisée"
+
+msgid "member_removed_from_wallet"
+msgstr "Membre retiré du portefeuille"
+
+msgid "member_removed_from_wallet_log"
+msgstr "Membre retiré du journal du portefeuille"
+
+msgid "cannot_remove_yourself_from_wallet"
+msgstr "Vous ne pouvez pas vous retirer du portefeuille"
