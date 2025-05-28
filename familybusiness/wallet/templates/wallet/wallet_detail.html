@@ -27,10 +27,16 @@
                                                 <i class="mdi mdi-account-circle"></i>
                                             </span>
                                             <span>{{ user.get_full_name }}</span>
+                                            {% if user == wallet.owner %}
+                                                <span class="tag is-primary is-small ml-2">{% trans "owner" %}</span>
+                                            {% endif %}
                                         </span>
-                                        <button class="delete is-small js-modal-trigger" data-target="modal-remove-user-{{ user.id }}" title="{% trans 'remove' %}"></button>
+                                        {% if request.user == wallet.owner and user != wallet.owner %}
+                                            <button class="delete is-small js-modal-trigger" data-target="modal-remove-user-{{ user.id }}" title="{% trans 'remove' %}"></button>
+                                        {% endif %}
                                     </li>
                                         <!-- Modal de confirmation pour ce user -->
+                                        {% if request.user == wallet.owner and user != wallet.owner %}
                                         <div id="modal-remove-user-{{ user.id }}" class="modal">
                                           <div class="modal-background"></div>
                                           <div class="modal-content">
@@ -52,33 +58,49 @@
                                           </div>
                                           <button class="modal-close is-large" aria-label="close"></button>
                                         </div>
+                                        {% endif %}
                                     {% endfor %}
                                 </ul>
                             {% else %}
                                 <p class="has-text-grey">{% trans "no_members" %}</p>
                             {% endif %}
 
-                            {% if non_members %}
-                            <form method="post" action="{% url 'wallet:add_member' wallet.id %}" class="mt-4">
-                                {% csrf_token %}
-                                <div class="field has-addons">
-                                    <div class="control is-expanded">
-                                        <div class="select is-fullwidth">
-                                            <select name="user_id" required>
-                                                <option value="" disabled selected>{% trans "add_user" %}</option>
-                                                {% for user in non_members %}
-                                                    <option value="{{ user.id }}">{{ user.get_full_name }}</option>
-                                                {% endfor %}
-                                            </select>
+                            <!-- Section pour générer une invitation -->
+                            {% if request.user == wallet.owner %}
+                            <div class="mt-4">
+                                <form method="post" action="{% url 'wallet:generate_invitation' wallet.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="button is-success is-fullwidth">
+                                        <span class="icon"><i class="mdi mdi-account-plus"></i></span>
+                                        <span>{% trans "generate_invitation" %}</span>
+                                    </button>
+                                </form>
+                            </div>
+                            {% endif %}
+
+                            <!-- Invitations actives -->
+                            {% if active_invitations and request.user == wallet.owner %}
+                            <div class="mt-4">
+                                <p class="has-text-weight-semibold mb-2">{% trans "active_invitations" %}</p>
+                                {% for invitation in active_invitations %}
+                                    <div class="is-flex is-align-items-center is-justify-content-space-between">
+                                        <div>
+                                            <p class="is-size-7 has-text-grey">
+                                                {% trans "expires_at" %}: {{ invitation.expires_at|date:"d/m/Y H:i" }}
+                                            </p>
                                         </div>
+                                        <form method="post" action="{% url 'wallet:cancel_invitation' wallet.id invitation.id %}" style="display: inline;">
+                                            {% csrf_token %}
+                                            <button type="submit" class="delete is-small" title="{% trans 'cancel_invitation' %}"></button>
+                                        </form>
                                     </div>
-                                    <div class="control">
-                                        <button type="submit" class="button is-success" title="{% trans 'add' %}">
-                                            <span class="icon"><i class="mdi mdi-plus"></i></span>
-                                        </button>
+                                    <div class="mt-2">
+                                        <input type="text" class="input is-small is-family-monospace"
+                                               value="{{ request.scheme }}://{{ request.get_host }}{% url 'wallet:accept_invitation' invitation.token %}"
+                                               readonly onclick="this.select()">
                                     </div>
-                                </div>
-                            </form>
+                                {% endfor %}
+                            </div>
                             {% endif %}
                         </div>
                     </div>

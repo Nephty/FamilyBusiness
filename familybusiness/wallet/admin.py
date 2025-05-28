@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Wallet, Transaction, Category
+from .models import Wallet, Transaction, Category, WalletInvitation
 
 @admin.register(Wallet)
 class WalletAdmin(admin.ModelAdmin):
@@ -19,3 +19,14 @@ class TransactionAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
+
+@admin.register(WalletInvitation)
+class WalletInvitationAdmin(admin.ModelAdmin):
+    list_display = ('wallet', 'created_by', 'token', 'is_used', 'expires_at')
+    list_filter = ('is_used', 'wallet')
+    search_fields = ('wallet__name', 'created_by__email', 'token')
+    readonly_fields = ('token', 'created_at', 'expires_at')
+
+    def has_add_permission(self, request):
+        return False
+

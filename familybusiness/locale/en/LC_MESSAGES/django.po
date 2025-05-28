@@ -1,1309 +1,2001 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# ENGLISH TRANSLATION FOR WALLET MANAGEMENT APP
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# TRANSLATOR <EMAIL@ADDRESS>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: WALLET MANAGEMENT 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 08:35+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2025-05-28 11:30+0200\n"
+"PO-Revision-Date: 2025-05-28 12:00+0100\n"
+"Last-Translator: Claude AI <claude@anthropic.com>\n"
+"Language-Team: English <en@li.org>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# Existing translations
+#: account/forms.py:10 account/models.py:33 adminpanel/forms.py:30
+#: adminpanel/forms.py:39 adminpanel/forms.py:84 adminpanel/forms.py:91
 msgid "first_name"
 msgstr "First Name"
 
+#: account/forms.py:11 account/models.py:34 adminpanel/forms.py:31
+#: adminpanel/forms.py:43 adminpanel/forms.py:85 adminpanel/forms.py:92
 msgid "last_name"
 msgstr "Last Name"
 
+#: account/forms.py:12 account/forms.py:38 account/models.py:32
+#: adminpanel/templates/adminpanel/user_management.html:232
 msgid "email"
 msgstr "Email"
 
+#: account/forms.py:13 account/forms.py:39 adminpanel/forms.py:10
+#: adminpanel/forms.py:13
 msgid "password"
 msgstr "Password"
 
+#: account/forms.py:14 account/forms.py:67 adminpanel/forms.py:19
+#: adminpanel/forms.py:22
 msgid "confirm_password"
 msgstr "Confirm Password"
 
+#: account/forms.py:26 account/forms.py:80 adminpanel/forms.py:69
 msgid "passwords_do_not_match"
 msgstr "Passwords do not match"
 
+#: account/forms.py:49
 msgid "invalid_credentials"
 msgstr "Invalid credentials"
 
+#: account/forms.py:51
 msgid "account_is_disabled"
 msgstr "Account is disabled"
 
+#: account/forms.py:59 account/templates/account/reset_password.html:15
 msgid "new_password"
 msgstr "New Password"
 
+#: account/forms.py:62
 msgid "minimum_8_characters"
 msgstr "Minimum 8 characters"
 
+#: account/forms.py:70
 msgid "retype_password"
 msgstr "Retype Password"
 
+#: account/models.py:16
 msgid "email_is_required"
 msgstr "Email is required"
 
+#: account/models.py:35
+#: adminpanel/templates/adminpanel/user_management.html:130
+#: adminpanel/templates/adminpanel/user_management.html:198
+#: adminpanel/templates/adminpanel/user_management.html:233
 msgid "role"
 msgstr "Role"
 
+#: account/models.py:36
 msgid "is_active"
 msgstr "Is Active"
 
+#: account/models.py:37
 msgid "is_staff"
 msgstr "Is Staff"
 
+#: account/models.py:43
 msgid "groups"
 msgstr "Groups"
 
+#: account/models.py:44
 msgid "user_permissions"
 msgstr "User Permissions"
 
+#: account/models.py:47
 msgid "account"
 msgstr "Account"
 
+#: account/models.py:48
 msgid "accounts"
 msgstr "Accounts"
 
+#: account/models.py:57 adminpanel/models.py:35
+#: adminpanel/templates/adminpanel/delete_user.html:44
+#: adminpanel/templates/adminpanel/edit_user.html:88
+#: adminpanel/templates/adminpanel/history_list.html:82
+#: adminpanel/templates/adminpanel/user_management.html:139
+#: adminpanel/templates/adminpanel/user_management.html:231
+#: adminpanel/templates/adminpanel/user_management.html:272
+#: adminpanel/templates/adminpanel/wallet_management.html:222
+#: wallet/models.py:62
 msgid "user"
 msgstr "User"
 
+#: account/models.py:58
 msgid "token"
 msgstr "Token"
 
+#: account/models.py:59
 msgid "created_at"
 msgstr "Created At"
 
+#: account/models.py:62
 msgid "password_reset_token"
 msgstr "Password Reset Token"
 
+#: account/models.py:63
 msgid "password_reset_tokens"
 msgstr "Password Reset Tokens"
 
+#: account/templates/account/login.html:15
 msgid "login"
 msgstr "Login"
 
+#: account/templates/account/login.html:25
 msgid "login_to_access_account"
 msgstr "Login to access your account"
 
+#: account/templates/account/login.html:75
+#: account/templates/account/register.html:124
 msgid "sign_in"
 msgstr "Sign In"
 
+#: account/templates/account/login.html:90
+#: account/templates/account/request_password_reset.html:24
 msgid "forgot_password"
 msgstr "Forgot Password"
 
+#: account/templates/account/login.html:94
+#: account/templates/account/request_password_reset.html:72
 msgid "no_account_yet"
 msgstr "No account yet?"
 
+#: account/templates/account/login.html:96
+#: account/templates/account/register.html:15
+#: account/templates/account/request_password_reset.html:73
+#: templates/master.html:204
 msgid "create_account"
 msgstr "Create Account"
 
+#: account/templates/account/register.html:25
 msgid "create_account_to_manage_finances"
 msgstr "Create an account to manage your finances"
 
+#: account/templates/account/register.html:99
 msgid "minimum_8_characters_recommended"
 msgstr "Minimum 8 characters recommended"
 
+#: account/templates/account/register.html:111
 msgid "create_my_account"
 msgstr "Create My Account"
 
+#: account/templates/account/register.html:122
 msgid "already_have_account"
 msgstr "Already have an account?"
 
+#: account/templates/account/request_password_reset.html:15
+#: adminpanel/templates/adminpanel/edit_user.html:123
 msgid "reset_password"
 msgstr "Reset Password"
 
+#: account/templates/account/request_password_reset.html:26
 msgid "enter_email_for_reset_link"
 msgstr "Enter your email to receive a reset link"
 
+#: account/templates/account/request_password_reset.html:34
+#: adminpanel/forms.py:32 adminpanel/forms.py:86
 msgid "email_address"
 msgstr "Email Address"
 
+#: account/templates/account/request_password_reset.html:37
 msgid "email_placeholder"
 msgstr "your.email@example.com"
 
+#: account/templates/account/request_password_reset.html:53
 msgid "send_reset_link"
 msgstr "Send Reset Link"
 
+#: account/templates/account/request_password_reset.html:68
+#: account/templates/account/token_display.html:102
 msgid "back_to_login"
 msgstr "Back to Login"
 
+#: account/templates/account/reset_password.html:24
 msgid "set_new_password"
 msgstr "Set New Password"
 
+#: account/templates/account/reset_password.html:26
 msgid "choose_strong_password_to_secure_account"
 msgstr "Choose a strong password to secure your account"
 
+#: account/templates/account/reset_password.html:71
 msgid "update_password"
 msgstr "Update Password"
 
+#: account/templates/account/token_display.html:15
 msgid "reset_link_generated"
 msgstr "Reset Link Generated"
 
+#: account/templates/account/token_display.html:24
 msgid "reset_link_created"
-msgstr "Reset link created"
+msgstr "Reset Link Created"
 
+#: account/templates/account/token_display.html:26
 msgid "use_secure_link_to_set_new_password"
 msgstr "Use this secure link to set your new password"
 
+#: account/templates/account/token_display.html:39
+#: adminpanel/templates/adminpanel/delete_category.html:61
+#: adminpanel/templates/adminpanel/delete_user.html:70
 msgid "warning"
 msgstr "Warning"
 
+#: account/templates/account/token_display.html:39
 msgid "link_expires_in_15_minutes"
 msgstr "This link expires in 15 minutes"
 
+#: account/templates/account/token_display.html:40
 msgid "expiration"
 msgstr "Expiration"
 
+#: account/templates/account/token_display.html:48
 msgid "reset_link"
 msgstr "Reset Link"
 
+#: account/templates/account/token_display.html:59
+#: account/templates/account/token_display.html:131
 msgid "copy"
 msgstr "Copy"
 
+#: account/templates/account/token_display.html:63
 msgid "copy_link_and_paste_in_browser"
 msgstr "Copy this link and paste it in your browser"
 
+#: account/templates/account/token_display.html:73
 msgid "access_form_directly"
 msgstr "Access form directly"
 
+#: account/templates/account/token_display.html:81
 msgid "time_remaining"
 msgstr "Time Remaining"
 
+#: account/templates/account/token_display.html:94
 msgid "generate_new_link"
 msgstr "Generate New Link"
 
+#: account/templates/account/token_display.html:130
 msgid "copied"
 msgstr "Copied"
 
+#: account/templates/account/token_display.html:132
 msgid "link_copied_to_clipboard"
 msgstr "Link copied to clipboard"
 
+#: account/templates/account/token_display.html:133
 msgid "copy_error_manual"
 msgstr "Copy error, please do it manually"
 
+#: account/templates/account/token_display.html:134
 msgid "link_expired_generate_new"
 msgstr "Link expired, generate a new one"
 
+#: account/templates/account/token_display.html:135
 msgid "reset_link_generated_success_15_minutes"
 msgstr "Reset link generated successfully, valid for 15 minutes"
 
+#: account/views.py:22
 msgid "new_account_created_for"
 msgstr "New account created for"
 
+#: account/views.py:39
 msgid "login_for"
 msgstr "Login for"
 
+#: account/views.py:58
 msgid "logout_for"
 msgstr "Logout for"
 
+#: account/views.py:72
 msgid "no_account_with_this_email"
 msgstr "No account with this email"
 
+#: account/views.py:79 account/views.py:98
 msgid "token_expired"
 msgstr "Token expired"
 
+#: account/views.py:88
 msgid "password_reset_successfully"
 msgstr "Password reset successfully"
 
+#: adminpanel/forms.py:33 adminpanel/forms.py:87
 msgid "admin_rights"
 msgstr "Admin Rights"
 
+#: adminpanel/forms.py:34 adminpanel/forms.py:88
 msgid "active_account"
 msgstr "Active Account"
 
+#: adminpanel/forms.py:47 adminpanel/forms.py:93
 msgid "email_example"
 msgstr "user@example.com"
 
+#: adminpanel/forms.py:60 adminpanel/forms.py:106
 msgid "email_already_used"
 msgstr "Email already used"
 
+#: adminpanel/models.py:9 adminpanel/views.py:82
 msgid "event_type_login"
 msgstr "Login"
 
+#: adminpanel/models.py:10 adminpanel/views.py:83
 msgid "event_type_logout"
 msgstr "Logout"
 
+#: adminpanel/models.py:11 adminpanel/views.py:84
 msgid "event_type_wallet_create"
 msgstr "Wallet Creation"
 
+#: adminpanel/models.py:12 adminpanel/views.py:85
 msgid "event_type_wallet_delete"
 msgstr "Wallet Deletion"
 
+#: adminpanel/models.py:13 adminpanel/views.py:86
 msgid "event_type_wallet_update"
 msgstr "Wallet Update"
 
+#: adminpanel/models.py:14 adminpanel/views.py:87
 msgid "event_type_transaction_create"
 msgstr "Transaction Creation"
 
+#: adminpanel/models.py:15 adminpanel/views.py:88
 msgid "event_type_transaction_delete"
 msgstr "Transaction Deletion"
 
+#: adminpanel/models.py:16 adminpanel/views.py:89
 msgid "event_type_transaction_update"
 msgstr "Transaction Update"
 
+#: adminpanel/models.py:17
 msgid "event_type_transaction_export"
 msgstr "Transaction Export"
 
+#: adminpanel/models.py:18 adminpanel/views.py:90
 msgid "event_type_objective_update"
 msgstr "Objective Update"
 
+#: adminpanel/models.py:19 adminpanel/views.py:91
 msgid "event_type_user_register"
 msgstr "User Registration"
 
+#: adminpanel/models.py:20 adminpanel/views.py:92
 msgid "event_type_password_change"
 msgstr "Password Change"
 
+#: adminpanel/models.py:21 adminpanel/views.py:93
 msgid "event_type_error"
 msgstr "Error"
 
+#: adminpanel/models.py:22 adminpanel/views.py:94
 msgid "event_type_admin_action"
 msgstr "Admin Action"
 
+#: adminpanel/models.py:23 adminpanel/views.py:95
 msgid "event_type_other"
 msgstr "Other"
 
+#: adminpanel/models.py:26 adminpanel/views.py:450 wallet/models.py:64
+#: wallet/templates/wallet/wallet_detail.html:334
 msgid "date"
 msgstr "Date"
 
+#: adminpanel/models.py:27
 msgid "content"
 msgstr "Content"
 
+#: adminpanel/models.py:28 adminpanel/views.py:454
+#: wallet/templates/wallet/transaction_list.html:183
 msgid "type"
 msgstr "Type"
 
+#: adminpanel/models.py:38
 msgid "user_name_snapshot"
 msgstr "User Name Snapshot"
 
+#: adminpanel/models.py:41
 msgid "event"
 msgstr "Event"
 
+#: adminpanel/models.py:42
+#: adminpanel/templates/adminpanel/history_list.html:134
 msgid "events"
 msgstr "Events"
 
+#: adminpanel/models.py:45
+#: adminpanel/templates/adminpanel/history_list.html:167
 msgid "deleted_user"
 msgstr "Deleted User"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:10
 msgid "admin_panel"
 msgstr "Admin Panel"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:12
 msgid "application_management_and_supervision"
-msgstr "Application Management and Supervision"
+msgstr "Application management and supervision"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:20
+#: adminpanel/templates/adminpanel/user_management.html:136
 msgid "administrator"
 msgstr "Administrator"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:34
 msgid "history"
 msgstr "History"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:36
 msgid "view_logs_and_action_history"
 msgstr "View logs and action history"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:49
+#: adminpanel/templates/adminpanel/user_management.html:12
 msgid "user_management"
 msgstr "User Management"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:51
 msgid "manage_accounts_and_permissions"
 msgstr "Manage accounts and permissions"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:64
+#: adminpanel/templates/adminpanel/wallet_management.html:22
 msgid "wallet_management"
 msgstr "Wallet Management"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:66
 msgid "supervise_existing_wallets"
 msgstr "Supervise existing wallets"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:79
+#: adminpanel/templates/adminpanel/category_management.html:12
 msgid "category_management"
 msgstr "Category Management"
 
+#: adminpanel/templates/adminpanel/admin_panel.html:81
 msgid "create_and_modify_categories"
 msgstr "Create and modify categories"
 
+#: adminpanel/templates/adminpanel/category_management.html:13
 msgid "transaction_category_administration"
-msgstr "Transaction Category Administration"
+msgstr "Transaction category administration"
 
+#: adminpanel/templates/adminpanel/category_management.html:23
+#: adminpanel/templates/adminpanel/category_management.html:320
+#: adminpanel/templates/adminpanel/create_category.html:9
 msgid "create_category"
 msgstr "Create Category"
 
+#: adminpanel/templates/adminpanel/category_management.html:29
+#: adminpanel/templates/adminpanel/history_list.html:25
+#: adminpanel/templates/adminpanel/user_management.html:31
+#: adminpanel/templates/adminpanel/wallet_management.html:33
 msgid "back_to_panel"
 msgstr "Back to Panel"
 
+#: adminpanel/templates/adminpanel/category_management.html:42
 msgid "total_categories"
 msgstr "Total Categories"
 
+#: adminpanel/templates/adminpanel/category_management.html:59
 msgid "categories_used"
 msgstr "Categories Used"
 
+#: adminpanel/templates/adminpanel/category_management.html:76
 msgid "categories_unused"
 msgstr "Categories Unused"
 
+#: adminpanel/templates/adminpanel/category_management.html:97
+#: adminpanel/templates/adminpanel/history_list.html:36
+#: adminpanel/templates/adminpanel/user_management.html:99
+#: adminpanel/templates/adminpanel/wallet_management.html:46
+#: wallet/templates/wallet/transaction_list.html:152
 msgid "filters_and_search"
 msgstr "Filters and Search"
 
+#: adminpanel/templates/adminpanel/category_management.html:104
+#: adminpanel/templates/adminpanel/history_list.html:41
+#: adminpanel/templates/adminpanel/user_management.html:106
+#: adminpanel/templates/adminpanel/wallet_management.html:53
+#: wallet/templates/wallet/transaction_list.html:159
 msgid "reset"
 msgstr "Reset"
 
+#: adminpanel/templates/adminpanel/category_management.html:114
+#: adminpanel/templates/adminpanel/category_management.html:168
+#: adminpanel/templates/adminpanel/history_list.html:50
+#: adminpanel/templates/adminpanel/user_management.html:116
+#: adminpanel/templates/adminpanel/user_management.html:195
+#: adminpanel/templates/adminpanel/wallet_management.html:63
+#: adminpanel/templates/adminpanel/wallet_management.html:116
+#: wallet/templates/wallet/transaction_list.html:169
 msgid "search"
 msgstr "Search"
 
+#: adminpanel/templates/adminpanel/category_management.html:117
+#: wallet/forms.py:37
 msgid "category_name_placeholder"
 msgstr "Category name..."
 
+#: adminpanel/templates/adminpanel/category_management.html:128
 msgid "usage_status"
 msgstr "Usage Status"
 
+#: adminpanel/templates/adminpanel/category_management.html:132
+#: wallet/templates/wallet/transaction_list.html:207
 msgid "all_categories"
 msgstr "All Categories"
 
+#: adminpanel/templates/adminpanel/category_management.html:134
 msgid "used_only"
 msgstr "Used Only"
 
+#: adminpanel/templates/adminpanel/category_management.html:137
 msgid "unused_only"
 msgstr "Unused Only"
 
+#: adminpanel/templates/adminpanel/category_management.html:154
+#: adminpanel/templates/adminpanel/history_list.html:120
+#: adminpanel/templates/adminpanel/user_management.html:181
+#: adminpanel/templates/adminpanel/wallet_management.html:102
+#: wallet/templates/wallet/transaction_list.html:229
 msgid "filter"
 msgstr "Filter"
 
+#: adminpanel/templates/adminpanel/category_management.html:166
+#: adminpanel/templates/adminpanel/user_management.html:193
+#: adminpanel/templates/adminpanel/wallet_management.html:114
+#: wallet/templates/wallet/transaction_list.html:241
 msgid "active_filters"
 msgstr "Active Filters"
 
+#: adminpanel/templates/adminpanel/category_management.html:172
+#: adminpanel/templates/adminpanel/category_management.html:229
 msgid "used"
 msgstr "Used"
 
+#: adminpanel/templates/adminpanel/category_management.html:172
+#: adminpanel/templates/adminpanel/category_management.html:236
 msgid "unused"
 msgstr "Unused"
 
+#: adminpanel/templates/adminpanel/category_management.html:175
+#: adminpanel/templates/adminpanel/user_management.html:203
+#: adminpanel/templates/adminpanel/wallet_management.html:121
+#: wallet/templates/wallet/transaction_list.html:253
 msgid "result"
 msgstr "Result"
 
+#: adminpanel/templates/adminpanel/category_management.html:188
+#: wallet/models.py:54
 msgid "categories"
 msgstr "Categories"
 
+#: adminpanel/templates/adminpanel/category_management.html:192
+#: adminpanel/templates/adminpanel/history_list.html:137
+#: adminpanel/templates/adminpanel/user_management.html:220
+#: adminpanel/templates/adminpanel/wallet_management.html:138
 msgid "page"
 msgstr "Page"
 
+#: adminpanel/templates/adminpanel/category_management.html:192
+#: adminpanel/templates/adminpanel/history_list.html:137
+#: adminpanel/templates/adminpanel/user_management.html:220
+#: adminpanel/templates/adminpanel/wallet_management.html:138
+#: wallet/templates/wallet/add_transaction.html:265
 msgid "of"
 msgstr "of"
 
+#: adminpanel/templates/adminpanel/category_management.html:203
+#: adminpanel/views.py:452 wallet/forms.py:72 wallet/models.py:53
+#: wallet/models.py:61 wallet/templates/wallet/transaction_list.html:203
+#: wallet/templates/wallet/wallet_detail.html:336
 msgid "category"
 msgstr "Category"
 
+#: adminpanel/templates/adminpanel/category_management.html:204
 msgid "usage"
 msgstr "Usage"
 
+#: adminpanel/templates/adminpanel/category_management.html:205
+#: adminpanel/templates/adminpanel/wallet_management.html:134
+#: wallet/models.py:19
 msgid "wallets"
 msgstr "Wallets"
 
+#: adminpanel/templates/adminpanel/category_management.html:206
 msgid "last_usage"
 msgstr "Last Usage"
 
+#: adminpanel/templates/adminpanel/category_management.html:207
+#: wallet/templates/wallet/wallet_detail.html:319
 msgid "recent_transactions"
 msgstr "Recent Transactions"
 
+#: adminpanel/templates/adminpanel/category_management.html:208
+#: adminpanel/templates/adminpanel/user_management.html:236
+#: adminpanel/templates/adminpanel/wallet_management.html:156
 msgid "actions"
 msgstr "Actions"
 
+#: adminpanel/templates/adminpanel/category_management.html:245
+#: adminpanel/templates/adminpanel/delete_category.html:44
+#: adminpanel/templates/adminpanel/delete_category.html:63
+#: adminpanel/templates/adminpanel/delete_user.html:67
+#: adminpanel/templates/adminpanel/delete_wallet.html:54
+#: adminpanel/templates/adminpanel/wallet_management.html:228
+#: wallet/models.py:70
 msgid "transaction"
 msgstr "Transaction"
 
+#: adminpanel/templates/adminpanel/category_management.html:250
+#: adminpanel/templates/adminpanel/delete_category.html:47
+#: adminpanel/templates/adminpanel/delete_category.html:64
+#: adminpanel/templates/adminpanel/delete_user.html:66
+#: adminpanel/templates/adminpanel/wallet_management.html:149
+#: wallet/models.py:18 wallet/models.py:65
 msgid "wallet"
 msgstr "Wallet"
 
+#: adminpanel/templates/adminpanel/category_management.html:257
 msgid "ago"
 msgstr "ago"
 
+#: adminpanel/templates/adminpanel/category_management.html:261
 msgid "never_used"
 msgstr "Never Used"
 
+#: adminpanel/templates/adminpanel/category_management.html:277
+#: adminpanel/templates/adminpanel/user_management.html:297
+#: adminpanel/templates/adminpanel/wallet_management.html:239
 msgid "none"
 msgstr "None"
 
+#: adminpanel/templates/adminpanel/category_management.html:283
+#: adminpanel/templates/adminpanel/user_management.html:303
+#: wallet/templates/wallet/transaction_list.html:326
+#: wallet/templates/wallet/wallet_list.html:56
 msgid "edit"
 msgstr "Edit"
 
+#: adminpanel/templates/adminpanel/category_management.html:306
 msgid "no_categories_found"
 msgstr "No categories found"
 
+#: adminpanel/templates/adminpanel/category_management.html:309
+#: adminpanel/templates/adminpanel/wallet_management.html:272
 msgid "try_modifying_filters"
 msgstr "Try modifying filters"
 
+#: adminpanel/templates/adminpanel/category_management.html:313
 msgid "start_by_creating_first_category"
 msgstr "Start by creating your first category"
 
+#: adminpanel/templates/adminpanel/category_management.html:334
+#: adminpanel/templates/adminpanel/category_management.html:336
+#: adminpanel/templates/adminpanel/history_list.html:195
+#: adminpanel/templates/adminpanel/history_list.html:197
+#: adminpanel/templates/adminpanel/user_management.html:357
+#: adminpanel/templates/adminpanel/user_management.html:359
+#: adminpanel/templates/adminpanel/wallet_management.html:285
+#: adminpanel/templates/adminpanel/wallet_management.html:287
 msgid "previous"
 msgstr "Previous"
 
+#: adminpanel/templates/adminpanel/category_management.html:341
+#: adminpanel/templates/adminpanel/category_management.html:343
+#: adminpanel/templates/adminpanel/history_list.html:201
+#: adminpanel/templates/adminpanel/history_list.html:203
+#: adminpanel/templates/adminpanel/user_management.html:364
+#: adminpanel/templates/adminpanel/user_management.html:366
+#: adminpanel/templates/adminpanel/wallet_management.html:292
+#: adminpanel/templates/adminpanel/wallet_management.html:294
 msgid "next"
 msgstr "Next"
 
+#: adminpanel/templates/adminpanel/create_category.html:10
 msgid "add_new_transaction_category"
 msgstr "Add New Transaction Category"
 
+#: adminpanel/templates/adminpanel/create_category.html:21
 msgid "new_category"
 msgstr "New Category"
 
+#: adminpanel/templates/adminpanel/create_category.html:55
 msgid "create_category_button"
 msgstr "Create Category"
 
+#: adminpanel/templates/adminpanel/create_user.html:9
+#: adminpanel/templates/adminpanel/user_management.html:25
+#: adminpanel/templates/adminpanel/user_management.html:344
+#: adminpanel/views.py:210
 msgid "create_user"
 msgstr "Create User"
 
+#: adminpanel/templates/adminpanel/create_user.html:10
 msgid "add_new_user_account"
-msgstr "Add New User Account"
+msgstr "Add new user account"
 
+#: adminpanel/templates/adminpanel/create_user.html:22
 msgid "new_user_account"
 msgstr "New User Account"
 
+#: adminpanel/templates/adminpanel/create_user.html:51
+#: adminpanel/templates/adminpanel/delete_category.html:82
+#: adminpanel/templates/adminpanel/delete_user.html:119
+#: adminpanel/templates/adminpanel/delete_wallet.html:110
+#: adminpanel/templates/adminpanel/edit_category.html:93
+#: adminpanel/templates/adminpanel/edit_user.html:50
+#: wallet/templates/wallet/add_transaction.html:175
+#: wallet/templates/wallet/delete_transaction.html:104
+#: wallet/templates/wallet/edit_objective.html:132
+#: wallet/templates/wallet/wallet_detail.html:54
+#: wallet/templates/wallet/wallet_list.html:179
 msgid "cancel"
 msgstr "Cancel"
 
+#: adminpanel/templates/adminpanel/create_user.html:56
 msgid "create_user_button"
 msgstr "Create User"
 
+#: adminpanel/templates/adminpanel/delete_category.html:12
 msgid "delete_category"
 msgstr "Delete Category"
 
+#: adminpanel/templates/adminpanel/delete_category.html:26
+#: adminpanel/templates/adminpanel/delete_user.html:24
+#: adminpanel/templates/adminpanel/delete_wallet.html:23
+#: wallet/templates/wallet/delete_transaction.html:16
 msgid "deletion_confirmation"
 msgstr "Deletion Confirmation"
 
+#: adminpanel/templates/adminpanel/delete_category.html:51
 msgid "category_unused"
 msgstr "Category Unused"
 
+#: adminpanel/templates/adminpanel/delete_category.html:61
 msgid "delete_category_warning"
 msgstr "Delete Category Warning"
 
+#: adminpanel/templates/adminpanel/delete_category.html:63
+#: adminpanel/templates/adminpanel/delete_wallet.html:54
 msgid "deleted_plural"
 msgstr "deleted"
 
+#: adminpanel/templates/adminpanel/delete_category.html:64
 msgid "financial_history_affected"
 msgstr "Financial history affected"
 
+#: adminpanel/templates/adminpanel/delete_category.html:65
 msgid "action_irreversible"
 msgstr "This action is irreversible"
 
+#: adminpanel/templates/adminpanel/delete_category.html:70
 msgid "good_news"
 msgstr "Good News"
 
+#: adminpanel/templates/adminpanel/delete_category.html:70
 msgid "category_not_used_in_transactions"
 msgstr "Category not used in transactions"
 
+#: adminpanel/templates/adminpanel/delete_category.html:71
 msgid "safe_to_delete"
 msgstr "Safe to delete"
 
+#: adminpanel/templates/adminpanel/delete_category.html:87
 msgid "delete_category_button"
 msgstr "Delete Category"
 
+#: adminpanel/templates/adminpanel/delete_category.html:98
 msgid "recent_transactions_using_category"
 msgstr "Recent transactions using this category"
 
+#: adminpanel/templates/adminpanel/delete_user.html:12
+#: adminpanel/templates/adminpanel/edit_user.html:128
 msgid "delete_user"
 msgstr "Delete User"
 
+#: adminpanel/templates/adminpanel/delete_user.html:42
+#: adminpanel/templates/adminpanel/edit_user.html:86
+#: adminpanel/templates/adminpanel/user_management.html:268
 msgid "admin"
 msgstr "Admin"
 
+#: adminpanel/templates/adminpanel/delete_user.html:47
+#: adminpanel/templates/adminpanel/edit_user.html:92
+#: adminpanel/templates/adminpanel/user_management.html:161
+#: adminpanel/templates/adminpanel/user_management.html:282
 msgid "active"
 msgstr "Active"
 
+#: adminpanel/templates/adminpanel/delete_user.html:49
+#: adminpanel/templates/adminpanel/edit_user.html:94
+#: adminpanel/templates/adminpanel/user_management.html:164
+#: adminpanel/templates/adminpanel/user_management.html:289
+#: adminpanel/templates/adminpanel/wallet_management.html:183
 msgid "inactive"
 msgstr "Inactive"
 
+#: adminpanel/templates/adminpanel/delete_user.html:51
+#: adminpanel/templates/adminpanel/edit_user.html:100
+#: adminpanel/templates/adminpanel/user_management.html:254
 msgid "registered_on"
 msgstr "Registered On"
 
+#: adminpanel/templates/adminpanel/delete_user.html:55
+#: adminpanel/templates/adminpanel/edit_user.html:101
 msgid "last_login"
 msgstr "Last Login"
 
+#: adminpanel/templates/adminpanel/delete_user.html:64
+#: adminpanel/templates/adminpanel/delete_wallet.html:52
 msgid "deletion_impact"
 msgstr "Deletion Impact"
 
+#: adminpanel/templates/adminpanel/delete_user.html:66
 msgid "associated_plural"
 msgstr "associated"
 
+#: adminpanel/templates/adminpanel/delete_user.html:67
 msgid "recorded_plural"
 msgstr "recorded"
 
+#: adminpanel/templates/adminpanel/delete_user.html:70
 msgid "user_shares_wallets_with_others"
 msgstr "User shares wallets with others"
 
+#: adminpanel/templates/adminpanel/delete_user.html:81
 msgid "affected_wallets"
 msgstr "Affected Wallets"
 
+#: adminpanel/templates/adminpanel/delete_user.html:87
 msgid "shared_wallets"
 msgstr "Shared Wallets"
 
+#: adminpanel/templates/adminpanel/delete_user.html:88
 msgid "shared_wallets_not_deleted_explanation"
 msgstr "Shared wallets will not be deleted"
 
+#: adminpanel/templates/adminpanel/delete_user.html:93
 msgid "transactions_remain_in_history"
 msgstr "Transactions remain in history"
 
+#: adminpanel/templates/adminpanel/delete_user.html:94
 msgid "shares_will_be_revoked"
 msgstr "Shares will be revoked"
 
+#: adminpanel/templates/adminpanel/delete_user.html:95
 msgid "user_permanently_deleted"
 msgstr "User permanently deleted"
 
+#: adminpanel/templates/adminpanel/delete_user.html:104
+#: adminpanel/templates/adminpanel/delete_wallet.html:94
 msgid "security_measures"
 msgstr "Security Measures"
 
+#: adminpanel/templates/adminpanel/delete_user.html:106
 msgid "permanent_irreversible_deletion"
 msgstr "Permanent irreversible deletion"
 
+#: adminpanel/templates/adminpanel/delete_user.html:107
 msgid "all_active_sessions_revoked"
 msgstr "All active sessions revoked"
 
+#: adminpanel/templates/adminpanel/delete_user.html:108
 msgid "email_can_be_reused"
 msgstr "Email can be reused"
 
+#: adminpanel/templates/adminpanel/delete_user.html:109
 msgid "event_logged_in_history"
 msgstr "Event logged in history"
 
+#: adminpanel/templates/adminpanel/delete_user.html:124
+#: adminpanel/templates/adminpanel/delete_wallet.html:115
+#: wallet/templates/wallet/delete_transaction.html:112
+#: wallet/templates/wallet/delete_transaction.html:144
 msgid "delete_permanently"
 msgstr "Delete Permanently"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:11
 msgid "delete_wallet"
 msgstr "Delete Wallet"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:38
+#: adminpanel/templates/adminpanel/delete_wallet.html:80
+#: adminpanel/templates/adminpanel/wallet_management.html:77
+#: adminpanel/templates/adminpanel/wallet_management.html:150
+#: wallet/models.py:12 wallet/templates/wallet/wallet_detail.html:31
+#: wallet/templates/wallet/wallet_list.html:88
 msgid "owner"
 msgstr "Owner"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:40
+#: adminpanel/templates/adminpanel/wallet_management.html:151
+#: wallet/models.py:14
 msgid "balance"
 msgstr "Balance"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:41
+#: adminpanel/templates/adminpanel/wallet_management.html:152
+#: wallet/models.py:15 wallet/templates/wallet/transaction_list.html:93
+#: wallet/templates/wallet/wallet_detail.html:177
+#: wallet/templates/wallet/wallet_list.html:82
+#: wallet/templates/wallet/wallet_list.html:164
 msgid "objective"
 msgstr "Objective"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:43
+#: adminpanel/templates/adminpanel/wallet_management.html:179
 msgid "shared"
 msgstr "Shared"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:64
 msgid "affected_users"
 msgstr "Affected Users"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:68
 msgid "following_users_will_lose_access"
-msgstr "Following users will lose access"
+msgstr "The following users will lose access"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:96
 msgid "permanent_deletion"
-msgstr "Permanent deletion"
+msgstr "Permanent Deletion"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:97
 msgid "transactions_permanently_lost"
 msgstr "Transactions permanently lost"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:98
 msgid "history_not_recoverable"
 msgstr "History not recoverable"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:99
 msgid "access_revoked"
 msgstr "Access revoked"
 
+#: adminpanel/templates/adminpanel/delete_wallet.html:100
 msgid "event_recorded"
 msgstr "Event recorded"
 
+#: adminpanel/templates/adminpanel/edit_category.html:12
 msgid "edit_category"
 msgstr "Edit Category"
 
+#: adminpanel/templates/adminpanel/edit_category.html:22
 msgid "back_to_list"
 msgstr "Back to List"
 
+#: adminpanel/templates/adminpanel/edit_category.html:36
+#: adminpanel/templates/adminpanel/edit_user.html:25
 msgid "edit_information"
 msgstr "Edit Information"
 
+#: adminpanel/templates/adminpanel/edit_category.html:66
 msgid "changes_preview"
 msgstr "Changes Preview"
 
+#: adminpanel/templates/adminpanel/edit_category.html:70
 msgid "current_name"
 msgstr "Current Name"
 
+#: adminpanel/templates/adminpanel/edit_category.html:81
 msgid "new_name"
 msgstr "New Name"
 
+#: adminpanel/templates/adminpanel/edit_category.html:101
+#: adminpanel/templates/adminpanel/edit_category.html:135
+#: adminpanel/templates/adminpanel/edit_user.html:56
 msgid "save_changes"
 msgstr "Save Changes"
 
+#: adminpanel/templates/adminpanel/edit_category.html:143
 msgid "no_changes"
 msgstr "No Changes"
 
+#: adminpanel/templates/adminpanel/edit_user.html:12
 msgid "edit_user"
 msgstr "Edit User"
 
+#: adminpanel/templates/adminpanel/edit_user.html:71
 msgid "current_information"
 msgstr "Current Information"
 
+#: adminpanel/templates/adminpanel/edit_user.html:105
 msgid "never_logged_in"
 msgstr "Never logged in"
 
+#: adminpanel/templates/adminpanel/edit_user.html:117
 msgid "additional_actions"
 msgstr "Additional Actions"
 
+#: adminpanel/templates/adminpanel/history_list.html:14
 msgid "event_history"
 msgstr "Event History"
 
+#: adminpanel/templates/adminpanel/history_list.html:15
 msgid "complete_system_activity_tracking"
 msgstr "Complete system activity tracking"
 
+#: adminpanel/templates/adminpanel/history_list.html:53
 msgid "search_placeholder_history"
 msgstr "Search in history..."
 
+#: adminpanel/templates/adminpanel/history_list.html:61
 msgid "event_type"
 msgstr "Event Type"
 
+#: adminpanel/templates/adminpanel/history_list.html:65
+#: wallet/templates/wallet/transaction_list.html:187
 msgid "all_types"
 msgstr "All Types"
 
+#: adminpanel/templates/adminpanel/history_list.html:86
 msgid "all_users"
 msgstr "All Users"
 
+#: adminpanel/templates/adminpanel/history_list.html:101
+#: adminpanel/templates/adminpanel/history_list.html:241
 msgid "start_date"
 msgstr "Start Date"
 
+#: adminpanel/templates/adminpanel/history_list.html:103
+#: adminpanel/templates/adminpanel/history_list.html:111
 msgid "date_format_placeholder"
 msgstr "DD/MM/YYYY"
 
+#: adminpanel/templates/adminpanel/history_list.html:109
+#: adminpanel/templates/adminpanel/history_list.html:273
 msgid "end_date"
 msgstr "End Date"
 
+#: adminpanel/templates/adminpanel/history_list.html:170
 msgid "days"
 msgstr "days"
 
+#: adminpanel/templates/adminpanel/history_list.html:184
 msgid "no_events_found"
 msgstr "No events found"
 
+#: adminpanel/templates/adminpanel/history_list.html:313
 msgid "end_date_must_be_after_start_date"
 msgstr "End date must be after start date"
 
+#: adminpanel/templates/adminpanel/user_management.html:14
 msgid "user_account_administration"
-msgstr "User Account Administration"
+msgstr "User account administration"
 
+#: adminpanel/templates/adminpanel/user_management.html:44
 msgid "total_users"
 msgstr "Total Users"
 
+#: adminpanel/templates/adminpanel/user_management.html:61
 msgid "active_users"
 msgstr "Active Users"
 
+#: adminpanel/templates/adminpanel/user_management.html:78
 msgid "administrators"
 msgstr "Administrators"
 
+#: adminpanel/templates/adminpanel/user_management.html:119
 msgid "search_placeholder_users"
 msgstr "Search users..."
 
+#: adminpanel/templates/adminpanel/user_management.html:134
 msgid "all_roles"
 msgstr "All Roles"
 
+#: adminpanel/templates/adminpanel/user_management.html:155
+#: adminpanel/templates/adminpanel/user_management.html:201
+#: adminpanel/templates/adminpanel/user_management.html:234
 msgid "status"
 msgstr "Status"
 
+#: adminpanel/templates/adminpanel/user_management.html:159
 msgid "all_statuses"
 msgstr "All Statuses"
 
+#: adminpanel/templates/adminpanel/user_management.html:216 wallet/models.py:13
 msgid "users"
 msgstr "Users"
 
+#: adminpanel/templates/adminpanel/user_management.html:235
+#: adminpanel/templates/adminpanel/wallet_management.html:155
 msgid "last_activity"
 msgstr "Last Activity"
 
+#: adminpanel/templates/adminpanel/user_management.html:310
+#: adminpanel/templates/adminpanel/wallet_management.html:245
+#: wallet/templates/wallet/transaction_list.html:332
+#: wallet/templates/wallet/wallet_list.html:62
 msgid "delete"
 msgstr "Delete"
 
+#: adminpanel/templates/adminpanel/user_management.html:328
 msgid "no_users_found"
 msgstr "No users found"
 
+#: adminpanel/templates/adminpanel/user_management.html:331
+#: wallet/templates/wallet/transaction_list.html:355
 msgid "try_modifying_filters_or"
-msgstr "Try modifying filters or"
+msgstr "Try modifying your filters or"
 
+#: adminpanel/templates/adminpanel/user_management.html:333
+#: wallet/templates/wallet/transaction_list.html:357
 msgid "reset_search"
 msgstr "reset search"
 
+#: adminpanel/templates/adminpanel/user_management.html:338
 msgid "start_by_creating_first_user"
 msgstr "Start by creating your first user"
 
+#: adminpanel/templates/adminpanel/wallet_management.html:23
 msgid "wallet_and_transaction_administration"
-msgstr "Wallet and Transaction Administration"
+msgstr "Wallet and transaction administration"
 
+#: adminpanel/templates/adminpanel/wallet_management.html:66
 msgid "search_placeholder_wallets"
 msgstr "Search wallets..."
 
+#: adminpanel/templates/adminpanel/wallet_management.html:81
 msgid "all_owners"
 msgstr "All Owners"
 
+#: adminpanel/templates/adminpanel/wallet_management.html:119
 msgid "owner_filtered"
 msgstr "Owner filtered"
 
+#: adminpanel/templates/adminpanel/wallet_management.html:153
 msgid "progress"
 msgstr "Progress"
 
+#: adminpanel/templates/adminpanel/wallet_management.html:154
 msgid "statistics"
 msgstr "Statistics"
 
+#: adminpanel/templates/adminpanel/wallet_management.html:213
 msgid "no_objective"
-msgstr "No Objective"
+msgstr "No objective"
 
+#: adminpanel/templates/adminpanel/wallet_management.html:253
 msgid "export_transactions_csv"
-msgstr "Export Transactions CSV"
+msgstr "Export transactions CSV"
 
+#: adminpanel/templates/adminpanel/wallet_management.html:269
 msgid "no_wallets_found"
 msgstr "No wallets found"
 
+#: adminpanel/views.py:197
 msgid "user_created_successfully"
 msgstr "User created successfully"
 
+#: adminpanel/views.py:200
 msgid "new_user_created"
 msgstr "New user created"
 
+#: adminpanel/views.py:219
 msgid "cannot_edit_own_admin_account"
 msgstr "Cannot edit own admin account"
 
+#: adminpanel/views.py:226
 msgid "user_modified_successfully"
 msgstr "User modified successfully"
 
+#: adminpanel/views.py:229
 msgid "user_modified"
 msgstr "User modified"
 
+#: adminpanel/views.py:265
 msgid "cannot_delete_own_account"
 msgstr "Cannot delete own account"
 
+#: adminpanel/views.py:270
 msgid "cannot_delete_last_admin"
 msgstr "Cannot delete last admin"
 
+#: adminpanel/views.py:277
 msgid "user_deleted_successfully"
 msgstr "User deleted successfully"
 
+#: adminpanel/views.py:280
 msgid "user_deleted"
 msgstr "User deleted"
 
+#: adminpanel/views.py:286 adminpanel/views.py:400 adminpanel/views.py:653
 msgid "error_during_deletion"
 msgstr "Error during deletion"
 
+#: adminpanel/views.py:388
 msgid "wallet_and_transactions_deleted_successfully"
 msgstr "Wallet and transactions deleted successfully"
 
+#: adminpanel/views.py:394 wallet/views.py:94
 msgid "wallet_deleted"
 msgstr "Wallet deleted"
 
+#: adminpanel/views.py:403
 msgid "error_deleting_wallet"
 msgstr "Error deleting wallet"
 
+#: adminpanel/views.py:430
 msgid "no_permission_export_transactions"
 msgstr "No permission to export transactions"
 
+#: adminpanel/views.py:433
 msgid "unauthorized_export_attempt"
 msgstr "Unauthorized export attempt"
 
+#: adminpanel/views.py:451 wallet/models.py:60
 msgid "title"
 msgstr "Title"
 
+#: adminpanel/views.py:453
 msgid "amount_euro"
 msgstr "Amount (€)"
 
+#: adminpanel/views.py:455
 msgid "author"
 msgstr "Author"
 
+#: adminpanel/views.py:462
 msgid "no_category"
-msgstr "No Category"
+msgstr "No category"
 
+#: adminpanel/views.py:464 wallet/templates/wallet/add_transaction.html:211
+#: wallet/templates/wallet/transaction_list.html:247
+#: wallet/templates/wallet/wallet_detail.html:431
 msgid "income"
 msgstr "Income"
 
+#: adminpanel/views.py:464 wallet/templates/wallet/add_transaction.html:97
+#: wallet/templates/wallet/add_transaction.html:212
 msgid "expense"
 msgstr "Expense"
 
+#: adminpanel/views.py:465
 msgid "unknown"
 msgstr "Unknown"
 
+#: adminpanel/views.py:470
 msgid "transactions_exported"
 msgstr "Transactions exported"
 
+#: adminpanel/views.py:559 adminpanel/views.py:597
 msgid "category_already_exists"
 msgstr "Category already exists"
 
+#: adminpanel/views.py:562
 msgid "category_created_successfully"
 msgstr "Category created successfully"
 
+#: adminpanel/views.py:565
 msgid "new_category_created"
 msgstr "New category created"
 
+#: adminpanel/views.py:571 adminpanel/views.py:613
 msgid "please_correct_form_errors"
 msgstr "Please correct form errors"
 
+#: adminpanel/views.py:601
 msgid "category_renamed_successfully"
 msgstr "Category renamed successfully"
 
+#: adminpanel/views.py:607
 msgid "category_modified"
 msgstr "Category modified"
 
+#: adminpanel/views.py:641
 msgid "category_and_transactions_deleted_successfully"
 msgstr "Category and transactions deleted successfully"
 
+#: adminpanel/views.py:647
 msgid "category_deleted"
 msgstr "Category deleted"
 
-# New translations from home template
+#: home/templates/home/home.html:11
 msgid "welcome_to"
 msgstr "Welcome to"
 
+#: home/templates/home/home.html:13
 msgid "manage_family_budgets_with_simplicity"
 msgstr "Manage your family budgets with simplicity, security and style."
 
+#: home/templates/home/home.html:23
 msgid "your_wallets"
 msgstr "Your Wallets"
 
+#: home/templates/home/home.html:24
 msgid "create_share_track_family_finances"
 msgstr "Create, share and track your family finances in real time."
 
+#: home/templates/home/home.html:26 home/templates/home/home.html:41
 msgid "access"
 msgstr "Access"
 
+#: home/templates/home/home.html:38
 msgid "administration"
 msgstr "Administration"
 
+#: home/templates/home/home.html:39
 msgid "manage_users_wallets_system_settings"
 msgstr "Manage users, wallets and system settings."
 
-# New translations from master template
+#: templates/master.html:141
 msgid "Back"
 msgstr "Back"
 
+#: templates/master.html:166 templates/master.html:191
 msgid "switch_to_english"
 msgstr "Switch to English"
 
+#: templates/master.html:173 templates/master.html:198
 msgid "switch_to_french"
 msgstr "Switch to French"
 
+#: templates/master.html:181
 msgid "Logout"
 msgstr "Logout"
 
+#: templates/master.html:206
 msgid "Login"
 msgstr "Login"
 
+#: templates/master.html:324
 msgid "developed_by"
 msgstr "Developed by"
 
+#: templates/master.html:325
 msgid "and"
 msgstr "and"
 
+#: templates/master.html:328
 msgid "Actual version"
 msgstr "Current version"
 
-# Wallet form translations
+#: wallet/forms.py:12
 msgid "wallet_name_placeholder"
 msgstr "Wallet name..."
 
+#: wallet/forms.py:25
 msgid "wallet_name"
 msgstr "Wallet Name"
 
+#: wallet/forms.py:26
 msgid "authorized_users"
 msgstr "Authorized Users"
 
+#: wallet/forms.py:27
 msgid "initial_balance"
 msgstr "Initial Balance"
 
+#: wallet/forms.py:41
 msgid "category_name"
 msgstr "Category Name"
 
+#: wallet/forms.py:51
 msgid "transaction_title_placeholder"
 msgstr "Transaction title..."
 
+#: wallet/forms.py:63
 msgid "description_optional_placeholder"
 msgstr "Description (optional)..."
 
+#: wallet/forms.py:71
 msgid "transaction_title"
 msgstr "Transaction Title"
 
+#: wallet/forms.py:73 wallet/models.py:63
+#: wallet/templates/wallet/wallet_detail.html:337
 msgid "amount"
 msgstr "Amount"
 
+#: wallet/forms.py:74 wallet/models.py:66
+#: wallet/templates/wallet/wallet_detail.html:335
 msgid "description"
 msgstr "Description"
 
+#: wallet/forms.py:75
 msgid "is_income_question"
 msgstr "Is this income?"
 
+#: wallet/models.py:11 wallet/models.py:50
+#: wallet/templates/wallet/wallet_list.html:145
 msgid "name"
 msgstr "Name"
 
+#: wallet/models.py:35
+msgid "wallet_invitation"
+msgstr "Wallet Invitation"
+
+#: wallet/models.py:36
+msgid "wallet_invitations"
+msgstr "Wallet Invitations"
+
+#: wallet/models.py:67
 msgid "is_income"
 msgstr "Is Income"
 
+#: wallet/models.py:71 wallet/templates/wallet/transaction_list.html:266
+#: wallet/templates/wallet/transaction_list.html:388
+#: wallet/templates/wallet/wallet_detail.html:140
 msgid "transactions"
 msgstr "Transactions"
 
-# New transaction template translations
+#: wallet/templates/wallet/add_transaction.html:80
 msgid "new_transaction"
 msgstr "New Transaction"
 
+#: wallet/templates/wallet/add_transaction.html:97
 msgid "activate_for_income"
 msgstr "Activate for income"
 
+#: wallet/templates/wallet/add_transaction.html:166
 msgid "summary"
 msgstr "Summary"
 
+#: wallet/templates/wallet/add_transaction.html:183
+#: wallet/templates/wallet/add_transaction.html:214
 msgid "save_transaction"
 msgstr "Save Transaction"
 
+#: wallet/templates/wallet/add_transaction.html:213
 msgid "add_this_income"
-msgstr "Add This Income"
+msgstr "Add this income"
 
+#: wallet/templates/wallet/add_transaction.html:215
 msgid "transaction_summary_template"
-msgstr "Transaction Summary Template"
+msgstr "Transaction summary template"
 
+#: wallet/templates/wallet/add_transaction.html:265
 msgid "you_will_add_a"
 msgstr "You will add a"
 
+#: wallet/templates/wallet/add_transaction.html:267
 msgid "titled"
 msgstr "titled"
 
+#: wallet/templates/wallet/add_transaction.html:268
 msgid "in_category"
 msgstr "in category"
 
-# Delete transaction template translations
+#: wallet/templates/wallet/delete_transaction.html:48
 msgid "warning_attention"
 msgstr "Warning"
 
+#: wallet/templates/wallet/delete_transaction.html:49
 msgid "about_to_delete_transaction_permanently"
 msgstr "You are about to permanently delete this transaction."
 
+#: wallet/templates/wallet/delete_transaction.html:51
+#: wallet/templates/wallet/wallet_list.html:134
+msgid "action_is_irreversible"
+msgstr "This action is irreversible"
+
+#: wallet/templates/wallet/delete_transaction.html:52
 msgid "wallet_balance_will_be_adjusted"
 msgstr "The wallet balance will be adjusted automatically"
 
+#: wallet/templates/wallet/delete_transaction.html:54
 msgid "balance_will_be_decreased_by"
 msgstr "The balance will be decreased by"
 
+#: wallet/templates/wallet/delete_transaction.html:56
 msgid "balance_will_be_increased_by"
 msgstr "The balance will be increased by"
 
+#: wallet/templates/wallet/delete_transaction.html:68
+#: wallet/templates/wallet/edit_objective.html:23
+#: wallet/templates/wallet/transaction_list.html:75
+#: wallet/templates/wallet/wallet_detail.html:157
+#: wallet/templates/wallet/wallet_list.html:76
+#: wallet/templates/wallet/wallet_list.html:155
 msgid "current_balance"
 msgstr "Current Balance"
 
+#: wallet/templates/wallet/delete_transaction.html:81
 msgid "new_balance"
 msgstr "New Balance"
 
+#: wallet/templates/wallet/delete_transaction.html:133
 msgid "are_you_sure_click_again"
 msgstr "Are you sure? Click again"
 
-# Edit objective template translations
+#: wallet/templates/wallet/edit_objective.html:17
 msgid "current_situation"
 msgstr "Current Situation"
 
+#: wallet/templates/wallet/edit_objective.html:27
 msgid "current_objective"
 msgstr "Current Objective"
 
+#: wallet/templates/wallet/edit_objective.html:34
 msgid "current_progress"
 msgstr "Current Progress"
 
+#: wallet/templates/wallet/edit_objective.html:39
+#: wallet/templates/wallet/wallet_detail.html:244
 msgid "of_your_objective_reached"
 msgstr "of your objective reached"
 
+#: wallet/templates/wallet/edit_objective.html:41
 msgid "objective_reached"
 msgstr "Objective reached"
 
+#: wallet/templates/wallet/edit_objective.html:44
 msgid "remaining"
 msgstr "remaining"
 
+#: wallet/templates/wallet/edit_objective.html:61
 msgid "objective_suggestions"
-msgstr "Objective Suggestions"
+msgstr "Objective suggestions"
 
+#: wallet/templates/wallet/edit_objective.html:65
 msgid "based_on_your_current_balance"
 msgstr "Based on your current balance"
 
+#: wallet/templates/wallet/edit_objective.html:77
 msgid "click_suggestion_to_use_as_objective"
-msgstr "Click on a suggestion to use it as objective"
+msgstr "Click a suggestion to use as objective"
 
+#: wallet/templates/wallet/edit_objective.html:91
 msgid "new_objective"
 msgstr "New Objective"
 
+#: wallet/templates/wallet/edit_objective.html:99
 msgid "objective_amount"
 msgstr "Objective Amount"
 
+#: wallet/templates/wallet/edit_objective.html:109
 msgid "enter_your_objective_in_euros"
 msgstr "Enter your objective in €"
 
+#: wallet/templates/wallet/edit_objective.html:116
 msgid "define_amount_you_wish_to_reach"
 msgstr "Define an amount you wish to reach with this wallet"
 
+#: wallet/templates/wallet/edit_objective.html:123
 msgid "progress_preview"
 msgstr "Progress Preview"
 
+#: wallet/templates/wallet/edit_objective.html:140
+#: wallet/templates/wallet/edit_objective.html:169
 msgid "save_objective"
 msgstr "Save Objective"
 
+#: wallet/templates/wallet/edit_objective.html:164
 msgid "progress_with_new_objective"
 msgstr "progress with this new objective"
 
+#: wallet/templates/wallet/edit_objective.html:165
 msgid "remaining_to_save"
-msgstr "You have"
+msgstr "You have left"
 
+#: wallet/templates/wallet/edit_objective.html:166
 msgid "objective_already_reached"
 msgstr "Objective already reached!"
 
+#: wallet/templates/wallet/edit_objective.html:167
 msgid "no_change"
 msgstr "No change"
 
+#: wallet/templates/wallet/edit_objective.html:168
 msgid "objective_achievable"
 msgstr "Objective achievable!"
 
-# Transaction list template translations
+#: wallet/templates/wallet/transaction_list.html:56
+#: wallet/templates/wallet/transaction_list.html:368
+#: wallet/templates/wallet/wallet_detail.html:133
+#: wallet/templates/wallet/wallet_detail.html:275
+#: wallet/templates/wallet/wallet_detail.html:303
+#: wallet/templates/wallet/wallet_detail.html:377
 msgid "add_transaction"
 msgstr "Add Transaction"
 
+#: wallet/templates/wallet/transaction_list.html:62
 msgid "dashboard"
 msgstr "Dashboard"
 
+#: wallet/templates/wallet/transaction_list.html:111
+#: wallet/templates/wallet/wallet_detail.html:201
 msgid "monthly_income"
 msgstr "Monthly Income"
 
+#: wallet/templates/wallet/transaction_list.html:129
+#: wallet/templates/wallet/wallet_detail.html:220
 msgid "monthly_expenses"
 msgstr "Monthly Expenses"
 
+#: wallet/templates/wallet/transaction_list.html:172
 msgid "title_or_description_placeholder"
 msgstr "Title or description..."
 
+#: wallet/templates/wallet/transaction_list.html:189
 msgid "income_only"
 msgstr "Income only"
 
+#: wallet/templates/wallet/transaction_list.html:192
 msgid "expenses_only"
 msgstr "Expenses only"
 
+#: wallet/templates/wallet/transaction_list.html:243
 msgid "search_label"
 msgstr "Search"
 
+#: wallet/templates/wallet/transaction_list.html:247
+#: wallet/templates/wallet/wallet_detail.html:439
 msgid "expenses"
 msgstr "Expenses"
 
+#: wallet/templates/wallet/transaction_list.html:273
 msgid "most_recent"
 msgstr "Most recent"
 
+#: wallet/templates/wallet/transaction_list.html:274
 msgid "oldest"
 msgstr "Oldest"
 
+#: wallet/templates/wallet/transaction_list.html:275
 msgid "amount_descending"
 msgstr "Amount descending"
 
+#: wallet/templates/wallet/transaction_list.html:276
 msgid "amount_ascending"
 msgstr "Amount ascending"
 
+#: wallet/templates/wallet/transaction_list.html:277
 msgid "title_a_z"
 msgstr "Title A-Z"
 
+#: wallet/templates/wallet/transaction_list.html:352
 msgid "no_transaction_found"
 msgstr "No transaction found"
 
+#: wallet/templates/wallet/transaction_list.html:362
 msgid "start_by_adding_first_transaction"
 msgstr "Start by adding your first transaction"
 
-# Wallet detail template translations
+#: wallet/templates/wallet/wallet_detail.html:17
 msgid "members"
 msgstr "Members"
 
+#: wallet/templates/wallet/wallet_detail.html:35
+#: wallet/templates/wallet/wallet_detail.html:52
 msgid "remove"
 msgstr "Remove"
 
+#: wallet/templates/wallet/wallet_detail.html:45
 msgid "do_you_really_want_to_remove"
 msgstr "Do you really want to remove"
 
+#: wallet/templates/wallet/wallet_detail.html:45
 msgid "from_this_wallet"
 msgstr "from this wallet"
 
+#: wallet/templates/wallet/wallet_detail.html:65
 msgid "no_members"
 msgstr "No members"
 
-msgid "add_user"
-msgstr "Add user"
+#: wallet/templates/wallet/wallet_detail.html:75
+msgid "generate_invitation"
+msgstr "Generate Invitation"
 
-msgid "add"
-msgstr "Add"
+#: wallet/templates/wallet/wallet_detail.html:84
+msgid "active_invitations"
+msgstr "Active Invitations"
 
+#: wallet/templates/wallet/wallet_detail.html:90
+msgid "expires_at"
+msgstr "Expires at"
+
+#: wallet/templates/wallet/wallet_detail.html:99
+msgid "cancel_invitation"
+msgstr "Cancel Invitation"
+
+#: wallet/templates/wallet/wallet_detail.html:144
 msgid "export_csv"
 msgstr "Export CSV"
 
+#: wallet/templates/wallet/wallet_detail.html:178
 msgid "edit_objective"
 msgstr "Edit Objective"
 
+#: wallet/templates/wallet/wallet_detail.html:238
+#: wallet/templates/wallet/wallet_list.html:99
 msgid "progress_toward_objective"
 msgstr "Progress toward objective"
 
+#: wallet/templates/wallet/wallet_detail.html:262
 msgid "financial_evolution_current_month"
-msgstr "Financial Evolution (current month)"
+msgstr "Financial evolution (current month)"
 
+#: wallet/templates/wallet/wallet_detail.html:271
 msgid "no_data_available"
 msgstr "No data available"
 
+#: wallet/templates/wallet/wallet_detail.html:272
 msgid "add_transactions_to_see_financial_evolution"
-msgstr "Add transactions to see the evolution of your finances."
+msgstr "Add transactions to see your financial evolution."
 
+#: wallet/templates/wallet/wallet_detail.html:290
 msgid "expenses_by_category"
-msgstr "Expenses by Category"
+msgstr "Expenses by category"
 
+#: wallet/templates/wallet/wallet_detail.html:299
 msgid "no_expenses_recorded"
 msgstr "No expenses recorded"
 
+#: wallet/templates/wallet/wallet_detail.html:300
 msgid "add_expense_transactions_to_see_category_breakdown"
 msgstr "Add expense transactions to see category breakdown."
 
+#: wallet/templates/wallet/wallet_detail.html:324
 msgid "see_all"
 msgstr "See All"
 
+#: wallet/templates/wallet/wallet_detail.html:348
 msgid "no_description"
 msgstr "No description"
 
+#: wallet/templates/wallet/wallet_detail.html:352
 msgid "by"
 msgstr "by"
 
+#: wallet/templates/wallet/wallet_detail.html:373
 msgid "no_transaction_recorded"
 msgstr "No transaction recorded"
 
+#: wallet/templates/wallet/wallet_detail.html:374
 msgid "start_by_adding_first_transaction_to_track_finances"
 msgstr "Start by adding your first transaction to track your finances."
 
-# Wallet form template translations
+#: wallet/templates/wallet/wallet_form.html:29
 msgid "save"
 msgstr "Save"
 
-# Wallet list template translations
+#: wallet/templates/wallet/wallet_list.html:23
 msgid "my_wallets"
 msgstr "My Wallets"
 
+#: wallet/templates/wallet/wallet_list.html:34
 msgid "new_wallet"
 msgstr "New Wallet"
 
+#: wallet/templates/wallet/wallet_list.html:104
 msgid "of_objective_reached"
 msgstr "of objective reached"
 
+#: wallet/templates/wallet/wallet_list.html:121
+#: wallet/templates/wallet/wallet_list.html:187
 msgid "confirm_deletion"
 msgstr "Confirm Deletion"
 
+#: wallet/templates/wallet/wallet_list.html:128
 msgid "delete_wallet_question"
 msgstr "Delete wallet"
 
+#: wallet/templates/wallet/wallet_list.html:135
 msgid "all_wallet_data_will_be_lost"
 msgstr "All data associated with this wallet will be permanently lost."
 
+#: wallet/templates/wallet/wallet_list.html:141
 msgid "wallet_information"
 msgstr "Wallet Information"
 
+#: wallet/templates/wallet/wallet_list.html:203
 msgid "no_wallet_yet"
 msgstr "No wallet yet"
 
+#: wallet/templates/wallet/wallet_list.html:204
 msgid "create_first_wallet_to_manage_finances"
 msgstr "Create your first wallet to start managing your finances"
 
-# Views messages
+#: wallet/views.py:38
 msgid "new_wallet_created"
 msgstr "New wallet created"
 
+#: wallet/views.py:45
 msgid "create_wallet"
-msgstr "Create Wallet"
+msgstr "Create wallet"
 
+#: wallet/views.py:51 wallet/views.py:109 wallet/views.py:217
+#: wallet/views.py:315 wallet/views.py:339 wallet/views.py:395
+#: wallet/views.py:460 wallet/views.py:507 wallet/views.py:567
+#: wallet/views.py:642 wallet/views.py:675
 msgid "no_access_to_wallet"
 msgstr "No access to wallet"
 
+#: wallet/views.py:54
 msgid "unauthorized_wallet_modification_attempt"
 msgstr "Unauthorized wallet modification attempt"
 
+#: wallet/views.py:64
 msgid "wallet_modified_successfully"
 msgstr "Wallet modified successfully"
 
+#: wallet/views.py:67
 msgid "wallet_modified"
 msgstr "Wallet modified"
 
+#: wallet/views.py:74
 msgid "edit_wallet"
-msgstr "Edit Wallet"
+msgstr "Edit wallet"
 
+#: wallet/views.py:80
 msgid "not_authorized_to_delete_wallet"
 msgstr "Not authorized to delete wallet"
 
+#: wallet/views.py:83
 msgid "unauthorized_wallet_deletion_attempt"
 msgstr "Unauthorized wallet deletion attempt"
 
+#: wallet/views.py:91
 msgid "wallet_deleted_successfully"
 msgstr "Wallet deleted successfully"
 
+#: wallet/views.py:112
 msgid "unauthorized_wallet_access_attempt"
 msgstr "Unauthorized wallet access attempt"
 
+#: wallet/views.py:220
+msgid "unauthorized_invitation_generation_attempt"
+msgstr "Unauthorized invitation generation attempt"
+
+#: wallet/views.py:240
+msgid "invitation_generated_successfully"
+msgstr "Invitation generated successfully"
+
+#: wallet/views.py:245
+msgid "invitation_generated"
+msgstr "Invitation generated"
+
+#: wallet/views.py:262
+msgid "invalid_invitation_token"
+msgstr "Invalid invitation token"
+
+#: wallet/views.py:268
+msgid "invitation_already_used"
+msgstr "Invitation already used"
+
+#: wallet/views.py:270
+msgid "invitation_expired"
+msgstr "Invitation expired"
+
+#: wallet/views.py:277
+msgid "please_login_to_accept_invitation"
+msgstr "Please login to accept invitation"
+
+#: wallet/views.py:282
+msgid "already_member_of_wallet"
+msgstr "Already member of wallet"
+
+#: wallet/views.py:294
+msgid "successfully_joined_wallet"
+msgstr "Successfully joined wallet"
+
+#: wallet/views.py:298
+msgid "member_joined_via_invitation"
+msgstr "Member joined via invitation"
+
+#: wallet/views.py:320
+msgid "invitation_cancelled_successfully"
+msgstr "Invitation cancelled successfully"
+
+#: wallet/views.py:323
+msgid "invitation_cancelled"
+msgstr "Invitation cancelled"
+
+#: wallet/views.py:342
 msgid "unauthorized_transaction_addition_attempt"
 msgstr "Unauthorized transaction addition attempt"
 
+#: wallet/views.py:359
 msgid "income_added_successfully"
 msgstr "Income added successfully"
 
+#: wallet/views.py:362
 msgid "expense_recorded_successfully"
 msgstr "Expense recorded successfully"
 
+#: wallet/views.py:367
 msgid "transaction_added"
 msgstr "Transaction added"
 
+#: wallet/views.py:398
 msgid "unauthorized_transaction_modification_attempt"
 msgstr "Unauthorized transaction modification attempt"
 
+#: wallet/views.py:423
 msgid "income_modified_successfully"
 msgstr "Income modified successfully"
 
+#: wallet/views.py:426
 msgid "expense_modified_successfully"
 msgstr "Expense modified successfully"
 
+#: wallet/views.py:431
 msgid "transaction_modified"
 msgstr "Transaction modified"
 
+#: wallet/views.py:463
 msgid "unauthorized_transaction_deletion_attempt"
 msgstr "Unauthorized transaction deletion attempt"
 
+#: wallet/views.py:473
 msgid "income_deleted"
 msgstr "Income deleted"
 
+#: wallet/views.py:476
 msgid "expense_deleted"
 msgstr "Expense deleted"
 
+#: wallet/views.py:483
 msgid "transaction_deleted"
 msgstr "Transaction deleted"
 
+#: wallet/views.py:510
 msgid "unauthorized_transaction_list_access_attempt"
 msgstr "Unauthorized transaction list access attempt"
 
+#: wallet/views.py:570
 msgid "unauthorized_objective_modification_attempt"
 msgstr "Unauthorized objective modification attempt"
 
+#: wallet/views.py:582
 msgid "objective_cannot_be_negative"
 msgstr "Objective cannot be negative"
 
+#: wallet/views.py:589
 msgid "objective_updated_successfully"
 msgstr "Objective updated successfully"
 
+#: wallet/views.py:594
 msgid "objective_unchanged"
 msgstr "Objective unchanged"
 
+#: wallet/views.py:598
 msgid "objective_modified"
 msgstr "Objective modified"
 
+#: wallet/views.py:604
 msgid "please_enter_valid_amount"
-msgstr "Please enter a valid amount"
+msgstr "Please enter valid amount"
 
+#: wallet/views.py:606
 msgid "please_enter_objective"
-msgstr "Please enter an objective"
+msgstr "Please enter objective"
 
+#: wallet/views.py:645
 msgid "unauthorized_member_addition_attempt"
 msgstr "Unauthorized member addition attempt"
 
+#: wallet/views.py:655
 msgid "member_added_to_wallet"
 msgstr "Member added to wallet"
 
+#: wallet/views.py:658
 msgid "member_added_to_wallet_log"
 msgstr "Member added to wallet log"
 
+#: wallet/views.py:678
 msgid "unauthorized_member_removal_attempt"
 msgstr "Unauthorized member removal attempt"
 
+#: wallet/views.py:687
 msgid "member_removed_from_wallet"
 msgstr "Member removed from wallet"
 
+#: wallet/views.py:690
 msgid "member_removed_from_wallet_log"
 msgstr "Member removed from wallet log"
 
+#: wallet/views.py:696
 msgid "cannot_remove_yourself_from_wallet"
 msgstr "Cannot remove yourself from wallet"

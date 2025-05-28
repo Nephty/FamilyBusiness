@@ -19,4 +19,9 @@ urlpatterns = [
     path('<int:wallet_id>/remove-member/<int:user_id>/', views.remove_member, name='remove_member'),
     path('wallets/<int:wallet_id>/export/', export_transactions_csv, name='export_transactions_csv'),
 
+    # Invitations
+    path('<int:wallet_id>/generate-invitation/', views.generate_invitation, name='generate_invitation'),
+    path('invitation/<uuid:token>/', views.accept_invitation, name='accept_invitation'),
+    path('<int:wallet_id>/invitation/<int:invitation_id>/cancel/', views.cancel_invitation, name='cancel_invitation'),
+
 ]

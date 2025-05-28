@@ -40,7 +40,14 @@ def login_view(request):
                 user=user,
                 type='LOGIN'
             )
-            return redirect('home:home')
+            invitation_token = request.session.get('invitation_token')
+            if invitation_token:
+                # Supprimer le token de la session
+                del request.session['invitation_token']
+                # Rediriger vers l'acceptation de l'invitation
+                return redirect('wallet:accept_invitation', token=invitation_token)
+            else:
+                return redirect('home:home')
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})

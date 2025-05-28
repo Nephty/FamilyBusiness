@@ -8,12 +8,13 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as _
 
 from account.models import Account
-from .forms import WalletForm, TransactionForm
-from .models import Wallet, Transaction, Category
+from .forms import WalletForm, TransactionForm, InvitationForm
+from .models import Wallet, Transaction, Category, WalletInvitation
 from adminpanel.models import Event
 
 
@@ -30,7 +31,6 @@ def wallet_create(request):
             wallet = form.save(commit=False)
             wallet.owner = request.user
             wallet.save()
-            form.save_m2m()
             # Ajoute automatiquement le créateur dans les users
             wallet.users.add(request.user)
             Event.objects.create(
@@ -103,7 +103,6 @@ def wallet_delete(request, wallet_id):
 def wallet_detail(request, wallet_id):
     wallet = get_object_or_404(Wallet, id=wallet_id)
     members = wallet.users.all()
-    non_members = Account.objects.exclude(id__in=members.values_list('id', flat=True))
 
     # Vérifier que l'utilisateur a accès à ce portefeuille
     if request.user not in wallet.users.all():
@@ -178,6 +177,13 @@ def wallet_detail(request, wallet_id):
         category_labels = []
         category_values = []
 
+    # Récupérer les invitations actives pour ce wallet
+    active_invitations = WalletInvitation.objects.filter(
+        wallet=wallet,
+        is_used=False,
+        expires_at__gt=timezone.now()
+    ).order_by('-created_at')
+
     context = {
         'wallet': wallet,
         'recent_transactions': recent_transactions,
@@ -192,11 +198,133 @@ def wallet_detail(request, wallet_id):
         'category_values': json.dumps(category_values),
 
         'members': members,
-        'non_members': non_members,
+        'active_invitations': active_invitations,
+        'invitation_form': InvitationForm(),
     }
 
     return render(request, 'wallet/wallet_detail.html', context)
 
+
+@login_required
+def generate_invitation(request, wallet_id):
+    """
+    Vue pour générer un lien d'invitation pour un portefeuille
+    """
+    wallet = get_object_or_404(Wallet, id=wallet_id)
+
+    # Vérifier que l'utilisateur est le propriétaire du portefeuille
+    if request.user != wallet.owner:
+        messages.error(request, _("no_access_to_wallet"))
+        Event.objects.create(
+            date=timezone.now(),
+            content=_("unauthorized_invitation_generation_attempt") + f": {wallet.name}",
+            user=request.user,
+            type='ERROR'
+        )
+        return redirect('wallet:wallet_list')
+
+    if request.method == 'POST':
+        form = InvitationForm(request.POST)
+        if form.is_valid():
+            # Créer une nouvelle invitation
+            invitation = WalletInvitation.objects.create(
+                wallet=wallet,
+                created_by=request.user
+            )
+
+            # Générer l'URL complète
+            invitation_url = request.build_absolute_uri(
+                reverse('wallet:accept_invitation', kwargs={'token': invitation.token})
+            )
+
+            messages.success(request, _("invitation_generated_successfully"))
+
+            Event.objects.create(
+                date=timezone.now(),
+                content=_("invitation_generated") + f": {wallet.name}",
+                user=request.user,
+                type='INVITATION_CREATE'
+            )
+
+            return redirect('wallet:wallet_detail', wallet_id=wallet.id)
+
+    return redirect('wallet:wallet_detail', wallet_id=wallet.id)
+
+
+def accept_invitation(request, token):
+    """
+    Vue pour accepter une invitation via token
+    """
+    try:
+        invitation = get_object_or_404(WalletInvitation, token=token)
+    except:
+        messages.error(request, _("invalid_invitation_token"))
+        return redirect('account:login')
+
+    # Vérifier si l'invitation est valide
+    if not invitation.is_valid():
+        if invitation.is_used:
+            messages.error(request, _("invitation_already_used"))
+        else:
+            messages.error(request, _("invitation_expired"))
+        return redirect('account:login')
+
+    # Si l'utilisateur n'est pas connecté, rediriger vers la connexion
+    if not request.user.is_authenticated:
+        # Stocker le token en session pour l'utiliser après connexion
+        request.session['invitation_token'] = str(token)
+        messages.info(request, _("please_login_to_accept_invitation"))
+        return redirect('account:login')
+
+    # Vérifier si l'utilisateur est déjà membre du portefeuille
+    if request.user in invitation.wallet.users.all():
+        messages.info(request, _("already_member_of_wallet"))
+        return redirect('wallet:wallet_detail', wallet_id=invitation.wallet.id)
+
+    # Ajouter l'utilisateur au portefeuille
+    invitation.wallet.users.add(request.user)
+
+    # Marquer l'invitation comme utilisée
+    invitation.is_used = True
+    invitation.used_by = request.user
+    invitation.used_at = timezone.now()
+    invitation.save()
+
+    messages.success(request, _("successfully_joined_wallet").format(wallet_name=invitation.wallet.name))
+
+    Event.objects.create(
+        date=timezone.now(),
+        content=_("member_joined_via_invitation") + f": {request.user.get_full_name()} → {invitation.wallet.name}",
+        user=request.user,
+        type='WALLET_JOIN'
+    )
+
+    return redirect('wallet:wallet_detail', wallet_id=invitation.wallet.id)
+
+@login_required
+def cancel_invitation(request, wallet_id, invitation_id):
+    """
+    Vue pour annuler une invitation
+    """
+    wallet = get_object_or_404(Wallet, id=wallet_id)
+    invitation = get_object_or_404(WalletInvitation, id=invitation_id, wallet=wallet)
+
+    # Vérifier que l'utilisateur est le propriétaire du portefeuille
+    if request.user != wallet.owner:
+        messages.error(request, _("no_access_to_wallet"))
+        return redirect('wallet:wallet_list')
+
+    if request.method == 'POST':
+        invitation.delete()
+        messages.success(request, _("invitation_cancelled_successfully"))
+        Event.objects.create(
+            date=timezone.now(),
+            content=_("invitation_cancelled") + f": {wallet.name}",
+            user=request.user,
+            type='INVITATION_CANCEL'
+        )
+
+    return redirect('wallet:wallet_detail', wallet_id=wallet.id)
 
 @login_required
 def add_transaction(request, wallet_id):

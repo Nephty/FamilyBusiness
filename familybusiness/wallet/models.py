@@ -1,4 +1,8 @@
+import uuid
+from datetime import timedelta
+
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
@@ -16,6 +20,31 @@ class Wallet(models.Model):
 
     def __str__(self):
         return self.name
+
+class WalletInvitation(models.Model):
+    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, related_name='invitations')
+    token = models.UUIDField(default=uuid.uuid4, unique=True)
+    created_by = models.ForeignKey('account.Account', on_delete=models.CASCADE, related_name='sent_invitations')
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField()
+    is_used = models.BooleanField(default=False)
+    used_by = models.ForeignKey('account.Account', on_delete=models.SET_NULL, null=True, blank=True, related_name='used_invitations')
+    used_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        verbose_name = _("wallet_invitation")
+        verbose_name_plural = _("wallet_invitations")
+
+    def save(self, *args, **kwargs):
+        if not self.expires_at:
+            self.expires_at = timezone.now() + timedelta(minutes=15)
+        super().save(*args, **kwargs)
+
+    def is_valid(self):
+        return not self.is_used and self.expires_at > timezone.now()
+
+    def __str__(self):
+        return f"Invitation to {self.wallet.name} - {self.token}"
 
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name=_("name"))

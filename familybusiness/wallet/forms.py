@@ -5,14 +5,11 @@ from .models import Wallet, Category, Transaction
 class WalletForm(forms.ModelForm):
     class Meta:
         model = Wallet
-        fields = ['name', 'users', 'balance']
+        fields = ['name', 'balance']
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'input',
                 'placeholder': _('wallet_name_placeholder')
-            }),
-            'users': forms.CheckboxSelectMultiple(attrs={
-                'class': 'checkbox-group'
             }),
             'balance': forms.NumberInput(attrs={
                 'class': 'input',
@@ -23,7 +20,6 @@ class WalletForm(forms.ModelForm):
         }
         labels = {
             'name': _('wallet_name'),
-            'users': _('authorized_users'),
             'balance': _('initial_balance'),
         }
 
@@ -74,3 +70,8 @@ class TransactionForm(forms.ModelForm):
             'description': _('description'),
             'is_income': _('is_income_question'),
         }
+
+class InvitationForm(forms.Form):
+    """Formulaire pour générer une invitation"""
+    # Ce formulaire n'a pas de champs visibles, juste pour la validation CSRF
+    pass

@@ -1,24 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# TRADUCTION FRANÇAISE POUR L'APPLICATION DE GESTION FINANCIÈRE
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# TRANSLATOR <EMAIL@ADDRESS>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: GESTION FINANCIÈRE 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 08:39+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2025-05-28 11:30+0200\n"
+"PO-Revision-Date: 2025-05-28 12:30+0100\n"
+"Last-Translator: Claude AI <claude@anthropic.com>\n"
+"Language-Team: French <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-# Traductions existantes
 msgid "first_name"
 msgstr "Prénom"
 
@@ -844,7 +842,6 @@ msgstr "Catégorie et transactions supprimées avec succès"
 msgid "category_deleted"
 msgstr "Catégorie supprimée"
 
-# Nouvelles traductions des templates home
 msgid "welcome_to"
 msgstr "Bienvenue sur"
 
@@ -866,7 +863,6 @@ msgstr "Administration"
 msgid "manage_users_wallets_system_settings"
 msgstr "Gérez les utilisateurs, portefeuilles et paramètres du système."
 
-# Nouvelles traductions du template master
 msgid "Back"
 msgstr "Retour"
 
@@ -891,7 +887,6 @@ msgstr "et"
 msgid "Actual version"
 msgstr "Version actuelle"
 
-# Traductions des formulaires wallet
 msgid "wallet_name_placeholder"
 msgstr "Nom du portefeuille..."
 
@@ -928,13 +923,18 @@ msgstr "Est-ce un revenu ?"
 msgid "name"
 msgstr "Nom"
 
+msgid "wallet_invitation"
+msgstr "Invitation au portefeuille"
+
+msgid "wallet_invitations"
+msgstr "Invitations au portefeuille"
+
 msgid "is_income"
 msgstr "Est un revenu"
 
 msgid "transactions"
 msgstr "Transactions"
 
-# Traductions du template nouvelle transaction
 msgid "new_transaction"
 msgstr "Nouvelle transaction"
 
@@ -962,12 +962,14 @@ msgstr "intitulé"
 msgid "in_category"
 msgstr "dans la catégorie"
 
-# Traductions du template suppression transaction
 msgid "warning_attention"
 msgstr "Attention"
 
 msgid "about_to_delete_transaction_permanently"
 msgstr "Vous êtes sur le point de supprimer définitivement cette transaction."
+
+msgid "action_is_irreversible"
+msgstr "Cette action est irréversible"
 
 msgid "wallet_balance_will_be_adjusted"
 msgstr "Le solde du portefeuille sera ajusté automatiquement"
@@ -987,7 +989,6 @@ msgstr "Nouveau solde"
 msgid "are_you_sure_click_again"
 msgstr "Êtes-vous sûr ? Cliquez encore"
 
-# Traductions du template édition objectif
 msgid "current_situation"
 msgstr "Situation actuelle"
 
@@ -1048,7 +1049,6 @@ msgstr "Aucun changement"
 msgid "objective_achievable"
 msgstr "Objectif atteignable !"
 
-# Traductions du template liste des transactions
 msgid "add_transaction"
 msgstr "Ajouter transaction"
 
@@ -1097,7 +1097,6 @@ msgstr "Aucune transaction trouvée"
 msgid "start_by_adding_first_transaction"
 msgstr "Commencez par ajouter votre première transaction"
 
-# Traductions du template détail portefeuille
 msgid "members"
 msgstr "Membres"
 
@@ -1113,11 +1112,17 @@ msgstr "de ce portefeuille"
 msgid "no_members"
 msgstr "Aucun membre"
 
-msgid "add_user"
-msgstr "Ajouter un utilisateur"
+msgid "generate_invitation"
+msgstr "Générer une invitation"
 
-msgid "add"
-msgstr "Ajouter"
+msgid "active_invitations"
+msgstr "Invitations actives"
+
+msgid "expires_at"
+msgstr "Expire le"
+
+msgid "cancel_invitation"
+msgstr "Annuler l'invitation"
 
 msgid "export_csv"
 msgstr "Exporter CSV"
@@ -1161,16 +1166,14 @@ msgstr "Aucune transaction enregistrée"
 msgid "start_by_adding_first_transaction_to_track_finances"
 msgstr "Commencez par ajouter votre première transaction pour suivre vos finances."
 
-# Traductions du template formulaire portefeuille
 msgid "save"
 msgstr "Enregistrer"
 
-# Traductions du template liste des portefeuilles
 msgid "my_wallets"
-msgstr "Mes Wallets"
+msgstr "Mes Portefeuilles"
 
 msgid "new_wallet"
-msgstr "Nouveau Wallet"
+msgstr "Nouveau Portefeuille"
 
 msgid "of_objective_reached"
 msgstr "de l'objectif atteint"
@@ -1179,21 +1182,20 @@ msgid "confirm_deletion"
 msgstr "Confirmer la suppression"
 
 msgid "delete_wallet_question"
-msgstr "Supprimer le wallet"
+msgstr "Supprimer le portefeuille"
 
 msgid "all_wallet_data_will_be_lost"
-msgstr "Toutes les données associées à ce wallet seront définitivement perdues."
+msgstr "Toutes les données associées à ce portefeuille seront définitivement perdues."
 
 msgid "wallet_information"
-msgstr "Informations du wallet"
+msgstr "Informations du portefeuille"
 
 msgid "no_wallet_yet"
-msgstr "Aucun wallet pour le moment"
+msgstr "Aucun portefeuille pour le moment"
 
 msgid "create_first_wallet_to_manage_finances"
-msgstr "Créez votre premier wallet pour commencer à gérer vos finances"
+msgstr "Créez votre premier portefeuille pour commencer à gérer vos finances"
 
-# Messages des vues
 msgid "new_wallet_created"
 msgstr "Nouveau portefeuille créé"
 
@@ -1226,6 +1228,42 @@ msgstr "Portefeuille supprimé avec succès"
 
 msgid "unauthorized_wallet_access_attempt"
 msgstr "Tentative d'accès non autorisée au portefeuille"
+
+msgid "unauthorized_invitation_generation_attempt"
+msgstr "Tentative de génération d'invitation non autorisée"
+
+msgid "invitation_generated_successfully"
+msgstr "Invitation générée avec succès"
+
+msgid "invitation_generated"
+msgstr "Invitation générée"
+
+msgid "invalid_invitation_token"
+msgstr "Jeton d'invitation invalide"
+
+msgid "invitation_already_used"
+msgstr "Invitation déjà utilisée"
+
+msgid "invitation_expired"
+msgstr "Invitation expirée"
+
+msgid "please_login_to_accept_invitation"
+msgstr "Veuillez vous connecter pour accepter l'invitation"
+
+msgid "already_member_of_wallet"
+msgstr "Déjà membre du portefeuille"
+
+msgid "successfully_joined_wallet"
+msgstr "A rejoint le portefeuille avec succès"
+
+msgid "member_joined_via_invitation"
+msgstr "Membre rejoint via invitation"
+
+msgid "invitation_cancelled_successfully"
+msgstr "Invitation annulée avec succès"
+
+msgid "invitation_cancelled"
+msgstr "Invitation annulée"
 
 msgid "unauthorized_transaction_addition_attempt"
 msgstr "Tentative d'ajout de transaction non autorisée"

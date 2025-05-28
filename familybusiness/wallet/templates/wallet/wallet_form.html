@@ -28,6 +28,9 @@
                     <button type="submit" class="button is-success">
                         <i class="mdi mdi-content-save mr-1"></i> {% trans "save" %}
                     </button>
+                    <a href="{% url 'wallet:wallet_list' %}" class="button is-light">
+                        <i class="mdi mdi-arrow-left-bold mr-1"></i> {% trans "cancel" %}
+                    </a>
                 </div>
             </div>
         </form>
