@@ -42,6 +42,9 @@ msgstr "Password"
 msgid "confirm_password"
 msgstr "Confirm Password"
 
+msgid "confirm"
+msgstr "Confirm"
+
 #: account/forms.py:26 account/forms.py:80 adminpanel/forms.py:69
 msgid "passwords_do_not_match"
 msgstr "Passwords do not match"
@@ -196,6 +199,9 @@ msgstr "your.email@example.com"
 #: account/templates/account/request_password_reset.html:53
 msgid "send_reset_link"
 msgstr "Send Reset Link"
+
+msgid "invite_link"
+msgstr "Invite Link"
 
 #: account/templates/account/request_password_reset.html:68
 #: account/templates/account/token_display.html:102
@@ -1462,6 +1468,9 @@ msgstr "You will add a"
 msgid "titled"
 msgstr "titled"
 
+msgid "no_title"
+msgstr "No title"
+
 #: wallet/templates/wallet/add_transaction.html:268
 msgid "in_category"
 msgstr "in category"
@@ -1883,6 +1892,12 @@ msgstr "Successfully joined wallet"
 #: wallet/views.py:298
 msgid "member_joined_via_invitation"
 msgstr "Member joined via invitation"
+
+msgid "join_wallet"
+msgstr "Join Wallet"
+
+msgid "join_existing_wallet"
+msgstr "Join using link"
 
 #: wallet/views.py:320
 msgid "invitation_cancelled_successfully"

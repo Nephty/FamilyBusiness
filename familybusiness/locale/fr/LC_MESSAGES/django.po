@@ -32,6 +32,9 @@ msgstr "Mot de passe"
 msgid "confirm_password"
 msgstr "Confirmer le mot de passe"
 
+msgid "confirm"
+msgstr "Confirmer"
+
 msgid "passwords_do_not_match"
 msgstr "Les mots de passe ne correspondent pas"
 
@@ -181,6 +184,9 @@ msgstr "Temps restant"
 
 msgid "generate_new_link"
 msgstr "Générer un nouveau lien"
+
+msgid "invite_link"
+msgstr "Lien d'invitation"
 
 msgid "copied"
 msgstr "Copié"
@@ -959,6 +965,9 @@ msgstr "Vous allez ajouter un"
 msgid "titled"
 msgstr "intitulé"
 
+msgid "no_title"
+msgstr "Sans titre"
+
 msgid "in_category"
 msgstr "dans la catégorie"
 
@@ -1262,6 +1271,12 @@ msgstr "A rejoint le portefeuille avec succès"
 
 msgid "member_joined_via_invitation"
 msgstr "Membre rejoint via invitation"
+
+msgid "join_wallet"
+msgstr "Rejoindre le portefeuille"
+
+msgid "join_existing_wallet"
+msgstr "Rejoindre via lien"
 
 msgid "invitation_cancelled_successfully"
 msgstr "Invitation annulée avec succès"

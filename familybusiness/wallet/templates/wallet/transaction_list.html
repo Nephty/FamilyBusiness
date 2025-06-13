@@ -36,7 +36,7 @@
 {% block content %}
 <section class="section">
     <div class="container">
-        <!-- En-tête du portefeuille (repris de wallet_detail) -->
+        <!-- Wallet header reused from wallet_detail -->
         <div class="card mb-5">
             <div class="card-content">
                 <div class="level">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <!-- Indicateurs financiers -->
+                <!-- Financial indicators -->
                 <div class="columns is-multiline mt-4">
                     <div class="column is-half-tablet is-one-quarter-desktop">
                         <div class="box has-background-success-light">
@@ -142,7 +142,7 @@
             </div>
         </div>
 
-        <!-- Filtres et recherche -->
+        <!-- Search and filters -->
         <div class="card mb-5">
             <div class="card-header">
                 <div class="card-header-title">
@@ -197,7 +197,7 @@
                             </div>
                         </div>
 
-                        <!-- Catégorie -->
+                        <!-- Category -->
                         <div class="column">
                             <div class="field">
                                 <label class="label">{% trans "category" %}</label>
@@ -217,7 +217,7 @@
                             </div>
                         </div>
 
-                        <!-- Bouton de filtrage -->
+                        <!-- Filter button -->
                         <div class="column is-narrow">
                             <div class="field">
                                 <label class="label">&nbsp;</label>
@@ -234,7 +234,7 @@
                     </div>
                 </form>
 
-                <!-- Résumé des filtres actifs -->
+                <!-- Active filters recap -->
                 {% if current_search or current_type or selected_category %}
                 <div class="notification is-light">
                     <button class="delete" id="clear-filters"></button>
@@ -256,7 +256,7 @@
             </div>
         </div>
 
-        <!-- Liste des transactions -->
+        <!-- Trx list -->
         <div class="card">
             <div class="card-header">
                 <div class="card-header-title">
@@ -383,12 +383,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearAllFiltersBtn = document.getElementById('clear-all-filters');
     const sortSelect = document.getElementById('sort-select');
 
-    // Traductions pour JavaScript
+    // JS translate
     const translations = {
         'transactions': "{% trans 'transactions' %}"
     };
 
-    // Filtrage en temps réel sur la recherche
+    // Real time filtering
     const searchInput = form.querySelector('input[name="search"]');
     let searchTimeout;
 
@@ -399,12 +399,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    // Tri des transactions
     sortSelect.addEventListener('change', function() {
         sortTransactions(this.value);
     });
 
-    // Réinitialiser les filtres
     function resetFilters() {
         form.reset();
         window.location.href = window.location.pathname;
@@ -414,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', resetFilters);
     if (clearAllFiltersBtn) clearAllFiltersBtn.addEventListener('click', resetFilters);
 
-    // Filtrage côté client pour la recherche instantanée
+    // Client side filtering for instataneous searches
     function filterTransactions() {
         const searchTerm = searchInput.value.toLowerCase();
         const transactions = document.querySelectorAll('.transaction-item');
@@ -433,7 +431,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Mettre à jour le compteur
         const counter = document.querySelector('.card-header-title');
         counter.innerHTML = `
             <span class="icon mr-2">
@@ -442,8 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ${translations.transactions} (${visibleCount})
         `;
     }
-    
-    // Tri des transactions
+
     function sortTransactions(sortBy) {
         const container = document.querySelector('.transaction-list');
         const transactions = Array.from(container.querySelectorAll('.transaction-item'));
@@ -464,8 +460,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return 0;
             }
         });
-        
-        // Réorganiser les éléments
+
         transactions.forEach(transaction => {
             container.appendChild(transaction);
         });

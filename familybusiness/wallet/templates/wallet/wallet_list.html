@@ -35,7 +35,7 @@
                     </a>
 
                     <a href="javascript:void(0);" class="button is-info modern-btn js-modal-trigger" data-target="modal-join-wallet">
-                        <span>Join Existing Wallet</span>
+                        <span>{% trans "join_existing_wallet" %}</span>
                     </a>
                 </div>
             </div>
@@ -46,25 +46,25 @@
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
-                    <p class="modal-card-title">Join wallet</p>
+                    <p class="modal-card-title">{% trans "join_wallet" %}</p>
                     <button class="delete" aria-label="close"></button>
                 </header>
 
                 <form id="join-wallet-form">
                     <section class="modal-card-body">
                         <div class="field">
-                            <label class="label">Invitation link</label>
+                            <label class="label">{% trans "invite_link" %}</label>
                             <div class="control">
                                 <input id="invitation-link" class="input" type="text" placeholder="https://example.com/invitation/uuid">
                             </div>
-                        <p id="join-wallet-error" class="help has-text-danger is-hidden">Invalid invitation link</p>
+                        <p id="join-wallet-error" class="help has-text-danger is-hidden">{% trans "invalid_invitation_token" %}</p>
                         </div>
                     </section>
 
                     <footer class="modal-card-foot is-justify-content-space-between">
                         <button type="submit" class="button is-info">
                             <span class="icon"><i class="mdi mdi-check"></i></span>
-                            <span>Confirm</span>
+                            <span>{% trans "confirm" %}</span>
                         </button>
                     </footer>
                 </form>
@@ -87,14 +87,18 @@
                                 </div>
                                 <div class="card-header-icon">
                                     <div class="buttons are-small">
-                                        <a href="{% url 'wallet:wallet_update' wallet.id %}" class="button is-warning is-light" title="{% trans 'edit' %}">
+                                        <a href="{% url 'wallet:wallet_update' wallet.id %}"
+                                            class="button is-warning is-light"
+                                            title="{% trans 'edit' %}"
+                                            onclick="event.stopPropagation();">
                                             <span class="icon">
                                                 <i class="mdi mdi-pencil"></i>
                                             </span>
                                         </a>
                                         <button class="button is-danger is-light js-modal-trigger"
                                                 title="{% trans 'delete' %}"
-                                                data-target="modal-delete-{{ wallet.id }}">
+                                                data-target="modal-delete-{{ wallet.id }}"
+                                                onclick="event.stopPropagation();">
                                             <span class="icon">
                                                 <i class="mdi mdi-delete"></i>
                                             </span>

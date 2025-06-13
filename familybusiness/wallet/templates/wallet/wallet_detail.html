@@ -6,7 +6,6 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <!-- Carte des membres -->
                 <div class="column is-one-quarter">
                     <div class="card">
                         <div class="card-header">
@@ -35,7 +34,6 @@
                                             <button class="delete is-small js-modal-trigger" data-target="modal-remove-user-{{ user.id }}" title="{% trans 'remove' %}"></button>
                                         {% endif %}
                                     </li>
-                                        <!-- Modal de confirmation pour ce user -->
                                         {% if request.user == wallet.owner and user != wallet.owner %}
                                         <div id="modal-remove-user-{{ user.id }}" class="modal">
                                           <div class="modal-background"></div>
@@ -65,7 +63,7 @@
                                 <p class="has-text-grey">{% trans "no_members" %}</p>
                             {% endif %}
 
-                            <!-- Section pour générer une invitation -->
+                            <!-- Invites -->
                             {% if request.user == wallet.owner %}
                             <div class="mt-4">
                                 <form method="post" action="{% url 'wallet:generate_invitation' wallet.id %}">
@@ -78,7 +76,7 @@
                             </div>
                             {% endif %}
 
-                            <!-- Invitations actives -->
+                            <!-- Active invites -->
                             {% if active_invitations and request.user == wallet.owner %}
                             <div class="mt-4">
                                 <p class="has-text-weight-semibold mb-2">{% trans "active_invitations" %}</p>
@@ -106,7 +104,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <!-- En-tête du portefeuille -->
+                    <!-- Wallet header -->
                     <div class="card mb-5">
                         <div class="card-content">
                             <div class="level">
@@ -141,7 +139,7 @@
                                 </div>
                             </div>
 
-                            <!-- Indicateurs financiers -->
+                            <!-- Financial indicators -->
                             <div class="columns is-multiline mt-4">
                                 <div class="column is-half-tablet is-one-quarter-desktop">
                                     <div class="box has-background-success-light">
@@ -226,7 +224,7 @@
                                 </div>
                             </div>
 
-                            <!-- Barre de progression vers l'objectif -->
+                            <!-- Status bar -->
                             {% if wallet.objective > 0 %}
                                 <div class="field">
                                     <label class="label">{% trans "progress_toward_objective" %}</label>
@@ -244,7 +242,7 @@
                 </div>
             </div>
 
-            <!-- Graphiques -->
+            <!-- Plots -->
             <div class="columns">
                 <div class="column is-half">
                     <div class="card">
@@ -303,7 +301,7 @@
                 </div>
             </div>
 
-            <!-- Transactions récentes -->
+            <!-- Recent trx -->
             <div class="card mt-5">
                 <div class="card-header">
                     <div class="card-header-title">
@@ -336,10 +334,10 @@
                                     <tr>
                                         <td>{{ transaction.date|date:"d/m/Y" }}</td>
                                         <td>
-                                            {% if transaction.description %}
-                                                <strong>{{ transaction.description|linebreaks }}</strong>
+                                            {% if transaction.title %}
+                                                <strong>{{ transaction.title }}</strong>
                                             {% else %}
-                                                <strong>{% trans "no_description" %}</strong>
+                                                <strong>{% trans "no_title" %}</strong>
                                             {% endif %}
                                             {% if transaction.user %}
                                                 <br>
