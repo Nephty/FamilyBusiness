@@ -5,6 +5,7 @@ from decimal import Decimal
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render
@@ -31,7 +32,7 @@ def wallet_create(request):
             wallet = form.save(commit=False)
             wallet.owner = request.user
             wallet.save()
-            # Ajoute automatiquement le créateur dans les users
+            # Automatically add the owner to the users
             wallet.users.add(request.user)
             Event.objects.create(
                 date=timezone.now(),
@@ -208,11 +209,11 @@ def wallet_detail(request, wallet_id):
 @login_required
 def generate_invitation(request, wallet_id):
     """
-    Vue pour générer un lien d'invitation pour un portefeuille
+    View to generate and invitation link
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
-    # Vérifier que l'utilisateur est le propriétaire du portefeuille
+    # Check that the user trying to create the invitation is the owner
     if request.user != wallet.owner:
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(
@@ -226,13 +227,13 @@ def generate_invitation(request, wallet_id):
     if request.method == 'POST':
         form = InvitationForm(request.POST)
         if form.is_valid():
-            # Créer une nouvelle invitation
+            # Create a new invite
             invitation = WalletInvitation.objects.create(
                 wallet=wallet,
                 created_by=request.user
             )
 
-            # Générer l'URL complète
+            # Generate the invite URL
             invitation_url = request.build_absolute_uri(
                 reverse('wallet:accept_invitation', kwargs={'token': invitation.token})
             )
@@ -252,39 +253,36 @@ def generate_invitation(request, wallet_id):
 
 
 def accept_invitation(request, token):
-    """
-    Vue pour accepter une invitation via token
-    """
+
+    # If the user is not authenticated store token and redirect to login
+    if not request.user.is_authenticated:
+        request.session['invitation_token'] = str(token)
+        messages.info(request, _("please_login_to_accept_invitation"))
+        return redirect('account:login')
+
     try:
         invitation = get_object_or_404(WalletInvitation, token=token)
     except:
         messages.error(request, _("invalid_invitation_token"))
-        return redirect('account:login')
+        return redirect('wallet:wallet_list')
 
-    # Vérifier si l'invitation est valide
     if not invitation.is_valid():
         if invitation.is_used:
             messages.error(request, _("invitation_already_used"))
         else:
             messages.error(request, _("invitation_expired"))
-        return redirect('account:login')
 
-    # Si l'utilisateur n'est pas connecté, rediriger vers la connexion
-    if not request.user.is_authenticated:
-        # Stocker le token en session pour l'utiliser après connexion
-        request.session['invitation_token'] = str(token)
-        messages.info(request, _("please_login_to_accept_invitation"))
-        return redirect('account:login')
+        return redirect('wallet:wallet_list')
 
-    # Vérifier si l'utilisateur est déjà membre du portefeuille
     if request.user in invitation.wallet.users.all():
+        messages.error(request, "Already in the wallet")
         messages.info(request, _("already_member_of_wallet"))
         return redirect('wallet:wallet_detail', wallet_id=invitation.wallet.id)
 
-    # Ajouter l'utilisateur au portefeuille
+    # If not, add to wallet
     invitation.wallet.users.add(request.user)
 
-    # Marquer l'invitation comme utilisée
+    # Mark invitation link as used (Can only be used once)
     invitation.is_used = True
     invitation.used_by = request.user
     invitation.used_at = timezone.now()
@@ -304,12 +302,12 @@ def accept_invitation(request, token):
 @login_required
 def cancel_invitation(request, wallet_id, invitation_id):
     """
-    Vue pour annuler une invitation
+    View to cancel invitation
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
     invitation = get_object_or_404(WalletInvitation, id=invitation_id, wallet=wallet)
 
-    # Vérifier que l'utilisateur est le propriétaire du portefeuille
+    # Check that the user trying to cancel the invitation is the owner
     if request.user != wallet.owner:
         messages.error(request, _("no_access_to_wallet"))
         return redirect('wallet:wallet_list')
@@ -329,11 +327,11 @@ def cancel_invitation(request, wallet_id, invitation_id):
 @login_required
 def add_transaction(request, wallet_id):
     """
-    Vue pour ajouter une nouvelle transaction à un portefeuille
+    View to add a new transaction to the wallet
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
-    # Vérifier que l'utilisateur a accès à ce portefeuille
+    # Check that the user is a member of the wallet
     if request.user not in wallet.users.all():
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(
@@ -352,7 +350,7 @@ def add_transaction(request, wallet_id):
             transaction.wallet = wallet
             transaction.save()
 
-            # Mettre à jour le solde du portefeuille
+            # Update wallet balance
             if transaction.is_income:
                 wallet.balance += transaction.amount
                 messages.success(request, _("income_added_successfully").format(amount=transaction.amount))
@@ -370,7 +368,7 @@ def add_transaction(request, wallet_id):
             return redirect('wallet:wallet_detail', wallet_id=wallet.id)
     else:
         form = TransactionForm()
-        # Filtrer les catégories pour ne montrer que celles disponibles
+        # Show only available categories
         form.fields['category'].queryset = Category.objects.all()
 
     context = {
@@ -384,12 +382,12 @@ def add_transaction(request, wallet_id):
 @login_required
 def edit_transaction(request, wallet_id, transaction_id):
     """
-    Vue pour modifier une transaction existante
+    View to edit a wallet's transaction
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
     transaction = get_object_or_404(Transaction, id=transaction_id, wallet=wallet)
 
-    # Vérifier que l'utilisateur a accès à ce portefeuille
+    # Check that the user is a member of the wallet
     if request.user not in wallet.users.all():
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(
@@ -400,23 +398,22 @@ def edit_transaction(request, wallet_id, transaction_id):
         )
         return redirect('wallet:wallet_list')
 
-    # Sauvegarder les anciennes valeurs pour ajuster le solde
     old_amount = transaction.amount
     old_is_income = transaction.is_income
 
     if request.method == 'POST':
         form = TransactionForm(request.POST, instance=transaction)
         if form.is_valid():
-            # Annuler l'ancienne transaction du solde
+            # Replace previous transaction
             if old_is_income:
                 wallet.balance -= old_amount
             else:
                 wallet.balance += old_amount
 
-            # Sauvegarder la nouvelle transaction
+            # Save new transaction
             transaction = form.save()
 
-            # Appliquer la nouvelle transaction au solde
+            # Update the wallet's balance
             if transaction.is_income:
                 wallet.balance += transaction.amount
                 messages.success(request, _("income_modified_successfully"))
@@ -449,12 +446,12 @@ def edit_transaction(request, wallet_id, transaction_id):
 @login_required
 def delete_transaction(request, wallet_id, transaction_id):
     """
-    Vue pour supprimer une transaction
+    View to delete a wallet's transaction
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
     transaction = get_object_or_404(Transaction, id=transaction_id, wallet=wallet)
 
-    # Vérifier que l'utilisateur a accès à ce portefeuille
+    # Check that the user is a member of the wallet
     if request.user not in wallet.users.all():
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(
@@ -466,7 +463,7 @@ def delete_transaction(request, wallet_id, transaction_id):
         return redirect('wallet:wallet_list')
 
     if request.method == 'POST':
-        # Ajuster le solde du portefeuille
+        # Update wallet's balance
         if transaction.is_income:
             wallet.balance -= transaction.amount
             messages.success(request, _("income_deleted").format(amount=transaction.amount))
@@ -493,15 +490,14 @@ def delete_transaction(request, wallet_id, transaction_id):
     return render(request, 'wallet/delete_transaction.html', context)
 
 
-# Vue pour la liste des transactions (bonus)
 @login_required
 def transaction_list(request, wallet_id):
     """
-    Vue pour afficher toutes les transactions d'un portefeuille
+    View to display a list of all wallet's transactions
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
-    # Vérifier que l'utilisateur a accès à ce portefeuille
+    # Check that the user is a member of the wallet
     if request.user not in wallet.users.all():
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(
@@ -514,7 +510,7 @@ def transaction_list(request, wallet_id):
 
     transactions = Transaction.objects.filter(wallet=wallet).order_by('-date')
 
-    # Calculs pour les indicateurs du mois en cours
+    # Compute wallet's indicators
     now = timezone.now()
     start_of_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
 
@@ -524,14 +520,14 @@ def transaction_list(request, wallet_id):
     monthly_expenses = monthly_transactions.filter(is_income=False).aggregate(
         total=Sum('amount'))['total'] or 0
 
-    # Filtrage par catégorie si demandé
+    # If required, filter on categories
     category_filter = request.GET.get('category')
     if category_filter:
         transactions = transactions.filter(category_id=category_filter)
 
     selected_category = get_object_or_404(Category, id=category_filter) if category_filter else None
 
-    # Filtrage par type (revenus/dépenses)
+    # Filter transaction by type if required
     type_filter = request.GET.get('type')
     if type_filter == 'income':
         transactions = transactions.filter(is_income=True)
@@ -557,11 +553,11 @@ def transaction_list(request, wallet_id):
 @login_required
 def edit_objective(request, wallet_id):
     """
-    Vue pour modifier l'objectif d'un portefeuille
+    View to edit the objective of the wallet
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
-    # Vérifier que l'utilisateur a accès à ce portefeuille
+    # Check that the user is a member of the wallet
     if request.user not in wallet.users.all():
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(
@@ -604,21 +600,21 @@ def edit_objective(request, wallet_id):
         else:
             messages.error(request, _("please_enter_objective"))
 
-    # Calculer quelques statistiques utiles
+    # Compute statistics on the objective
     current_progress = 0
     if wallet.objective > 0:
         current_progress = min((wallet.balance / wallet.objective) * 100, 100)
 
-    # Suggestions d'objectifs basées sur le solde actuel
+    # Suggestion of objectives base on the current balance
     suggested_objectives = []
     if wallet.balance > 0:
         suggested_objectives = [
-            wallet.balance * Decimal('1.5'),  # 50% de plus
+            wallet.balance * Decimal('1.5'),  # 50% more
             wallet.balance * Decimal('2'),  # Double
-            wallet.balance * Decimal('2.5'),  # 150% de plus
-            round((wallet.balance / Decimal('100')) * Decimal('100'), -2) + Decimal('500'),  # Arrondi + 500
+            wallet.balance * Decimal('2.5'),  # 150% more
+            round((wallet.balance / Decimal('100')) * Decimal('100'), -2) + Decimal('500'),  # Rounded + 500
         ]
-        # Supprimer les doublons et trier
+        # Delete doubles
         suggested_objectives = sorted(list(set(suggested_objectives)))
 
     context = {
@@ -632,11 +628,11 @@ def edit_objective(request, wallet_id):
 @login_required
 def add_member(request, wallet_id):
     """
-    Vue pour ajouter un membre à un portefeuille
+    View to add a new family member to the wallet
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
-    # Vérifier que l'utilisateur a accès à ce portefeuille
+    # Check that the user is a member of the wallet
     if request.user != wallet.owner:
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(
@@ -665,11 +661,11 @@ def add_member(request, wallet_id):
 @login_required
 def remove_member(request, wallet_id, user_id):
     """
-    Vue pour retirer un membre d'un portefeuille
+    View to delete a member from the wallet
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
-    # Vérifier que l'utilisateur a accès à ce portefeuille
+    # Check that the user is a member of the wallet
     if request.user != wallet.owner:
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(

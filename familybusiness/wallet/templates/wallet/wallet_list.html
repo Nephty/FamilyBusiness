@@ -25,15 +25,49 @@
                     </h1>
                 </div>
             </div>
-            <div class="level-right">
+            <div class="level-right is-flex">
                 <div class="level-item">
-                    <a href="{% url 'wallet:wallet_create' %}" class="button is-primary modern-btn">
+                    <a href="{% url 'wallet:wallet_create' %}" class="button is-primary modern-btn mr-4">
                         <span class="icon">
                             <i class="mdi mdi-plus-thick"></i>
                         </span>
                         <span>{% trans "new_wallet" %}</span>
                     </a>
+
+                    <a href="javascript:void(0);" class="button is-info modern-btn js-modal-trigger" data-target="modal-join-wallet">
+                        <span>Join Existing Wallet</span>
+                    </a>
                 </div>
+            </div>
+        </div>
+
+        <!-- Invitation link modal -->
+        <div id="modal-join-wallet" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Join wallet</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+
+                <form id="join-wallet-form">
+                    <section class="modal-card-body">
+                        <div class="field">
+                            <label class="label">Invitation link</label>
+                            <div class="control">
+                                <input id="invitation-link" class="input" type="text" placeholder="https://example.com/invitation/uuid">
+                            </div>
+                        <p id="join-wallet-error" class="help has-text-danger is-hidden">Invalid invitation link</p>
+                        </div>
+                    </section>
+
+                    <footer class="modal-card-foot is-justify-content-space-between">
+                        <button type="submit" class="button is-info">
+                            <span class="icon"><i class="mdi mdi-check"></i></span>
+                            <span>Confirm</span>
+                        </button>
+                    </footer>
+                </form>
             </div>
         </div>
 
@@ -108,7 +142,7 @@
                             </div>
                         </div>
 
-                        <!-- Modal de suppression pour chaque wallet -->
+                        <!-- Wallet deletion modal -->
                         <div id="modal-delete-{{ wallet.id }}" class="modal">
                             <div class="modal-background"></div>
                             <div class="modal-card">
@@ -211,7 +245,8 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Fonctions pour gérer les modals
+
+    // Bunch of functions to manage the different modals
     function openModal($el) {
         $el.classList.add('is-active');
     }
@@ -226,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ajouter les événements pour ouvrir les modals
+    // Add events to open modals
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
         const modal = $trigger.dataset.target;
         const $target = document.getElementById(modal);
@@ -236,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Ajouter les événements pour fermer les modals
+    // Add events to close modals
     (document.querySelectorAll('.modal-background, .modal-card-head .delete, .modal-card-foot .button.is-light') || []).forEach(($close) => {
         const $target = $close.closest('.modal');
 
@@ -245,12 +280,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Fermer les modals avec la touche Escape
+    // In order to close modals with Escape button
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             closeAllModals();
         }
     });
+
+    const joinForm = document.getElementById('join-wallet-form');
+    const input = document.getElementById('invitation-link');
+    const error = document.getElementById('join-wallet-error')
+
+    if (joinForm) {
+        joinForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const match = input.value.trim().match(/\/invitation\/([a-f0-9\-]+)/i);
+
+            if (match && match[1]) {
+                error.classList.add('is-hidden');
+                window.location.href = `/wallet/invitation/${match[1]}/`;
+            } else {
+                error.classList.remove('is-hidden');
+            }
+        });
+    }
 });
 </script>
 {% endblock %}
