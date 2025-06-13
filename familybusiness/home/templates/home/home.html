@@ -14,7 +14,7 @@
         </p>
 
         <div class="columns is-centered">
-            <!-- Carte portefeuille (toujours visible) -->
+            <!-- Always on wallet preview card -->
             <div class="column is-4">
                 <div class="box has-text-centered">
                     <span class="icon is-large has-text-success">
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <!-- Affiché uniquement si admin -->
+            <!-- Display only if admin -->
             {% if user.is_authenticated and user.is_staff %}
             <div class="column is-4">
                 <div class="box has-text-centered">

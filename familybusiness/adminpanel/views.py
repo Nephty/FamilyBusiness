@@ -24,8 +24,8 @@ from account.models import Account
 @login_required
 def admin_panel(request):
     """
-    Vue principale du panel d'administration
-    Affiche un tableau de bord
+    Main view for admin panel.
+    Display overall management panel.
     """
     return render(request, 'adminpanel/admin_panel.html')
 
@@ -63,13 +63,11 @@ def history_list(request):
     if date_from:
         parsed = parse_date(date_from)
         if parsed:
-            # Correction : supprimer __date car le champ est déjà un DateField
             events = events.filter(date__gte=parsed)
 
     if date_to:
         parsed = parse_date(date_to)
         if parsed:
-            # Correction : supprimer __date car le champ est déjà un DateField
             events = events.filter(date__lte=parsed)
 
     filtered_events = events.count()
@@ -116,17 +114,17 @@ def history_list(request):
 @login_required
 def user_management(request):
     """
-    Vue principale pour la gestion des utilisateurs
+    Main view for user management
     """
-    # Récupérer tous les utilisateurs
+    # Get all users
     users = Account.objects.all().order_by('-date_joined')
 
-    # Filtres
+    # filters
     search_query = request.GET.get('search', '')
     role_filter = request.GET.get('role', '')
     status_filter = request.GET.get('status', '')
 
-    # Application des filtres
+    # apply filters
     if search_query:
         users = users.filter(
             Q(first_name__icontains=search_query) |
@@ -148,13 +146,13 @@ def user_management(request):
         elif status_filter == 'inactive':
             users = users.filter(is_active=False)
 
-    # Statistiques
+    # stats
     total_users = Account.objects.count()
     active_users = Account.objects.filter(is_active=True).count()
     admin_users = Account.objects.filter(is_staff=True).count()
     filtered_count = users.count()
 
-    # Ajouter des informations sur les portefeuilles pour chaque utilisateur
+    # Add info to wallet for each users
     users_with_stats = []
     for user in users:
         users_with_stats.append({
@@ -162,12 +160,11 @@ def user_management(request):
             'last_activity': Event.objects.filter(user=user).order_by('-date').first().date if Event.objects.filter(user=user).exists() else None
         })
 
-    # Pagination
     paginator = Paginator(users_with_stats, 20)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    # Rôles disponibles
+    # Available roles
     available_roles = Account.objects.values_list('role', flat=True).distinct().exclude(role='')
 
     context = {
@@ -179,7 +176,7 @@ def user_management(request):
         'filtered_count': filtered_count,
         'available_roles': available_roles,
 
-        # Filtres actuels
+        # active filters
         'current_search': search_query,
         'current_role': role_filter,
         'current_status': status_filter,
@@ -238,7 +235,7 @@ def edit_user(request, user_id):
     else:
         form = UserEditForm(instance=user_to_edit, current_user_id=user_id)
 
-    # Récupérer la dernière connexion de l'utilisateur
+    # Get user's last login
     if Event.objects.filter(user=user_to_edit, type='LOGIN').exists():
         user_last_login = Event.objects.filter(user=user_to_edit, type='LOGIN').order_by('-date').first().date
     else:
@@ -256,16 +253,16 @@ def edit_user(request, user_id):
 @login_required
 def delete_user(request, user_id):
     """
-    Vue pour supprimer un utilisateur
+    View for user deletion
     """
     user_to_delete = get_object_or_404(Account, id=user_id)
 
-    # Empêcher de supprimer son propre compte
+    # Prevent deleting account
     if user_to_delete == request.user:
         messages.error(request, _("cannot_delete_own_account"))
         return redirect('adminpanel:user_management')
 
-    # Empêcher de supprimer le dernier admin
+    # Prevent deleting last admin
     if user_to_delete.is_staff and Account.objects.filter(is_staff=True).count() <= 1:
         messages.error(request, _("cannot_delete_last_admin"))
         return redirect('adminpanel:user_management')
@@ -285,7 +282,6 @@ def delete_user(request, user_id):
         except Exception as e:
             messages.error(request, _("error_during_deletion").format(error=str(e)))
 
-    # Informations sur l'impact de la suppression
     user_wallets = Wallet.objects.filter(users=user_to_delete)
     user_transactions = Transaction.objects.filter(user=user_to_delete)
 
@@ -304,16 +300,16 @@ def delete_user(request, user_id):
 @login_required
 def wallet_management(request):
     """
-    Vue principale pour la gestion des portefeuilles
+    View for wallet management
     """
-    # Récupérer tous les portefeuilles avec leurs statistiques
+    # Get all wallets and linked infos
     wallets = Wallet.objects.select_related('owner').prefetch_related('users', 'transactions').order_by('-id')
 
-    # Filtres
+    # Filters
     search_query = request.GET.get('search', '')
     owner_filter = request.GET.get('owner', '')
 
-    # Application des filtres
+    # apply filters
     if search_query:
         wallets = wallets.filter(
             Q(name__icontains=search_query) |
@@ -325,17 +321,16 @@ def wallet_management(request):
     if owner_filter:
         wallets = wallets.filter(owner_id=owner_filter)
 
-    # Statistiques globales
     filtered_count = wallets.count()
 
-    # Ajouter des statistiques détaillées pour chaque portefeuille
+    # Add detailed stats for wallets
     wallets_with_stats = []
     for wallet in wallets:
         transactions = wallet.transactions.all()
         user_count = wallet.users.count()
         last_transaction = transactions.order_by('-date').first()
 
-        # Calcul de la progression vers l'objectif
+        # Compute progression on the objective
         progress = 0
         if wallet.objective > 0:
             progress = min((wallet.balance / wallet.objective) * 100, 100)
@@ -350,12 +345,10 @@ def wallet_management(request):
             'is_active': transactions.exists(),
         })
 
-    # Pagination
     paginator = Paginator(wallets_with_stats, 15)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    # Propriétaires de portefeuilles pour le filtre
     wallet_owners = Account.objects.filter(wallet__isnull=False).distinct().order_by('first_name', 'last_name')
 
     context = {
@@ -364,7 +357,7 @@ def wallet_management(request):
         'filtered_count': filtered_count,
         'wallet_owners': wallet_owners,
 
-        # Filtres actuels
+        # active filters
         'current_search': search_query,
         'current_owner': owner_filter,
     }
@@ -375,7 +368,7 @@ def wallet_management(request):
 @login_required
 def delete_wallet(request, wallet_id):
     """
-    Vue pour supprimer un portefeuille
+    View to delete wallet
     """
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
@@ -405,7 +398,6 @@ def delete_wallet(request, wallet_id):
                 type='ERROR'
             )
 
-    # Informations sur l'impact de la suppression
     transactions = wallet.transactions.all()
     users_affected = wallet.users.all()
 
@@ -481,19 +473,17 @@ def export_transactions_csv(request, wallet_id):
 @login_required
 def category_management(request):
     """
-    Vue principale pour la gestion des catégories
+    View for category management
     """
-    # Récupérer toutes les catégories avec leurs statistiques
     categories = Category.objects.annotate(
         transaction_count=Count('transaction'),
         used_by_wallets=Count('transaction__wallet', distinct=True)
     ).order_by('name')
 
-    # Filtres
+    # Filters
     search_query = request.GET.get('search', '')
     usage_filter = request.GET.get('usage', '')
 
-    # Application des filtres
     if search_query:
         categories = categories.filter(name__icontains=search_query)
 
@@ -503,13 +493,11 @@ def category_management(request):
         elif usage_filter == 'unused':
             categories = categories.filter(transaction_count=0)
 
-    # Statistiques globales
     total_categories = Category.objects.count()
     used_categories = Category.objects.filter(transaction__isnull=False).distinct().count()
     unused_categories = total_categories - used_categories
     filtered_count = categories.count()
 
-    # Ajouter des informations détaillées pour chaque catégorie
     categories_with_stats = []
     for category in categories:
         recent_transactions = Transaction.objects.filter(category=category).order_by('-date')[:3]
@@ -523,7 +511,6 @@ def category_management(request):
             'recent_transactions': recent_transactions,
         })
 
-    # Pagination
     paginator = Paginator(categories_with_stats, 20)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -536,7 +523,6 @@ def category_management(request):
         'unused_categories': unused_categories,
         'filtered_count': filtered_count,
 
-        # Filtres actuels
         'current_search': search_query,
         'current_usage': usage_filter,
     }
@@ -554,7 +540,7 @@ def create_category(request):
         if form.is_valid():
             category_name = form.cleaned_data['name'].strip()
 
-            # Vérifier si la catégorie existe déjà (insensible à la casse)
+            # Check if category exists (non-case sensitive)
             if Category.objects.filter(name__iexact=category_name).exists():
                 messages.error(request, _("category_already_exists").format(category_name=category_name))
             else:
@@ -582,7 +568,7 @@ def create_category(request):
 @login_required
 def edit_category(request, category_id):
     """
-    Vue pour modifier une catégorie
+    View to edit category
     """
     category = get_object_or_404(Category, id=category_id)
 
@@ -591,7 +577,7 @@ def edit_category(request, category_id):
         if form.is_valid():
             category_name = form.cleaned_data['name'].strip()
 
-            # Vérifier si une autre catégorie a déjà ce nom
+            # Check if another category of this name exists
             existing_category = Category.objects.filter(name__iexact=category_name).exclude(id=category.id).first()
             if existing_category:
                 messages.error(request, _("category_already_exists").format(category_name=category_name))
@@ -625,7 +611,7 @@ def edit_category(request, category_id):
 @login_required
 def delete_category(request, category_id):
     """
-    Vue pour supprimer une catégorie
+    View to delete a category
     """
     category = get_object_or_404(Category, id=category_id)
 
@@ -652,7 +638,6 @@ def delete_category(request, category_id):
             except Exception as e:
                 messages.error(request, _("error_during_deletion").format(error=str(e)))
 
-    # Informations sur l'impact de la suppression
     transactions = Transaction.objects.filter(category=category)
     wallets_affected = transactions.values('wallet').distinct()
 

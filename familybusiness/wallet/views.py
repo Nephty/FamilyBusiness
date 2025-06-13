@@ -105,7 +105,7 @@ def wallet_detail(request, wallet_id):
     wallet = get_object_or_404(Wallet, id=wallet_id)
     members = wallet.users.all()
 
-    # Vérifier que l'utilisateur a accès à ce portefeuille
+    # Check user has access to wallet
     if request.user not in wallet.users.all():
         messages.error(request, _("no_access_to_wallet"))
         Event.objects.create(
@@ -116,13 +116,13 @@ def wallet_detail(request, wallet_id):
         )
         return redirect('wallet:wallet_list')
 
-    # Récupérer toutes les transactions du portefeuille
+    # Get all wallet trx
     transactions = Transaction.objects.filter(wallet=wallet).order_by('-date')
 
-    # Transactions récentes (5 dernières)
+    # Recent trx
     recent_transactions = transactions[:5]
 
-    # Calculs pour les indicateurs du mois en cours
+    # Compute monthly indicators
     now = timezone.now()
     start_of_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
 
@@ -132,14 +132,13 @@ def wallet_detail(request, wallet_id):
     monthly_expenses = monthly_transactions.filter(is_income=False).aggregate(
         total=Sum('amount'))['total'] or 0
 
-    # Données pour le graphique d'évolution (du 1er du mois jusqu'à aujourd'hui)
+    # data for evolution plot (from 1st of the month to today)
     start_of_month_date = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0).date()
     today = now.date()
     days_in_current_month = (today - start_of_month_date).days + 1
 
     daily_data = defaultdict(lambda: {'income': 0, 'expense': 0})
 
-    # Utiliser uniquement les vraies données
     for transaction in transactions.filter(date__gte=start_of_month):
         key = transaction.date.date()
         if transaction.is_income:
@@ -147,7 +146,7 @@ def wallet_detail(request, wallet_id):
         else:
             daily_data[key]['expense'] += float(transaction.amount)
 
-    # Préparer les données pour Chart.js
+    # prepare data for Chart.js
     dates = []
     expenses = []
     incomes = []
@@ -158,7 +157,7 @@ def wallet_detail(request, wallet_id):
         expenses.append(daily_data[date]['expense'])
         incomes.append(daily_data[date]['income'])
 
-    # Données pour le graphique des catégories (uniquement les vraies données)
+    # data for category plot
     cat_data = (
         transactions.filter(is_income=False)
         .values('category')  # group by category ID
@@ -173,12 +172,12 @@ def wallet_detail(request, wallet_id):
     category_labels = [categories[entry['category']] for entry in cat_data]
     category_values = [float(entry['total']) for entry in cat_data]
 
-    # Si pas de données de catégories, listes vides
+    # if not data on categories, empty lists
     if not category_labels:
         category_labels = []
         category_values = []
 
-    # Récupérer les invitations actives pour ce wallet
+    # Get all active invites for the wallet
     active_invitations = WalletInvitation.objects.filter(
         wallet=wallet,
         is_used=False,
@@ -191,7 +190,7 @@ def wallet_detail(request, wallet_id):
         'monthly_income': monthly_income,
         'monthly_expenses': monthly_expenses,
 
-        # Données pour les graphiques (format JSON pour JavaScript)
+        # plot data (JSON format for JavaScript)
         'chart_dates': json.dumps(dates),
         'chart_incomes': json.dumps(incomes),
         'chart_expenses': json.dumps(expenses),

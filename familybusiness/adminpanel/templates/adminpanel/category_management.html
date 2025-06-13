@@ -4,7 +4,7 @@
 {% block content %}
 <section class="section">
     <div class="container">
-        <!-- En-tête -->
+        <!-- Header -->
         <div class="level mb-5">
             <div class="level-left">
                 <div class="level-item">
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <!-- Statistiques -->
+        <!-- Stats -->
         <div class="columns mb-5">
             <div class="column">
                 <div class="box has-background-primary-light">
@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <!-- Filtres -->
+        <!-- Filters -->
         <div class="card mb-5">
             <div class="card-header">
                 <div class="card-header-title">
@@ -108,7 +108,7 @@
             <div class="card-content">
                 <form method="get" id="filterForm">
                     <div class="columns">
-                        <!-- Recherche -->
+                        <!-- Search -->
                         <div class="column">
                             <div class="field">
                                 <label class="label">{% trans "search" %}</label>
@@ -122,7 +122,7 @@
                             </div>
                         </div>
 
-                        <!-- Utilisation -->
+                        <!-- Usage -->
                         <div class="column">
                             <div class="field">
                                 <label class="label">{% trans "usage_status" %}</label>
@@ -142,7 +142,7 @@
                             </div>
                         </div>
 
-                        <!-- Bouton de filtrage -->
+                        <!-- Filter button -->
                         <div class="column is-narrow">
                             <div class="field">
                                 <label class="label">&nbsp;</label>
@@ -159,7 +159,7 @@
                     </div>
                 </form>
 
-                <!-- Résumé des filtres actifs -->
+                <!-- Active filters summary -->
                 {% if current_search or current_usage %}
                 <div class="notification is-light">
                     <button class="delete" id="clearFilters"></button>
@@ -178,7 +178,7 @@
             </div>
         </div>
 
-        <!-- Liste des catégories -->
+        <!-- Cat list -->
         <div class="card">
             <div class="card-header">
                 <div class="card-header-title">
@@ -326,7 +326,6 @@
             </div>
         </div>
 
-        <!-- Pagination -->
         {% if page_obj.has_other_pages %}
         <nav class="pagination is-centered mt-5" role="navigation">
             {% if page_obj.has_previous %}
@@ -369,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearFiltersBtn = document.getElementById('clearFilters');
     const clearAllFiltersBtn = document.getElementById('clearAllFilters');
     
-    // Réinitialiser les filtres
+    // Clear filters
     function resetFilters() {
         form.reset();
         window.location.href = window.location.pathname;
@@ -378,15 +377,13 @@ document.addEventListener('DOMContentLoaded', function() {
     resetBtn.addEventListener('click', resetFilters);
     if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', resetFilters);
     if (clearAllFiltersBtn) clearAllFiltersBtn.addEventListener('click', resetFilters);
-    
-    // Auto-submit sur changement de filtre
+
     form.addEventListener('change', function(e) {
         if (e.target.type === 'select-one') {
             form.submit();
         }
     });
-    
-    // Animation de la barre de progression
+
     const progressBar = document.querySelector('.progress');
     if (progressBar) {
         progressBar.style.width = '0%';

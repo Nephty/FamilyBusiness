@@ -4,7 +4,7 @@
 {% block content %}
 <section class="section">
     <div class="container">
-        <!-- En-tête -->
+        <!-- Header -->
         <div class="level mb-5">
             <div class="level-left">
                 <div class="level-item">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <!-- Statistiques -->
+        <!-- Stats -->
         <div class="columns mb-5">
             <div class="column">
                 <div class="box has-background-primary-light">
@@ -89,7 +89,7 @@
             </div>
         </div>
 
-        <!-- Filtres -->
+        <!-- Filters -->
         <div class="card mb-5">
             <div class="card-header">
                 <div class="card-header-title">
@@ -110,7 +110,7 @@
             <div class="card-content">
                 <form method="get" id="filter-form">
                     <div class="columns">
-                        <!-- Recherche -->
+                        <!-- Search -->
                         <div class="column">
                             <div class="field">
                                 <label class="label">{% trans "search" %}</label>
@@ -124,7 +124,7 @@
                             </div>
                         </div>
 
-                        <!-- Rôle -->
+                        <!-- Role -->
                         <div class="column">
                             <div class="field">
                                 <label class="label">{% trans "role" %}</label>
@@ -149,7 +149,7 @@
                             </div>
                         </div>
 
-                        <!-- Statut -->
+                        <!-- Status -->
                         <div class="column">
                             <div class="field">
                                 <label class="label">{% trans "status" %}</label>
@@ -169,7 +169,7 @@
                             </div>
                         </div>
 
-                        <!-- Bouton de filtrage -->
+                        <!-- Filtering buttons -->
                         <div class="column is-narrow">
                             <div class="field">
                                 <label class="label">&nbsp;</label>
@@ -186,7 +186,7 @@
                     </div>
                 </form>
 
-                <!-- Résumé des filtres actifs -->
+                <!-- Active filters summary -->
                 {% if current_search or current_role or current_status %}
                 <div class="notification is-light">
                     <button class="delete" id="clear-filters"></button>
@@ -206,7 +206,7 @@
             </div>
         </div>
 
-        <!-- Liste des utilisateurs -->
+        <!-- Users list -->
         <div class="card">
             <div class="card-header">
                 <div class="card-header-title">
@@ -349,7 +349,6 @@
             </div>
         </div>
 
-        <!-- Pagination -->
         {% if page_obj.has_other_pages %}
         <nav class="pagination is-centered mt-5" role="navigation">
             {% if page_obj.has_previous %}
@@ -391,7 +390,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearFiltersBtn = document.getElementById('clear-filters');
     const clearAllFiltersBtn = document.getElementById('clear-all-filters');
 
-    // Réinitialiser les filtres
     function resetFilters() {
         form.reset();
         window.location.href = window.location.pathname;
@@ -401,7 +399,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', resetFilters);
     if (clearAllFiltersBtn) clearAllFiltersBtn.addEventListener('click', resetFilters);
 
-    // Auto-submit sur changement de filtre
     form.addEventListener('change', function(e) {
         if (e.target.type === 'select-one') {
             form.submit();

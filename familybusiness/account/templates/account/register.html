@@ -26,7 +26,6 @@
                             </p>
                         </div>
 
-                        <!-- Erreurs globales -->
                         {% if form.non_field_errors %}
                             <div class="notification is-danger is-light mb-4">
                                 <button class="delete"></button>
@@ -94,7 +93,6 @@
                                             {% endfor %}
                                         {% endif %}
 
-                                        <!-- Aide contextuelle pour les champs -->
                                         {% if field.name == 'password1' %}
                                             <p class="help">{% trans "minimum_8_characters_recommended" %}</p>
                                         {% endif %}
@@ -116,7 +114,6 @@
                     </div>
                 </div>
 
-                <!-- Lien vers connexion -->
                 <div class="has-text-centered mt-5">
                     <p>
                         <span class="has-text-grey">{% trans "already_have_account" %} </span>
@@ -132,7 +129,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Gestion de la fermeture des notifications
+    // Closing notifications
     document.querySelectorAll('.notification .delete').forEach(button => {
         button.addEventListener('click', function() {
             this.parentNode.style.opacity = '0';

@@ -4,7 +4,7 @@
 {% block content %}
     <section class="section">
         <div class="container">
-            <!-- En-tête -->
+            <!-- Header -->
             <div class="columns is-vcentered mb-6">
                 <div class="column">
                     <h1 class="title is-2 has-text-primary">{% trans "admin_panel" %}</h1>
@@ -22,9 +22,9 @@
                 </div>
             </div>
 
-            <!-- Menu d'administration -->
+            <!-- Admin panel -->
             <div class="columns is-multiline">
-                <!-- Historique -->
+                <!-- History -->
                 <div class="column is-12-mobile is-half-tablet is-one-quarter-desktop">
                     <a href="{% url 'adminpanel:history_list' %}" class="card admin-card">
                         <div class="card-content has-text-centered">
@@ -39,7 +39,7 @@
                     </a>
                 </div>
 
-                <!-- Gestion Utilisateurs -->
+                <!-- user mgmt -->
                 <div class="column is-12-mobile is-half-tablet is-one-quarter-desktop">
                     <a href="{% url 'adminpanel:user_management' %}" class="card admin-card">
                         <div class="card-content has-text-centered">
@@ -54,7 +54,7 @@
                     </a>
                 </div>
 
-                <!-- Gestion Portefeuilles -->
+                <!-- wallet mgmt -->
                 <div class="column is-12-mobile is-half-tablet is-one-quarter-desktop">
                     <a href="{% url 'adminpanel:wallet_management' %}" class="card admin-card">
                         <div class="card-content has-text-centered">
@@ -69,7 +69,7 @@
                     </a>
                 </div>
 
-                <!-- Gestion Catégories -->
+                <!-- category mgmt -->
                 <div class="column is-12-mobile is-half-tablet is-one-quarter-desktop">
                     <a href="{% url 'adminpanel:category_management' %}" class="card admin-card">
                         <div class="card-content has-text-centered">

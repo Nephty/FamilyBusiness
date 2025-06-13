@@ -72,6 +72,6 @@ class TransactionForm(forms.ModelForm):
         }
 
 class InvitationForm(forms.Form):
-    """Formulaire pour générer une invitation"""
-    # Ce formulaire n'a pas de champs visibles, juste pour la validation CSRF
+    """Form to generate an invitation link"""
+    # No visible fields, only for CSRF validation
     pass

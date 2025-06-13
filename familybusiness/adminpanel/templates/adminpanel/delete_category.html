@@ -4,7 +4,7 @@
 {% block content %}
 <section class="section">
     <div class="container">
-        <!-- En-tête -->
+        <!-- Header -->
         <div class="level mb-5">
             <div class="level-left">
                 <div class="level-item">
@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="card-content">
-                        <!-- Infos catégorie -->
+                        <!-- Cat info -->
                         <div class="notification is-light mb-5">
                             <div class="media">
                                 <div class="media-left">
@@ -72,7 +72,7 @@
                             </div>
                         {% endif %}
 
-                        <!-- Formulaire -->
+                        <!-- Form -->
                         <form method="post" class="mt-4">
                             {% csrf_token %}
                             <input type="hidden" name="action" value="delete">
@@ -90,7 +90,7 @@
                             </div>
                         </form>
 
-                        <!-- Transactions récentes -->
+                        <!-- Recent trx -->
                         {% if impact_info.transaction_count > 0 and impact_info.recent_transactions %}
                         <div class="mt-6">
                             <h2 class="subtitle is-5 mb-3">

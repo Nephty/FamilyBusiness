@@ -237,7 +237,7 @@
     {% endif %}
 
 
-    <!-- JS pour le burger menu -->
+    <!-- JS for burger menu -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const $navbarBurgers = Array.from(document.querySelectorAll('.navbar-burger'));
@@ -252,18 +252,18 @@
                 });
             }
 
-            // Gestion dynamique du changement de langue
+            // Dyn language management
             const languageForm = document.getElementById('language-form');
             const nextInput = document.getElementById('next-input');
 
             if (languageForm && nextInput) {
                 languageForm.addEventListener('submit', function (e) {
-                    // Mettre à jour l'URL de redirection juste avant la soumission
+                    // Update URL before redirection
                     const currentPath = window.location.pathname;
                     const currentSearch = window.location.search;
                     const fullPath = currentPath + currentSearch;
 
-                    // Calculer la nouvelle URL avec la langue opposée
+                    // Build URL based on language selection
                     const currentLanguage = document.documentElement.lang === 'fr' ? 'fr' : 'en';
                     const targetLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
 
@@ -273,19 +273,16 @@
                     } else if (currentPath.startsWith('/en/')) {
                         newPath = currentPath.replace('/en/', '/fr/');
                     } else {
-                        // Si pas de préfixe de langue, ajouter le préfixe cible
                         newPath = '/' + targetLanguage + currentPath;
                     }
 
                     nextInput.value = newPath + currentSearch;
                 });
 
-                // Ajouter un effet visuel lors du clic
                 const languageBtn = languageForm.querySelector('.language-switch-btn');
                 if (languageBtn) {
                     languageBtn.addEventListener('click', function () {
                         this.classList.add('is-loading');
-                        // Retirer la classe loading après un délai pour éviter qu'elle reste
                         setTimeout(() => {
                             this.classList.remove('is-loading');
                         }, 2000);
@@ -293,7 +290,6 @@
                 }
             }
 
-            // Auto-dismiss after 5s with fade out
             document.querySelectorAll('.notification.toast:not(.no-dismiss)').forEach((notif) => {
                 setTimeout(() => {
                     notif.classList.add('fade-out');
@@ -304,7 +300,6 @@
             });
 
 
-            // Manual dismiss
             document.querySelectorAll('.notification .delete').forEach(($delete) => {
                 const $notification = $delete.parentNode;
                 $delete.addEventListener('click', () => {
@@ -314,7 +309,7 @@
         });
     </script>
 
-    <!-- Contenu de la page -->
+    <!-- Page content -->
     {% block content %}{% endblock %}
 
     <!-- Footer -->

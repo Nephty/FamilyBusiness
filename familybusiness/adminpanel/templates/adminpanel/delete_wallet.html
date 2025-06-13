@@ -4,7 +4,7 @@
 {% block content %}
 <section class="section">
     <div class="container">
-        <!-- En-tête -->
+        <!-- Header -->
         <div class="level mb-5">
             <div class="level-left">
                 <div class="level-item">
@@ -14,7 +14,6 @@
         </div>
 
         <div class="columns is-centered">
-            <!-- Carte suppression -->
             <div class="column">
                 <div class="card">
                     <div class="card-header">
@@ -25,7 +24,7 @@
                     </div>
 
                     <div class="card-content">
-                        <!-- Infos portefeuille -->
+                        <!-- Wallet info -->
                         <div class="notification is-light mb-5 no-dismiss">
                             <div class="media">
                                 <div class="media-left">
@@ -47,7 +46,6 @@
                             </div>
                         </div>
 
-                        <!-- Impact -->
                         <div class="notification is-warning no-dismiss">
                             <p><strong><i class="mdi mdi-alert"></i> {% trans "deletion_impact" %}:</strong></p>
                             <ul class="mt-3">
@@ -55,7 +53,7 @@
                             </ul>
                         </div>
 
-                        <!-- Utilisateurs -->
+                        <!-- Users -->
                         {% if impact_info.users_affected %}
                         <div class="card mt-5">
                             <div class="card-header">
@@ -89,7 +87,7 @@
                         </div>
                         {% endif %}
 
-                        <!-- Avertissements -->
+                        <!-- Warnings -->
                         <div class="notification is-danger mt-5 no-dismiss">
                             <p><strong><i class="mdi mdi-shield-alert"></i> {% trans "security_measures" %}:</strong></p>
                             <ul class="mt-3">
@@ -101,7 +99,7 @@
                             </ul>
                         </div>
 
-                        <!-- Formulaire -->
+                        <!-- Form -->
                         <form method="post" class="mt-5" id="deleteForm">
                             {% csrf_token %}
                             <div class="field is-grouped is-grouped-right">

@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 confirmClicks++;
             }, 500);
 
-            // Reset après 3 secondes
             setTimeout(() => {
                 if (confirmClicks === 1) {
                     this.innerHTML = '<span class="icon"><i class="mdi mdi-delete"></i></span><span>{% trans "delete_permanently" %}</span>';

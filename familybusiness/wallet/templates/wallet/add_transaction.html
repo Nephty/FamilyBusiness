@@ -4,7 +4,7 @@
 {% block head %}
 
     <style>
-    /* Style pour le switch */
+    /* Style for switch */
     .switch {
       position: relative;
       display: inline-block;
@@ -56,7 +56,7 @@
       border-radius: 50%;
     }
 
-    /* Animation pour les boutons */
+    /* Buttons animation */
     .quick-transaction:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -69,7 +69,7 @@
 <section class="section">
     <div class="container">
         <div class="columns">
-            <!-- Formulaire de nouvelle transaction -->
+            <!-- New trx form -->
             <div class="column">
                 <div class="card">
                     <div class="card-header">
@@ -102,7 +102,7 @@
                                 {% endfor %}
                             </div>
 
-                            <!-- Titre -->
+                            <!-- Title -->
                             <div class="field">
                                 <label class="label">{{ form.title.label }}</label>
                                 <div class="control has-icons-left">
@@ -116,7 +116,7 @@
                                 {% endfor %}
                             </div>
 
-                            <!-- Montant -->
+                            <!-- Amount -->
                             <div class="field">
                                 <label class="label">{{ form.amount.label }}</label>
                                 <div class="control has-icons-left has-icons-right">
@@ -133,7 +133,7 @@
                                 {% endfor %}
                             </div>
 
-                            <!-- Catégorie -->
+                            <!-- Category -->
                             <div class="field">
                                 <label class="label">{{ form.category.label }}</label>
                                 <div class="control has-icons-left">
@@ -160,7 +160,7 @@
                                 {% endfor %}
                             </div>
 
-                            <!-- Résumé -->
+                            <!-- Summary -->
                             <div class="notification is-light" id="transaction-summary" style="display: none;">
                                 <div class="content">
                                     <strong>{% trans "summary" %} :</strong>
@@ -168,7 +168,7 @@
                                 </div>
                             </div>
 
-                            <!-- Boutons -->
+                            <!-- Buttons -->
                             <div class="field is-grouped is-grouped-right mt-5">
                                 <div class="control">
                                     <a href="{% url 'wallet:wallet_detail' wallet.id %}" class="button is-light">
@@ -206,7 +206,7 @@
         const amountIcon = document.getElementById('amount-icon');
         const submitBtn = document.getElementById('submit-btn');
 
-        // Traductions pour JavaScript
+        // JS translate
         const translations = {
             'income': "{% trans 'income' %}",
             'expense': "{% trans 'expense' %}",
@@ -215,7 +215,7 @@
             'summary_template': "{% trans 'transaction_summary_template' %}"
         };
 
-        // Gestion du switch revenus/dépenses
+        // Expense/income switch
         function updateTransactionType() {
             if (isIncomeSwitch.checked) {
                 transactionType.textContent = translations.income;
@@ -233,7 +233,7 @@
 
         isIncomeSwitch.addEventListener('change', updateTransactionType);
 
-        // Validation du montant
+        // Amount validation
         amountInput.addEventListener('input', function() {
             const value = parseFloat(this.value);
             if (value && value > 0) {
@@ -250,7 +250,7 @@
             updateSummary();
         });
 
-        // Mise à jour du résumé
+        // Summary update
         function updateSummary() {
             const title = titleInput.value;
             const amount = amountInput.value;
@@ -273,17 +273,14 @@
             }
         }
 
-        // Écouteurs pour le résumé
         titleInput.addEventListener('input', updateSummary);
         categorySelect.addEventListener('change', updateSummary);
 
-        // Transactions rapides
         document.querySelectorAll('.quick-transaction').forEach(button => {
             button.addEventListener('click', function() {
                 titleInput.value = this.dataset.title;
                 amountInput.value = this.dataset.amount;
 
-                // Sélectionner la catégorie
                 const categoryName = this.dataset.category;
                 for (let option of categorySelect.options) {
                     if (option.text === categoryName) {
@@ -292,24 +289,20 @@
                     }
                 }
 
-                // Définir le type (revenu ou dépense)
                 isIncomeSwitch.checked = this.dataset.income === 'true';
 
                 updateTransactionType();
                 updateSummary();
 
-                // Animation
                 this.classList.add('is-success');
                 setTimeout(() => {
                     this.classList.remove('is-success');
                 }, 1000);
 
-                // Scroll vers le formulaire
                 form.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Initialisation
         updateTransactionType();
     });
 </script>

@@ -26,7 +26,6 @@
                             </p>
                         </div>
 
-                        <!-- Erreurs globales -->
                         {% if form.non_field_errors %}
                             <div class="notification is-danger is-light mb-4">
                                 {% for error in form.non_field_errors %}
@@ -80,7 +79,6 @@
                     </div>
                 </div>
 
-                <!-- Actions supplémentaires -->
                 <div class="has-text-centered mt-5">
                     <p>
                         <a href="{% url 'account:request_password_reset' %}" class="has-text-grey">

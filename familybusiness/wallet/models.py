@@ -5,8 +5,6 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
-
 class Wallet(models.Model):
     name = models.CharField(max_length=100, verbose_name=_("name"))
     owner = models.ForeignKey('account.Account', on_delete=models.CASCADE, verbose_name=_("owner"))

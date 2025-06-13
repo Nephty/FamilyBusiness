@@ -7,9 +7,6 @@ from django.contrib.auth.models import PermissionsMixin
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-
-# Create your models here.
-
 class AccountManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, password=None):
         if not email:

@@ -5,9 +5,9 @@
 <section class="section">
     <div class="container">
         <div class="columns is-multiline is-variable is-6">
-            <!-- Partie gauche : Situation actuelle + suggestions -->
+            <!-- Left side: Present situation + suggestions -->
             <div class="column is-full-tablet is-half-desktop">
-                <!-- Situation actuelle -->
+                <!-- Present situation -->
                 <div class="card mb-5">
                     <div class="card-header">
                         <div class="card-header-title">
@@ -80,7 +80,7 @@
                 {% endif %}
             </div>
 
-            <!-- Partie droite : formulaire -->
+            <!-- Right side: form -->
             <div class="column is-full-tablet is-half-desktop">
                 <div class="card">
                     <div class="card-header">
@@ -117,7 +117,7 @@
                                 </p>
                             </div>
 
-                            <!-- Aperçu de la progression -->
+                            <!-- Progression preview -->
                             <div class="notification is-light" id="progress-preview" style="display: none;">
                                 <div class="content">
                                     <p class="title is-6">{% trans "progress_preview" %}</p>
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentBalance = {{ wallet.balance }};
     const currentObjective = {{ wallet.objective }};
 
-    // Traductions pour JavaScript
+    // JS translate
     const translations = {
         'progress_with_new_objective': "{% trans 'progress_with_new_objective' %}",
         'remaining_to_save': "{% trans 'remaining_to_save' %}",

@@ -9,9 +9,6 @@ from django.contrib.auth.decorators import login_required
 from adminpanel.models import Event
 from .models import Account, PasswordResetToken
 
-
-# Create your views here.
-
 def register_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -42,9 +39,9 @@ def login_view(request):
             )
             invitation_token = request.session.get('invitation_token')
             if invitation_token:
-                # Supprimer le token de la session
+                # Delete session token
                 del request.session['invitation_token']
-                # Rediriger vers l'acceptation de l'invitation
+                # Redirect to invite acceptance
                 return redirect('wallet:accept_invitation', token=invitation_token)
             else:
                 return redirect('home:home')

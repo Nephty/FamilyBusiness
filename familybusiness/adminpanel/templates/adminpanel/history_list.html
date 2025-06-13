@@ -6,7 +6,7 @@
 {% block content %}
     <section class="section">
         <div class="container">
-            <!-- En-tête -->
+            <!-- Header -->
             <div class="level mb-5">
                 <div class="level-left">
                     <div class="level-item">
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <!-- Filtres -->
+            <!-- Filters -->
             <div class="card mb-5">
                 <div class="card-header">
                     <div class="card-header-title">
@@ -126,7 +126,7 @@
                 </div>
             </div>
 
-            <!-- Liste des événements -->
+            <!-- Events list -->
             <div class="card">
                 <div class="card-header">
                     <div class="card-header-title">
@@ -187,7 +187,6 @@
                 </div>
             </div>
 
-            <!-- Pagination -->
             {% if page_obj.has_other_pages %}
                 <nav class="pagination is-centered mt-5" role="navigation">
                     {% if page_obj.has_previous %}
@@ -222,7 +221,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const resetBtn = document.getElementById('reset-filters');
             if (resetBtn) resetBtn.addEventListener('click', () => window.location.href = window.location.pathname);
-            // Configuration globale pour Flatpickr
+            // Flatpickr global config
             const flatpickrConfig = {
                 dateFormat: "d/m/Y",
                 locale: "fr",
@@ -233,20 +232,18 @@
                 theme: "light"
             };
 
-            // Initialiser Flatpickr pour le champ "Date de début"
+            // Init Flatpickr for start date
             const dateFromInput = document.querySelector('input[name="date_from"]');
             if (dateFromInput) {
                 const dateFromPicker = flatpickr(dateFromInput, {
                     ...flatpickrConfig,
                     placeholder: "{% trans 'start_date' %}",
-                    maxDate: new Date(), // Ne peut pas sélectionner une date future
+                    maxDate: new Date(), // No future date
                     onChange: function (selectedDates, dateStr, instance) {
-                        // Mettre à jour la date minimale du champ "Date de fin"
                         if (dateToPickerInstance && selectedDates.length > 0) {
                             dateToPickerInstance.set('minDate', selectedDates[0]);
                         }
 
-                        // Validation visuelle
                         if (dateStr) {
                             dateFromInput.classList.add('is-success');
                             dateFromInput.classList.remove('is-danger');
@@ -263,7 +260,6 @@
                 });
             }
 
-            // Initialiser Flatpickr pour le champ "Date de fin"
             const dateToInput = document.querySelector('input[name="date_to"]');
             let dateToPickerInstance = null;
 
@@ -271,9 +267,8 @@
                 dateToPickerInstance = flatpickr(dateToInput, {
                     ...flatpickrConfig,
                     placeholder: "{% trans 'end_date' %}",
-                    maxDate: new Date(), // Ne peut pas sélectionner une date future
+                    maxDate: new Date(),
                     onChange: function (selectedDates, dateStr, instance) {
-                        // Mettre à jour la date maximale du champ "Date de début"
                         if (dateFromInput && selectedDates.length > 0) {
                             const dateFromPicker = dateFromInput._flatpickr;
                             if (dateFromPicker) {
@@ -281,7 +276,6 @@
                             }
                         }
 
-                        // Validation visuelle
                         if (dateStr) {
                             dateToInput.classList.add('is-success');
                             dateToInput.classList.remove('is-danger');
@@ -298,7 +292,6 @@
                 });
             }
 
-            // Validation croisée des dates
             function validateDateRange() {
                 const dateFrom = dateFromInput?.value;
                 const dateTo = dateToInput?.value;
@@ -321,7 +314,6 @@
                 return true;
             }
 
-            // Fonction utilitaire pour afficher des notifications
             function showNotification(message, type = 'is-info') {
                 const notification = document.createElement('div');
                 notification.className = `notification ${type} is-light`;
@@ -330,25 +322,21 @@
                         ${message}
                     `;
 
-                // Insérer la notification en haut de la page
                 const container = document.querySelector('.container');
                 if (container) {
                     container.insertBefore(notification, container.firstChild);
                 }
 
-                // Supprimer automatiquement après 5 secondes
                 setTimeout(() => {
                     notification.remove();
                 }, 5000);
 
-                // Permettre la suppression manuelle
                 const deleteBtn = notification.querySelector('.delete');
                 if (deleteBtn) {
                     deleteBtn.addEventListener('click', () => notification.remove());
                 }
             }
 
-            // Validation avant soumission du formulaire
             const filterForm = document.getElementById('filter-form');
             if (filterForm) {
                 filterForm.addEventListener('submit', function (e) {
@@ -359,13 +347,10 @@
                 });
             }
 
-            // Auto-submit sur changement de date (optionnel)
             if (dateFromInput) {
                 dateFromInput.addEventListener('change', function () {
-                    // Délai pour permettre à l'utilisateur de sélectionner aussi la date de fin
                     setTimeout(() => {
                         if (validateDateRange()) {
-                            // Soumettre automatiquement si les deux dates sont remplies
                             const dateToValue = dateToInput?.value;
                             if (this.value && dateToValue) {
                                 filterForm?.submit();

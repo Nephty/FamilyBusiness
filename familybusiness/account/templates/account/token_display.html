@@ -27,7 +27,6 @@
                             </p>
                         </div>
 
-                        <!-- Alerte d'expiration -->
                         <div class="notification is-warning is-light mb-5">
                             <div class="media">
                                 <div class="media-left">
@@ -42,7 +41,6 @@
                             </div>
                         </div>
 
-                        <!-- Lien de réinitialisation -->
                         {% url 'account:reset_password' token=token as reset_url %}
                         <div class="field">
                             <label class="label">{% trans "reset_link" %}</label>
@@ -63,7 +61,6 @@
                             <p class="help">{% trans "copy_link_and_paste_in_browser" %}</p>
                         </div>
 
-                        <!-- Bouton d'accès direct -->
                         <div class="field mt-5">
                             <div class="control">
                                 <a href="{{ reset_url }}" class="button is-success is-fullwidth is-medium">
@@ -75,7 +72,6 @@
                             </div>
                         </div>
 
-                        <!-- Compte à rebours -->
                         <div class="has-text-centered mt-4">
                             <p class="is-size-7 has-text-grey">
                                 {% trans "time_remaining" %}: <span id="countdown" class="has-text-weight-bold has-text-danger">15:00</span>
@@ -84,7 +80,6 @@
                     </div>
                 </div>
 
-                <!-- Actions supplémentaires -->
                 <div class="has-text-centered mt-5">
                     <p>
                         <a href="{% url 'account:generate_new_token' token %}" class="has-text-grey">
@@ -115,17 +110,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const countdownEl = document.getElementById('countdown');
     const expirationTimeEl = document.getElementById('expirationTime');
 
-    // Calculer l'heure d'expiration (15 minutes à partir de maintenant)
+
     const now = new Date();
     const expirationTime = new Date(now.getTime() + 15 * 60 * 1000);
 
-    // Afficher l'heure d'expiration
+
     expirationTimeEl.textContent = expirationTime.toLocaleTimeString('fr-FR', {
         hour: '2-digit',
         minute: '2-digit'
     });
 
-    // Messages traduits pour JavaScript
+    // JS translation
     const messages = {
         copied: "{% trans 'copied' %}",
         copy: "{% trans 'copy' %}",
@@ -135,28 +130,27 @@ document.addEventListener('DOMContentLoaded', function() {
         linkGeneratedSuccess: "{% trans 'reset_link_generated_success_15_minutes' %}"
     };
 
-    // Fonction de copie du lien
+    // Link copy
     copyBtn.addEventListener('click', function() {
         resetLink.select();
         resetLink.setSelectionRange(0, 99999); // Pour mobile
 
         navigator.clipboard.writeText(resetLink.value).then(function() {
-            // Feedback visuel de succès
+            // Visual success feedback
             copyBtn.classList.remove('is-primary');
             copyBtn.classList.add('is-success');
             copyBtn.innerHTML = '<span class="icon is-small"><i class="mdi mdi-check"></i></span><span>' + messages.copied + '</span>';
 
-            // Notification de succès
+            // Success notification
             showNotification(messages.linkCopiedToClipboard, 'is-success');
 
-            // Restaurer le bouton après 3 secondes
+            // Restore button after 3 seconds
             setTimeout(() => {
                 copyBtn.classList.remove('is-success');
                 copyBtn.classList.add('is-primary');
                 copyBtn.innerHTML = '<span class="icon is-small"><i class="mdi mdi-content-copy"></i></span><span>' + messages.copy + '</span>';
             }, 3000);
         }, function() {
-            // Fallback pour les navigateurs plus anciens
             try {
                 document.execCommand('copy');
                 showNotification(messages.linkCopiedToClipboard, 'is-success');
@@ -166,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Compte à rebours
+    // Countdown
     function updateCountdown() {
         const now = new Date();
         const timeLeft = expirationTime - now;
@@ -175,10 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
             countdownEl.textContent = '00:00';
             countdownEl.classList.add('has-text-danger');
 
-            // Afficher une notification d'expiration
+            // Display expiration notification
             showNotification(messages.linkExpired, 'is-danger');
 
-            // Désactiver le bouton de copie et le lien
             copyBtn.disabled = true;
             copyBtn.classList.add('is-light');
             document.querySelector('a.button.is-success').classList.add('is-disabled');
@@ -191,7 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         countdownEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-        // Changer la couleur selon le temps restant
         if (timeLeft < 5 * 60 * 1000) { // Moins de 5 minutes
             countdownEl.classList.remove('has-text-warning');
             countdownEl.classList.add('has-text-danger');
@@ -203,11 +195,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Mettre à jour le compte à rebours chaque seconde
     updateCountdown();
     const countdownInterval = setInterval(updateCountdown, 1000);
 
-    // Fonction pour afficher des notifications
+    // Display notifications
     function showNotification(message, type = 'is-info') {
         const notification = document.createElement('div');
         notification.className = `notification ${type} is-light`;
@@ -223,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.body.appendChild(notification);
 
-        // Animation d'apparition
+        // Show-up animations
         notification.style.opacity = '0';
         notification.style.transform = 'translateX(100%)';
         notification.style.transition = 'all 0.3s ease';
@@ -233,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
             notification.style.transform = 'translateX(0)';
         }, 10);
 
-        // Supprimer automatiquement après 5 secondes
+        // Auto delete after 5 seconds
         setTimeout(() => {
             notification.style.opacity = '0';
             notification.style.transform = 'translateX(100%)';
@@ -244,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }, 5000);
 
-        // Permettre la suppression manuelle
+        // Allow manual deletion
         const deleteBtn = notification.querySelector('.delete');
         if (deleteBtn) {
             deleteBtn.addEventListener('click', () => {
@@ -259,17 +250,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Sélectionner automatiquement le lien au clic
     resetLink.addEventListener('click', function() {
         this.select();
     });
 
-    // Double-clic pour copier automatiquement
     resetLink.addEventListener('dblclick', function() {
         copyBtn.click();
     });
 
-    // Notification d'accueil
     setTimeout(() => {
         showNotification(messages.linkGeneratedSuccess, 'is-success');
     }, 500);
