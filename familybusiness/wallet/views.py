@@ -14,7 +14,7 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 
 from account.models import Account
-from .forms import WalletForm, TransactionForm, InvitationForm
+from .forms import WalletForm, TransactionForm, InvitationForm, FutureTransactionForm
 from .models import Wallet, Transaction, Category, WalletInvitation
 from adminpanel.models import Event
 
@@ -377,6 +377,27 @@ def add_transaction(request, wallet_id):
 
     return render(request, 'wallet/add_transaction.html', context)
 
+@login_required()
+def add_future_transaction(request, wallet_id):
+    wallet = get_object_or_404(Wallet, id=wallet_id)
+    if request.user not in wallet.users.all():
+        messages.error(request, _("no_access_to_wallet"))
+        return redirect('wallet:wallet_list')
+    
+    if request.method == 'POST':
+        form = FutureTransactionForm(request.POST)
+        if form.is_valid():
+            future_trx = form.save(commit=False)
+            future_trx.wallet = wallet
+            future_trx.user = request.user
+            future_trx.save()
+            messages.success(request, _("future_transaction_created"))
+            return redirect('wallet:wallet_detail', wallet_id=wallet.id)
+        
+    else:
+        form = FutureTransactionForm()
+        
+    return render(request, 'wallet/add_future_transaction.html', {'form': form, 'wallet': wallet})
 
 @login_required
 def edit_transaction(request, wallet_id, transaction_id):
