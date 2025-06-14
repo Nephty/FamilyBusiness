@@ -251,6 +251,15 @@ msgstr "Mise à jour de portefeuille"
 msgid "event_type_transaction_create"
 msgstr "Création de transaction"
 
+msgid "future_transaction"
+msgstr "Transaction future"
+
+msgid "transaction_list"
+msgstr "Liste des transactions"
+
+msgid "manage_planned_transaction"
+msgstr "Gérer les transactions plannifiées"
+
 msgid "event_type_transaction_delete"
 msgstr "Suppression de transaction"
 

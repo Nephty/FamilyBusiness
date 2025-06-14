@@ -367,6 +367,15 @@ msgstr "Transaction Update"
 msgid "event_type_transaction_export"
 msgstr "Transaction Export"
 
+msgid "future_transaction"
+msgstr "Future transaction"
+
+msgid "transaction_list"
+msgstr "Transactions list"
+
+msgid "manage_planned_transaction"
+msgstr "Manage planned transactions"
+
 #: adminpanel/models.py:18 adminpanel/views.py:90
 msgid "event_type_objective_update"
 msgstr "Objective Update"

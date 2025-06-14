@@ -117,20 +117,70 @@
                                 </div>
                                 <div class="level-right">
                                     <div class="buttons">
-                                        <a href="{% url 'wallet:add_transaction' wallet.id %}"
-                                           class="button is-success">
-                                        <span class="icon">
-                                            <i class="mdi mdi-plus"></i>
-                                        </span>
-                                            <span>{% trans "add_transaction" %}</span>
-                                        </a>
-                                        <a href="{% url 'wallet:transaction_list' wallet.id %}"
-                                           class="button is-primary is-light">
-                                        <span class="icon">
-                                            <i class="mdi mdi-format-list-bulleted"></i>
-                                        </span>
-                                            <span>{% trans "transactions" %}</span>
-                                        </a>
+                                        <div class="dropdown is-hoverable mr-2">
+                                            <div class="dropdown-trigger">
+                                                <button class="button is-success" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                                    <span class="icon">
+                                                        <i class="mdi mdi-plus"></i>
+                                                    </span>
+                                                    <span>{% trans "add_transaction" %}</span>
+                                                </button>
+                                            </div>
+                                            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                                <div class="dropdown-content">
+                                                    <div class="dropdown-item">
+                                                        <a href="{% url 'wallet:add_transaction' wallet.id %}"
+                                                           class="button is-light is-fullwidth">
+                                                        <span class="icon">
+                                                            <i class="fa-solid fa-money-bills"></i>
+                                                        </span>
+                                                            <span>Transaction</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="dropdown-item">
+                                                        <a href=""
+                                                           class="button is-light is-fullwidth">
+                                                        <span class="icon">
+                                                            <i class="fa-regular fa-calendar"></i>
+                                                        </span>
+                                                            <span>{% trans "future_transaction" %}</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown is-hoverable mr-2">
+                                            <div class="dropdown-trigger">
+                                                <button class="button is-primary is-light" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                                    <span class="icon">
+                                                        <i class="mdi mdi-format-list-bulleted"></i>
+                                                    </span>
+                                                    <span>{% trans "transactions" %}</span>
+                                                </button>
+                                            </div>
+                                            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                                <div class="dropdown-content">
+                                                    <div class="dropdown-item">
+                                                        <a href="{% url 'wallet:transaction_list' wallet.id %}"
+                                                           class="button is-light is-fullwidth">
+                                                        <span class="icon">
+                                                            <i class="fa-solid fa-money-bills"></i>
+                                                        </span>
+                                                            <span>{% trans "transaction_list" %}</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="dropdown-item">
+                                                        <a href=""
+                                                           class="button is-light is-fullwidth">
+                                                        <span class="icon">
+                                                            <i class="fa-regular fa-calendar"></i>
+                                                        </span>
+                                                            <span>{% trans "manage_planned_transaction" %}</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <a href="{% url 'wallet:export_transactions_csv' wallet.id %}" class="button is-link is-light">
                                             <span class="icon"><i class="mdi mdi-file-download-outline"></i></span>
                                             <span>{% trans "export_csv" %}</span>
