@@ -85,7 +85,7 @@ class FutureTransaction(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_("category"))
     user = models.ForeignKey('account.Account', on_delete=models.CASCADE, verbose_name=_("user"))
     amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("amount"))
-    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, verbose_name=_("wallet"))
+    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, related_name="future_transactions" ,verbose_name=_("wallet"))
     description = models.TextField(blank=True, verbose_name=_("description"))
     is_income = models.BooleanField(default=False, verbose_name=_("is_income"))
     execution_date = models.DateTimeField(verbose_name=_("execution date"))

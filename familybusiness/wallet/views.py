@@ -15,7 +15,7 @@ from django.utils.translation import gettext as _
 
 from account.models import Account
 from .forms import WalletForm, TransactionForm, InvitationForm, FutureTransactionForm
-from .models import Wallet, Transaction, Category, WalletInvitation
+from .models import Wallet, Transaction, Category, WalletInvitation, FutureTransaction
 from adminpanel.models import Event
 
 
@@ -575,9 +575,9 @@ def future_transaction_list(request, wallet_id):
 
     if request.user not in wallet.users.all():
         messages.error(request, _("no_access_to_wallet"))
-        return redirect('wallet:wallet_list')\
+        return redirect('wallet:wallet_list')
 
-    future_transactions = wallet.futuretransactions_set.all().order_by('execution_date')
+    future_transactions = FutureTransaction.objects.filter(wallet=wallet, active=True).order_by('execution_date')
 
     context = {
         'wallet': wallet,
@@ -585,6 +585,48 @@ def future_transaction_list(request, wallet_id):
     }
 
     return render(request, 'wallet/future_transaction_list.html', context)
+
+@login_required
+def edit_future_transaction(request, wallet_id, transaction_id):
+    wallet = get_object_or_404(Wallet, id=wallet_id)
+    future_transaction = get_object_or_404(FutureTransaction, id=transaction_id, wallet=wallet)
+
+    if request.user not in wallet.users.all():
+        messages.error(request, _("no_access_to_wallet"))
+        return redirect('wallet:wallet_list')
+
+    if request.method == 'POST':
+        form = FutureTransactionForm(request.POST, instance=future_transaction)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _("future_transaction_updated_successfully"))
+            return redirect('wallet:future_transaction_list', wallet_id=wallet.id)
+
+    else:
+        form = FutureTransactionForm(instance=future_transaction)
+
+    context = {
+        'form': form,
+        'wallet': wallet,
+        'future_transaction': future_transaction,
+        'is_edit': True,
+    }
+
+    return render(request, 'wallet/add_future_transaction.html', context)
+
+@login_required
+def delete_future_transaction(request, wallet_id, transaction_id):
+    wallet = get_object_or_404(Wallet, id=wallet_id)
+    future_transaction = get_object_or_404(FutureTransaction, id=transaction_id, wallet=wallet)
+
+    if request.method == 'POST':
+        future_transaction.delete()
+        return redirect('wallet:future_transaction_list', wallet_id=wallet.id)
+
+    return render(request, 'wallet/delete_future_transaction.html', {
+        'future_transaction': future_transaction,
+        'wallet': wallet
+    })
 
 @login_required
 def edit_objective(request, wallet_id):

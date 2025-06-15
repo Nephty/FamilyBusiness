@@ -1,0 +1,61 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="card mb-5">
+            <div class="card-content">
+                <div class="level">
+                    <div class="level-left">
+                        <h1 class="title is-4">{{ wallet.name }} - {% trans "Future Transactions" %}</h1>
+                    </div>
+                    <div class="level-right">
+                        <a href="{% url 'wallet:add_future_transaction' wallet.id %}" class="button is-success">
+                            <span class="icon"><i class="fa-regular fa-calendar"></i></span>
+                            <span>{% trans "Add Future Transaction" %}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if future_transactions %}
+        <div class="card">
+            <div class="card-content">
+                {% for transaction in future_transactions %}
+                <div class="box">
+                    <div class="columns is-vcentered">
+                        <div class="column">
+                            <p class="title is-6">{{ transaction.title }}</p>
+                            <p class="is-size-7 has-text-grey">{{ transaction.execution_date|date:"d/m/Y H:i" }}</p>
+                            <p class="is-size-7">{{ transaction.amount }} € - {{ transaction.get_frequency_display }}</p>
+                        </div>
+                        <div class="column is-narrow">
+                            <div class="buttons">
+                                <a href="{% url 'wallet:edit_future_transaction' wallet.id transaction.id %}" class="button is-info is-light is-small">
+                                    <span class="icon"><i class="mdi mdi-pencil mr-2"></i></span>
+                                    {% trans "edit" %}
+                                </a>
+                                <a href="{% url 'wallet:delete_future_transaction' wallet.id transaction.id %}" class="button is-danger is-light is-small">
+                                    <span class="icon"><i class="mdi mdi-delete"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <div class="notification is-light has-text-centered">
+            <p class="title is-5">{% trans "No future transactions found." %}</p>
+            <a href="{% url 'wallet:add_future_transaction' wallet.id %}" class="button is-primary mt-3">
+                <span class="icon"><i class="mdi mdi-plus"></i></span>
+                <span>{% trans "Add one" %}</span>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
