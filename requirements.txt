@@ -3,3 +3,4 @@ apscheduler
 django-apscheduler
 xhtml2pdf
 reportlab
+dateutil
