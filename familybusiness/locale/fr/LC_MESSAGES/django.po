@@ -518,6 +518,33 @@ msgstr "Supprimer la catégorie"
 msgid "recent_transactions_using_category"
 msgstr "Transactions récentes utilisant cette catégorie"
 
+msgid "add_future_transaction"
+msgstr "Ajouter une nouvelle transaction planifiée"
+
+msgid "execution_date"
+msgstr "Date d'exécution"
+
+msgid "frequency"
+msgstr "Fréquence"
+
+msgid "transaction_will_not_be_executed"
+msgstr "Cette transaction ne sera pas exécutée"
+
+msgid "once"
+msgstr "Une seule fois"
+
+msgid "daily"
+msgstr "Quotidienne"
+
+msgid "weekly"
+msgstr "Hebdomadaire"
+
+msgid "monthly"
+msgstr "Mensuelle"
+
+msgid "yearly"
+msgstr "Annuelle"
+
 msgid "delete_user"
 msgstr "Supprimer l'utilisateur"
 
