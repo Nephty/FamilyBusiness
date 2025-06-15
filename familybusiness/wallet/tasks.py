@@ -1,6 +1,7 @@
 import logging
+import time
 
-from django.db import transaction
+from django.db import transaction, OperationalError
 from django.utils import timezone
 from django.utils.timezone import now
 from .models import FutureTransaction
@@ -20,8 +21,7 @@ def execute_future_transaction():
             if not trx.active or trx.execution_date > timezone.now():
                 continue
 
-
-            trx.create_transaction()
+            safe_create_transaction(trx)
 
             next_date = trx.get_next_execution_date()
 
@@ -31,3 +31,16 @@ def execute_future_transaction():
                 trx.active = False
 
             trx.save()
+
+def safe_create_transaction(trx, retries=3):
+    for i in range(retries):
+        try:
+            trx.create_transaction()
+            return
+        except OperationalError as e:
+            if "database is locked" in str(e):
+                time.sleep(1)
+            else:
+                raise
+
+    print("Failed to create transaction after retries")

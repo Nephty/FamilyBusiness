@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os.path
 from pathlib import Path
 
+from apscheduler.executors.pool import ThreadPoolExecutor
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -122,6 +124,15 @@ LOGGING = {
         'handlers': ['console'],
         'level': 'INFO',
     }
+}
+
+SCHEDULER_EXECUTORS = {
+    'default': ThreadPoolExecutor(20),
+}
+
+SCHEDULER_JOB_DEFAULTS = {
+    'coalesce': False,
+    'max_instances': 5,
 }
 
 
