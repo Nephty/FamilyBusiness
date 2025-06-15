@@ -1,6 +1,9 @@
+from pydoc import describe
+
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from .models import Wallet, Category, Transaction
+from .models import Wallet, Category, Transaction, FutureTransaction
+
 
 class WalletForm(forms.ModelForm):
     class Meta:
@@ -70,6 +73,35 @@ class TransactionForm(forms.ModelForm):
             'description': _('description'),
             'is_income': _('is_income_question'),
         }
+
+class FutureTransactionForm(forms.ModelForm):
+    class Meta:
+        model = FutureTransaction
+        fields = ['title', 'category', 'amount', 'description', 'is_income', 'execution_date', 'frequency']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'input', 'placeholder': _('transaction_title_placeholder')}),
+            'category': forms.Select(attrs={'class': 'select is-fullwidth'}),
+            'amount': forms.NumberInput(attrs={'class': 'input', 'step': '0.01'}),
+            'description': forms.Textarea(attrs={'class': 'textarea', 'rows': 3}),
+            'is_income': forms.CheckboxInput(attrs={'class': 'switch is-rounded is-success'}),
+            'execution_date': forms.DateTimeInput(attrs={'class': 'input', 'type': 'datetime-local'}),
+            'frequency': forms.Select(attrs={'class': 'select is-fullwidth'}),
+        }
+        labels = {
+            'title': _('transaction_title'),
+            'category': _('category'),
+            'amount': _('amount'),
+            'description': _('description'),
+            'is_income': _('is_income_question'),
+            'execution_date': _('execution_date'),
+            'frequency': _('frequency'),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['frequency'].choices = list(FutureTransaction.Frequency.choices)
+
+
 
 class InvitationForm(forms.Form):
     """Form to generate an invitation link"""

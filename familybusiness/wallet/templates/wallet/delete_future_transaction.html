@@ -1,0 +1,110 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+
+        <div class="columns is-centered">
+            <div class="column is-half-tablet is-one-third-desktop">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-title has-text-danger">
+                            <span class="icon mr-2">
+                                <i class="mdi mdi-alert-circle"></i>
+                            </span>
+                            {% trans "deletion_confirmation" %}
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="notification is-light mb-5">
+                            <div class="columns is-vcentered">
+                                <div class="column is-narrow">
+                                    <span class="icon is-large {% if transaction.is_income %}has-text-success{% else %}has-text-danger{% endif %}">
+                                        <i class="mdi mdi-48px {% if transaction.is_income %}mdi-trending-up{% else %}mdi-trending-down{% endif %}"></i>
+                                    </span>
+                                </div>
+                                <div class="column">
+                                    <p class="title is-5 mb-1">{{ future_transaction.title }}</p>
+                                    <div class="is-flex is-flex-wrap-wrap is-align-items-center is-size-7 has-text-gray mb-2">
+                                        <span class="tag is-light mr-2 mb-1">{{ future_transaction.category.name }}</span>
+                                        <span class="mr-2 mb-1"><i class="mdi mdi-calendar-clock mr-1"></i>{{ future_transaction.execution_date|date:"d/m/Y à H:i" }}</span>
+                                    </div>
+                                    <p class="title is-4 {% if future_transaction.is_income %}has-text-success{% else %}has-text-danger{% endif %}">
+                                        {% if future_transaction.is_income %}+{% else %}-{% endif %}{{ future_transaction.amount|floatformat:2 }} €
+                                    </p>
+                                    {% if future_transaction.description %}
+                                        <p class="has-text-grey-dark">{{ future_transaction.description|linebreaks }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notification is-warning">
+                            <div class="content">
+                                <p><strong><i class="mdi mdi-alert"></i>{% trans "warning_attention" %} !</strong></p>
+                                 <p>{% trans "about_to_delete_transaction_permanently" %}</p>
+                                <ul class="mt-3">
+                                    <li>{% trans "action_is_irreversible" %}</li>
+                                    <li>{% trans "transaction_will_not_be_executed" %}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    <form method="post" class="mt-5">
+                        {% csrf_token %}
+                        <div class="field is-grouped is-grouped-right">
+                            <div class="control">
+                                <a href="{% url 'wallet:future_transaction_list' wallet.id %}" class="button is-light">
+                                    <span class="icon">
+                                        <i class="mdi mdi-cancel"></i>
+                                    </span>
+                                    <span>{% trans "cancel" %}</span>
+                                </a>
+                            </div>
+                            <div class="control">
+                                <button type="submit" class="button is-danger" id="delete-btn">
+                                    <span class="icon">
+                                        <i class="mdi mdi-delete"></i>
+                                    </span>
+                                    <span>{% trans "delete_permanently" %}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const deleteBtn = document.getElementById('delete-btn');
+    let confirmClicks = 0;
+
+    deleteBtn.addEventListener('click', function (e) {
+        if (confirmClicks === 0){
+            e.preventDefault();
+            this.innerHTML = '<span class="icon"><i class="mdi mdi-alert"></i></span><span>{% trans "are_you_sure_click_again" %}</span>';
+            this.classList.add('is-loading');
+
+            setTimeout(() => {
+                this.classList.remove('is-loading');
+                confirmClicks++;
+            }, 500);
+
+            setTimeout(() => {
+                if (confirmClicks === 1) {
+                    this.innerHTML = '<span class="icon"><i class="mdi mdi-delete"></i></span><span>{% trans "delete_permanently" %}</span>';
+                    confirmClicks = 0;
+                }
+            }, 3000);
+        }
+    });
+});
+</script>
+{%  endblock %}

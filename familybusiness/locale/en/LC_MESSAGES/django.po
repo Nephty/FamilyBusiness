@@ -367,6 +367,42 @@ msgstr "Transaction Update"
 msgid "event_type_transaction_export"
 msgstr "Transaction Export"
 
+msgid "future_transaction"
+msgstr "Future transaction"
+
+msgid "transaction_list"
+msgstr "Transactions list"
+
+msgid "manage_planned_transaction"
+msgstr "Manage planned transactions"
+
+msgid "add_future_transaction"
+msgstr "Add a new planned transaction"
+
+msgid "execution_date"
+msgstr "Execution date"
+
+msgid "frequency"
+msgstr "Frequency"
+
+msgid "transaction_will_not_be_executed"
+msgstr "This transaction will not be executed"
+
+msgid "once"
+msgstr "Once"
+
+msgid "daily"
+msgstr "Daily"
+
+msgid "weekly"
+msgstr "Weekly"
+
+msgid "monthly"
+msgstr "Monthly"
+
+msgid "yearly"
+msgstr "Annual"
+
 #: adminpanel/models.py:18 adminpanel/views.py:90
 msgid "event_type_objective_update"
 msgstr "Objective Update"

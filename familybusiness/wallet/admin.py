@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Wallet, Transaction, Category, WalletInvitation
+from .models import Wallet, Transaction, Category, WalletInvitation, FutureTransaction
+
 
 @admin.register(Wallet)
 class WalletAdmin(admin.ModelAdmin):
@@ -14,6 +15,10 @@ class TransactionAdmin(admin.ModelAdmin):
     list_filter = ('is_income', 'wallet', 'category', 'user')
     search_fields = ('title', 'description', 'wallet__name', 'user__email')
     date_hierarchy = 'date'
+
+@admin.register(FutureTransaction)
+class FutureTransactionAdmin(admin.ModelAdmin):
+    list_display = ('title', 'wallet', 'execution_date', 'frequency', 'active')
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):

@@ -1,0 +1,187 @@
+{%  extends "master.html" %}
+{% load i18n %}
+
+{% block head %}
+    <style>
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #f14668;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #48c78e;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .slider.is-rounded {
+      border-radius: 34px;
+    }
+
+    .slider.is-rounded:before {
+      border-radius: 50%;
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-full">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-title">
+                            <span class="icon mr-2">
+                                <i class="mdi mdi-calendar-plus"></i>
+                            </span>
+                            {% trans "add_future_transaction" %}
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <div class="field">
+                                <label class="label">{{ form.is_income.label }}</label>
+                                <div class="control">
+                                    <label class="switch">
+                                        {{ form.is_income }}
+                                        <span class="slider is-rounded"></span>
+                                    </label>
+                                </div>
+                                {% for error in form.is_income.errors %}
+                                    <p class="help is-danger">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+
+                        <div class="field">
+                            <label class="label">{{ form.title.label }}</label>
+                            <div class="control has-icons-left">
+                                {{ form.title }}
+                                <span class="icon is-small is-left">
+                                    <i class="mdi mdi-format-title"></i>
+                                </span>
+                            </div>
+                            {% for error in form.title.errors %}
+                                <p class="help is-danger">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label">{{ form.amount.label }}</label>
+                            <div class="control has-icons-left">
+                                {{ form.amount }}
+                                <span class="icon is-small is-left">
+                                    <i class="mdi mdi-currency-eur"></i>
+                                </span>
+                            </div>
+                            {% for error in form.amount.errors %}
+                                <p class="help is-danger">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label">{{ form.category.label }}</label>
+                            <div class="control has-icons-left">
+                                <div class="select is-fullwidth">
+                                    {{ form.category }}
+                                </div>
+                                <span class="icon is-small is-left">
+                                    <i class="mdi mdi-tag"></i>
+                                </span>
+                            </div>
+                            {% for error in form.category.errors %}
+                                <p class="help is-danger">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label">{{ form.description.label }}</label>
+                            <div class="control">
+                                {{ form.description }}
+                            </div>
+                            {% for error in form.description.errors %}
+                                <p class="help is-danger">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label">{{ form.execution_date.label }}</label>
+                            <div class="control has-icons-left">
+                                {{ form.execution_date }}
+                                <span class="icon is-small is-left">
+                                    <i class="mdi mdi-calendar-clock"></i>
+                                </span>
+                            </div>
+                            {% for error in form.execution_date.errors %}
+                                <p class="help is-danger">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label">{{ form.frequency.label }}</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    {{ form.frequency }}
+                                </div>
+                            </div>
+                            {% for error in form.frequency.errors %}
+                                <p class="help is-danger">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="field is-grouped is-grouped-right mt-5">
+                            <div class="control">
+                                <a href="{% url 'wallet:wallet_detail' wallet.id %}" class="button is-light">
+                                    {% trans "cancel" %}
+                                </a>
+                            </div>
+                            <div class="control">
+                                <button type="submit" class="button is-primary">
+                                    <span class="icon"><i class="mdi mdi-content-save"></i></span>
+                                    <span>{% trans "save_transaction" %}</span>
+                                </button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
