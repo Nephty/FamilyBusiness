@@ -1,3 +1,5 @@
+import sys
+
 from django.apps import AppConfig
 
 
@@ -6,5 +8,6 @@ class WalletConfig(AppConfig):
     name = 'wallet'
 
     def ready(self):
-        from .tasks_setup import setup_periodic_tasks
-        setup_periodic_tasks()
+        if 'runserver' in sys.argv or 'shell_plus' in sys.argv:
+            from . import scheduler
+            scheduler.start()

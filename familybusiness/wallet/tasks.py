@@ -1,17 +1,33 @@
-from celery import shared_task
+import logging
+
+from django.db import transaction
+from django.utils import timezone
 from django.utils.timezone import now
 from .models import FutureTransaction
 
-@shared_task
+logger = logging.getLogger(__name__)
+
 def execute_future_transaction():
-    for future_trx in FutureTransaction.objects.filter(active=True, execution_date__lte=now()):
-        future_trx.create_transaction()
+    logger.info("Running scheduled future transaction")
+    now_time = now()
 
-        next_date = future_trx.get_next_execution_date()
+    transactions = FutureTransaction.objects.filter(active=True, execution_date__lte=now_time)
 
-        if next_date:
-            future_trx.execution_date = next_date
-        else:
-            future_trx.active = False
+    for trx in transactions:
+        with transaction.atomic():
+            trx = FutureTransaction.objects.select_for_update().get(id=trx.id)
 
-        future_trx.save()
+            if not trx.active or trx.execution_date > timezone.now():
+                continue
+
+
+            trx.create_transaction()
+
+            next_date = trx.get_next_execution_date()
+
+            if next_date:
+                trx.execution_date = next_date
+            else:
+                trx.active = False
+
+            trx.save()

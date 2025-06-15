@@ -569,6 +569,22 @@ def transaction_list(request, wallet_id):
 
     return render(request, 'wallet/transaction_list.html', context)
 
+@login_required
+def future_transaction_list(request, wallet_id):
+    wallet = get_object_or_404(Wallet, id=wallet_id)
+
+    if request.user not in wallet.users.all():
+        messages.error(request, _("no_access_to_wallet"))
+        return redirect('wallet:wallet_list')\
+
+    future_transactions = wallet.futuretransactions_set.all().order_by('execution_date')
+
+    context = {
+        'wallet': wallet,
+        'future_transactions': future_transactions,
+    }
+
+    return render(request, 'wallet/future_transaction_list.html', context)
 
 @login_required
 def edit_objective(request, wallet_id):
