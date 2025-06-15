@@ -2072,9 +2072,6 @@ msgstr "Report generated"
 msgid "error_generating_report"
 msgstr "Error while generating report"
 
-msgid "monthly"
-msgstr "monthly"
-
 msgid "quarterly"
 msgstr "quarterly"
 

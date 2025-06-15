@@ -10,7 +10,7 @@ def start():
     scheduler.add_job(
         execute_future_transaction,
         trigger='interval',
-        minutes=1,
+        minutes=5,
         id="execute_future_transaction",
         name="Execute Future Transaction",
         replace_existing=True

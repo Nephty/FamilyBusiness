@@ -1422,9 +1422,6 @@ msgstr "Rapport généré"
 msgid "error_generating_report"
 msgstr "Erreur lors de la génération du rapport"
 
-msgid "monthly"
-msgstr "mensuel"
-
 msgid "quarterly"
 msgstr "trimestriel"
 
