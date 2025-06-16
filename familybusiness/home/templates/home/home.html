@@ -29,19 +29,21 @@
             </div>
 
             <!-- Display only if admin -->
-            {% if user.is_authenticated and user.is_staff %}
-            <div class="column is-4">
-                <div class="box has-text-centered">
-                    <span class="icon is-large has-text-link">
-                        <i class="mdi mdi-shield-account mdi-36px"></i>
-                    </span>
-                    <h2 class="title is-5 mt-2">{% trans "administration" %}</h2>
-                    <p>{% trans "manage_users_wallets_system_settings" %}</p>
-                    <a href="{% url 'adminpanel:admin_panel' %}" class="button is-link mt-3">
-                        <i class="mdi mdi-arrow-right-bold mr-1"></i> {% trans "access" %}
-                    </a>
-                </div>
-            </div>
+            {% if user.is_authenticated %}
+                {% if user.is_staff or user.role == 'admin' %}
+                    <div class="column is-4">
+                        <div class="box has-text-centered">
+                            <span class="icon is-large has-text-link">
+                                <i class="mdi mdi-shield-account mdi-36px"></i>
+                            </span>
+                            <h2 class="title is-5 mt-2">{% trans "administration" %}</h2>
+                            <p>{% trans "manage_users_wallets_system_settings" %}</p>
+                            <a href="{% url 'adminpanel:admin_panel' %}" class="button is-link mt-3">
+                                <i class="mdi mdi-arrow-right-bold mr-1"></i> {% trans "access" %}
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
     </div>

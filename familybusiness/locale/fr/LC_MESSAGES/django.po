@@ -1478,3 +1478,6 @@ msgstr "Mot de passe modifié pour"
 
 msgid "password_changed_successfully"
 msgstr "Votre mot de passe a été modifié avec succès"
+
+msgid "admin_access_required"
+msgstr "Accès administrateur requis"

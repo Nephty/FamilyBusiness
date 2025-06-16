@@ -2128,3 +2128,6 @@ msgstr "Password changed for"
 
 msgid "password_changed_successfully"
 msgstr "Your password has been changed successfully"
+
+msgid "admin_access_required"
+msgstr "Admin access required"

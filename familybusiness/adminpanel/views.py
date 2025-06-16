@@ -14,6 +14,7 @@ from datetime import datetime, timedelta
 
 from django.utils.timezone import now
 
+from adminpanel.decorators import admin_required
 from adminpanel.forms import UserCreationForm, UserEditForm
 from adminpanel.models import Event
 from wallet.forms import WalletForm, CategoryForm
@@ -21,7 +22,7 @@ from wallet.models import Wallet, Transaction, Category
 from account.models import Account
 
 
-@login_required
+@admin_required
 def admin_panel(request):
     """
     Main view for admin panel.
@@ -29,7 +30,7 @@ def admin_panel(request):
     """
     return render(request, 'adminpanel/admin_panel.html')
 
-@login_required
+@admin_required
 def history_list(request):
     events = Event.objects.all().order_by('-date').order_by('-id')
 
@@ -111,7 +112,7 @@ def history_list(request):
     return render(request, 'adminpanel/history_list.html', context)
 
 
-@login_required
+@admin_required
 def user_management(request):
     """
     Main view for user management
@@ -185,7 +186,7 @@ def user_management(request):
     return render(request, 'adminpanel/user_management.html', context)
 
 
-@login_required
+@admin_required
 def create_user(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -208,7 +209,7 @@ def create_user(request):
     })
 
 
-@login_required
+@admin_required
 def edit_user(request, user_id):
     user_to_edit = get_object_or_404(Account, id=user_id)
 
@@ -250,7 +251,7 @@ def edit_user(request, user_id):
     return render(request, 'adminpanel/edit_user.html', context)
 
 
-@login_required
+@admin_required
 def delete_user(request, user_id):
     """
     View for user deletion
@@ -297,7 +298,7 @@ def delete_user(request, user_id):
     return render(request, 'adminpanel/delete_user.html', context)
 
 
-@login_required
+@admin_required
 def wallet_management(request):
     """
     View for wallet management
@@ -365,7 +366,7 @@ def wallet_management(request):
     return render(request, 'adminpanel/wallet_management.html', context)
 
 
-@login_required
+@admin_required
 def delete_wallet(request, wallet_id):
     """
     View to delete wallet
@@ -414,7 +415,7 @@ def delete_wallet(request, wallet_id):
 
     return render(request, 'adminpanel/delete_wallet.html', context)
 
-@login_required
+@admin_required
 def export_transactions_csv(request, wallet_id):
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
@@ -470,7 +471,7 @@ def export_transactions_csv(request, wallet_id):
     return response
 
 
-@login_required
+@admin_required
 def category_management(request):
     """
     View for category management
@@ -530,7 +531,7 @@ def category_management(request):
     return render(request, 'adminpanel/category_management.html', context)
 
 
-@login_required
+@admin_required
 def create_category(request):
     """
     Vue pour créer une nouvelle catégorie
@@ -565,7 +566,7 @@ def create_category(request):
     return render(request, 'adminpanel/create_category.html', context)
 
 
-@login_required
+@admin_required
 def edit_category(request, category_id):
     """
     View to edit category
@@ -608,7 +609,7 @@ def edit_category(request, category_id):
     return render(request, 'adminpanel/edit_category.html', context)
 
 
-@login_required
+@admin_required
 def delete_category(request, category_id):
     """
     View to delete a category
