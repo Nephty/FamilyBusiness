@@ -415,7 +415,7 @@ def delete_wallet(request, wallet_id):
 
     return render(request, 'adminpanel/delete_wallet.html', context)
 
-@admin_required
+@login_required
 def export_transactions_csv(request, wallet_id):
     wallet = get_object_or_404(Wallet, id=wallet_id)
 
