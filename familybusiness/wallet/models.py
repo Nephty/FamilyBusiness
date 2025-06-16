@@ -11,7 +11,7 @@ class Wallet(models.Model):
     owner = models.ForeignKey('account.Account', on_delete=models.CASCADE, verbose_name=_("owner"))
     users = models.ManyToManyField('account.Account', related_name='wallets', blank=True, verbose_name=_("users"))
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, verbose_name=_("balance"))
-    objective = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, verbose_name=_("objective"))
+    objective = models.DecimalField(max_digits=15, decimal_places=2, default=0.00, verbose_name=_("objective"))
 
     class Meta:
         verbose_name = _("wallet")
