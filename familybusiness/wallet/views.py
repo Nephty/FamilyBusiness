@@ -693,7 +693,7 @@ def edit_objective(request, wallet_id):
             wallet.balance * Decimal('1.5'),  # 50% more
             wallet.balance * Decimal('2'),  # Double
             wallet.balance * Decimal('2.5'),  # 150% more
-            round((wallet.balance / Decimal('100')) * Decimal('100'), -2) + Decimal('500'),  # Rounded + 500
+            round(wallet.balance, -2) + Decimal('500'),  # Rounded + 500
         ]
         # Delete doubles
         suggested_objectives = sorted(list(set(suggested_objectives)))
