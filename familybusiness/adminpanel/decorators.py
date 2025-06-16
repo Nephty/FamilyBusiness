@@ -14,7 +14,7 @@ def admin_required(view_func):
         if not request.user.is_authenticated:
             return redirect('account:login')
 
-        if not request.user.is_staff and request.user.role != 'admin':
+        if not request.user.is_staff:
             messages.error(request, _("admin_access_required"))
             return redirect('home:home')
 
