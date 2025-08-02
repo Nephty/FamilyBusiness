@@ -1351,7 +1351,7 @@ msgstr "Welcome to"
 
 #: home/templates/home/home.html:13
 msgid "manage_family_budgets_with_simplicity"
-msgstr "Manage your family budgets with simplicity, security and style."
+msgstr "Manage your budgets with simplicity, security and style."
 
 #: home/templates/home/home.html:23
 msgid "your_wallets"
