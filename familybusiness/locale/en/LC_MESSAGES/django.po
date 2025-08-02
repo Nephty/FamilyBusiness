@@ -1359,7 +1359,7 @@ msgstr "Your Wallets"
 
 #: home/templates/home/home.html:24
 msgid "create_share_track_family_finances"
-msgstr "Create, share and track your family finances in real time."
+msgstr "Create, share and track your finances in real time."
 
 #: home/templates/home/home.html:26 home/templates/home/home.html:41
 msgid "access"
